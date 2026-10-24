@@ -54,6 +54,20 @@ jobs:
             test -s "icons/browsers/${browser}.svg"
           done
 
+      - name: Verify portal links and local previews
+        run: |
+          set -euo pipefail
+          test -s favicon.ico
+          test -s og-image.webp
+          for family in debian fedora arch; do test -s "$family/index.html"; done
+          if grep -nE 'bobine.fit/(og-image.png|en/ordinateur|en/securite|fr/materiel"|en/hardware")' index.html fr/index.html pong/index.html; then
+            echo "ERROR: obsolete portal link"
+            exit 1
+          fi
+          for page in index.html fr/index.html pong/index.html; do
+            grep -q 'https://packages.bobine.fit/og-image.webp' "$page"
+          done
+
       - name: Verify Published Repository Signatures (if present on branch)
         run: |
           gpg --import bobine.gpg
@@ -79,3 +93,43 @@ jobs:
               fi
             done
           fi
+
+  publish-portal:
+    name: Publish validated portal
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: publish-portal
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: source
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: published
+          fetch-depth: 0
+      - name: Copy portal assets and repository indexes
+        run: |
+          set -euo pipefail
+          cd source
+          git ls-files -z -- '*.html' 'icons/**' 'favicon.ico' 'og-image.webp' 'logo_bobine_entier.png' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' |
+            tar --null -T - -cf - | tar -xf - -C ../published
+      - name: Publish without replacing package binaries
+        working-directory: published
+        run: |
+          set -euo pipefail
+          git config user.name fanta
+          git config user.email 193235053+FantasmaGlad@users.noreply.github.com
+          git add -- '*.html' icons favicon.ico og-image.webp logo_bobine_entier.png robots.txt sitemap.xml llms.txt CNAME .nojekyll
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "fix(portail): synchroniser les liens et ressources validés"
+          for attempt in 1 2 3; do
+            git pull --rebase origin gh-pages
+            if git push origin HEAD:gh-pages; then exit 0; fi
+          done
+          exit 1

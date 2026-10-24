@@ -8,7 +8,7 @@
   <meta name="keywords" content="Bobine, Linux, APT repository, DNF repository, Pacman repository, Debian 12, Debian 13, Ubuntu 24.04, Fedora 41, Arch Linux, CachyOS, Manjaro, RHEL, AlmaLinux, Rocky Linux, x86_64, amd64, arm64, aarch64, Snapdragon X Elite, Snapdragon 8 Gen 2, Snapdragon 8 Gen 3, Snapdragon 8 Elite, Intel N100, Intel Core Ultra, AMD Ryzen, Apple Silicon M1 M2 M3 M4, Raspberry Pi 5, Dell Wyse 5070, Framework Laptop, fitness video playout, AGPL-3.0">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#f7f6fb">
-  <link rel="icon" href="https://bobine.fit/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
   <link rel="canonical" href="https://packages.bobine.fit/">
   <link rel="alternate" hreflang="en" href="https://packages.bobine.fit/">
   <link rel="alternate" hreflang="fr" href="https://packages.bobine.fit/fr/">
@@ -20,13 +20,13 @@
   <meta property="og:url" content="https://packages.bobine.fit/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bobine Linux Packages">
-  <meta property="og:image" content="https://bobine.fit/og-image.png">
+  <meta property="og:image" content="https://packages.bobine.fit/og-image.webp">
 
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bobine — Official Linux Package Repositories (APT, DNF, Pacman)">
   <meta name="twitter:description" content="Official OpenPGP-signed repositories for Debian, Ubuntu, Fedora, and Arch Linux on x86_64 and ARM64.">
-  <meta name="twitter:image" content="https://bobine.fit/og-image.png">
+  <meta name="twitter:image" content="https://packages.bobine.fit/og-image.webp">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -1039,8 +1039,8 @@
       <nav class="header-nav" aria-label="Main navigation">
         <a href="https://bobine.fit/en" class="nav-link">Official Site</a>
         <a href="https://bobine.fit/en/linux" class="nav-link">Linux Showcase</a>
-        <a href="https://bobine.fit/en/ordinateur" class="nav-link">PCs &amp; Processors</a>
-        <a href="https://bobine.fit/en/hardware" class="nav-link">Verified Hardware</a>
+        <a href="https://bobine.fit/en/computer" class="nav-link">PCs &amp; Processors</a>
+        <a href="https://bobine.fit/en/hardware/aliexpress" class="nav-link">Verified Hardware</a>
         <a href="https://bobine.fit/en/documentation" class="nav-link">Documentation</a>
         <a href="/pong/" class="nav-link">Arcade Pong</a>
         <a href="/bobine.gpg" class="nav-link nav-link--primary" download>
@@ -1348,7 +1348,7 @@
       </div>
 
       <div class="bento-grid-3">
-        <a href="https://bobine.fit/en/ordinateur" class="glass-card">
+        <a href="https://bobine.fit/en/computer" class="glass-card">
           <div class="glass-card__head">
             <div class="glass-card__icon-group">
               <span class="chip-icon-box"><img src="/icons/os/windows.svg" alt="Windows"></span>
@@ -1398,8 +1398,8 @@
       <nav class="footer-links" aria-label="Footer links">
         <a href="https://bobine.fit/en">bobine.fit</a>
         <a href="https://bobine.fit/en/linux">Linux</a>
-        <a href="https://bobine.fit/en/ordinateur">Computers &amp; PCs</a>
-        <a href="https://bobine.fit/en/hardware">Hardware</a>
+        <a href="https://bobine.fit/en/computer">Computers &amp; PCs</a>
+        <a href="https://bobine.fit/en/hardware/aliexpress">Hardware</a>
         <a href="https://bobine.fit/en/documentation">Documentation</a>
         <a href="https://security.bobine.fit">Security</a>
         <a href="/pong/">Pong</a>
@@ -1466,7 +1466,7 @@
         },
         {
           comment: "# 3. Synchronize package databases and install Bobine",
-          cmd: "sudo pacman -Sy bobine"
+          cmd: "sudo pacman -Syu bobine"
         }
       ];
     }
