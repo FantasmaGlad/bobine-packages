@@ -1,0 +1,29 @@
+Origin: Bobine
+Label: Bobine
+Suite: stable
+Codename: stable
+Date: Tue, 20 Oct 2026 07:24:32 UTC
+Architectures: amd64 arm64
+Components: main
+Description: Depot officiel Bobine - Canal Stable
+MD5Sum:
+ a154d3eb5c4e602f672c7a95b27cce0d 1335 main/binary-amd64/Packages
+ 80a5b4198394d6eb6d60987742ef6486 792 main/binary-amd64/Packages.gz
+ 02ddb3348372575002b6c17e50ed7e6d 131 main/binary-amd64/Release
+ 4a405ebef3bbedd5b65194722588dba6 1335 main/binary-arm64/Packages
+ e8d8a3d3debc3d62781e5caea845094c 789 main/binary-arm64/Packages.gz
+ e0dc719c485863c5f29730599a1027d7 131 main/binary-arm64/Release
+SHA1:
+ 9480be6d9de15dac8055eb1c4d3d1bed1661f039 1335 main/binary-amd64/Packages
+ 21d39d0eb87c776c692c57eb1399fce9ab473852 792 main/binary-amd64/Packages.gz
+ 1432511e73e94e3863b9703d6f2b887f074bcf11 131 main/binary-amd64/Release
+ aa1e9595fe7c419849e684f13ef9460c4fba31d2 1335 main/binary-arm64/Packages
+ bdcd770377fb8add1abe97e60516e4f38368892d 789 main/binary-arm64/Packages.gz
+ f2ab4576eaf09a83b4f7200bee42b41b3ad08fa3 131 main/binary-arm64/Release
+SHA256:
+ 1425f8a5d6307c9647dffdd5f32c8df574c28dd9cd1e7f85b42ba00dc74c1bb3 1335 main/binary-amd64/Packages
+ 4a1c8a1c1970bca43454deb5aa5fe574c896ed7f6c596d87d9245deac76f32f6 792 main/binary-amd64/Packages.gz
+ 68592a6dbbf9417b9b7c9487ade2f40ed2f4179139cac8cc0940a982f9b81a83 131 main/binary-amd64/Release
+ 45fde53f0a78ad0289d60f7461eb9661afa90bb6b1604c905bebfb7ecd12142f 1335 main/binary-arm64/Packages
+ 2674827f68237210c9272b761e39bec79e86bd602157397f2ebdb578852b556f 789 main/binary-arm64/Packages.gz
+ bb3e672fd2679a5a4269d88688b17af0afa162ecdeef0b7864f22b0dde009a6f 131 main/binary-arm64/Release
