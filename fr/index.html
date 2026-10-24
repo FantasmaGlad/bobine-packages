@@ -1693,11 +1693,11 @@
           }
         })
         .catch(() => {
-          fetch('https://api.github.com/repos/FantasmaGlad/Bobine/releases/latest')
+          fetch('/latest.json')
             .then((r) => r.json())
             .then((d) => {
-              if (d && d.tag_name) {
-                STATE.stableVersion = d.tag_name.replace(/^v/i, '');
+              if (d && d.version) {
+                STATE.stableVersion = d.version.replace(/^v/i, '');
                 renderWorkspace();
               }
             })
