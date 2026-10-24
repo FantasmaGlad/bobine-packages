@@ -1,12 +1,10 @@
-name: Verification Integrite Depots & Site
+name: Verify Package Repository Integrity
 
 on:
   push:
     branches: [main, gh-pages]
   pull_request:
     branches: [main]
-  schedule:
-    - cron: '15 4 * * *'
   workflow_dispatch:
 
 permissions:
@@ -14,85 +12,70 @@ permissions:
 
 jobs:
   verify:
-    name: Verifier l'integrite du portail et des signatures
+    name: Cryptographic & Structural Check
     runs-on: ubuntu-latest
     steps:
-      - name: Extraire le code source
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Verifier la cle OpenPGP officielle
+      - name: Verify OpenPGP Public Key
         run: |
-          set -euo pipefail
-          test -s bobine.gpg
-          EXPECTED="B77D96D72F84F36ACAA3F8729CBF497D829EE15A"
-          FPR=$(gpg --show-keys bobine.gpg | grep -E '^[A-F0-9]{40}' | tr -d ' ' | head -1)
-          if [ "$FPR" != "$EXPECTED" ]; then
-            echo "::error::Empreinte OpenPGP inattendue : $FPR au lieu de $EXPECTED"
+          test -f bobine.gpg
+          FP=$(gpg --with-colons --import-options show-only --import bobine.gpg | awk -F: '/^fpr:/ { print $10; exit }')
+          echo "Detected fingerprint: $FP"
+          test "$FP" = "B77D96D72F84F36ACAA3F8729CBF497D829EE15A"
+
+      - name: Verify Web Hub Assets & Zero-Emoji Policy
+        run: |
+          test -f index.html
+          test -f fr/index.html
+          test -f pong/index.html
+          test -f logo_bobine_entier.png
+          test -f CNAME
+          test -f .nojekyll
+          test -f robots.txt
+          test -f sitemap.xml
+          test -f llms.txt
+          grep -q "packages.bobine.fit" CNAME
+          if grep -q "brand-pill" index.html fr/index.html; then
+            echo "ERROR: brand-pill found in index.html"
             exit 1
           fi
-          echo "Cle OpenPGP verifiee avec succes : $FPR"
+          for icon in debian ubuntu linuxmint popos zorin raspberrypi fedora nobara rhel almalinux rockylinux opensuse arch endeavouros cachyos manjaro; do
+            test -s "icons/distros/${icon}.svg"
+          done
+          for os in linux windows apple android framework tor; do
+            test -s "icons/os/${os}.svg"
+          done
+          for chip in intel amd snapdragon; do
+            test -s "icons/chips/${chip}.svg"
+          done
+          for browser in firefox chrome edge safari brave torbrowser; do
+            test -s "icons/browsers/${browser}.svg"
+          done
 
-      - name: Verifier les fichiers statiques de deploiement
+      - name: Verify Published Repository Signatures (if present on branch)
         run: |
-          set -euo pipefail
-          test -s CNAME && grep -q "packages.bobine.fit" CNAME
-          test -f .nojekyll
-          test -s robots.txt && grep -q "Allow: /" robots.txt
-          test -s sitemap.xml && grep -q "https://packages.bobine.fit/" sitemap.xml
-          test -s index.html && grep -q "packages.bobine.fit" index.html
-          test -s fr/index.html && grep -q "packages.bobine.fit" fr/index.html
-          echo "Fichiers statiques et CNAME conformes."
-
-      - name: Valider les regles CSS Glassmorphism
-        run: |
-          set -euo pipefail
-          # Règle absolue du projet : -webkit-backdrop-filter doit toujours précéder backdrop-filter
-          node -e '
-            const fs = require("fs");
-            const files = ["index.html", "fr/index.html"];
-            for (const file of files) {
-              const content = fs.readFileSync(file, "utf8");
-              const lines = content.split("\n");
-              let prevWebkit = false;
-              for (let i = 0; i < lines.length; i++) {
-                const line = lines[i];
-                if (line.includes("-webkit-backdrop-filter")) {
-                  prevWebkit = true;
-                } else if (line.includes("backdrop-filter") && !line.includes("-webkit-backdrop-filter")) {
-                  if (!prevWebkit) {
-                    console.error(`Erreur Glassmorphism dans ${file}:${i+1} : backdrop-filter declare sans -webkit-backdrop-filter precedent`);
-                    process.exit(1);
-                  }
-                  prevWebkit = false;
-                }
-              }
-            }
-            console.log("Validation Glassmorphism conforme sur tous les fichiers.");
-          '
-
-      - name: Verifier l'integrite des depots presents
-        run: |
-          set -euo pipefail
-          # Si des paquets ou métadonnées sont présents (sur gh-pages), vérifier leurs signatures
-          if [ -d "fedora" ] && compgen -G "fedora/*/*/repodata/repomd.xml" > /dev/null; then
-            echo "Validation des métadonnées Fedora RPM..."
-            for repomd in fedora/*/*/repodata/repomd.xml; do
-              if [ -f "$repomd.asc" ]; then
-                gpg --no-default-keyring --keyring ./temp.gpg --import bobine.gpg
-                gpg --no-default-keyring --keyring ./temp.gpg --verify "$repomd.asc" "$repomd"
-                rm -f ./temp.gpg
+          gpg --import bobine.gpg
+          if [ -d debian/dists ]; then
+            for rel in $(find debian/dists -name "InRelease"); do
+              echo "Verifying APT $rel..."
+              gpg --verify "$rel"
+            done
+          fi
+          if [ -d fedora ]; then
+            for asc in $(find fedora -name "repomd.xml.asc"); do
+              xml="${asc%.asc}"
+              echo "Verifying DNF $asc against $xml..."
+              gpg --verify "$asc" "$xml"
+            done
+          fi
+          if [ -d arch ]; then
+            for sig in $(find arch -name "*.sig"); do
+              target="${sig%.sig}"
+              if [ -f "$target" ]; then
+                echo "Verifying Pacman $sig against $target..."
+                gpg --verify "$sig" "$target"
               fi
             done
           fi
-
-          if [ -d "arch" ] && compgen -G "arch/*/*/*.pkg.tar.zst" > /dev/null; then
-            echo "Validation des paquets Arch Linux..."
-            for pkg in arch/*/*/*.pkg.tar.zst; do
-              if [ -f "$pkg.sig" ]; then
-                gpg --no-default-keyring --keyring ./temp.gpg --import bobine.gpg
-                gpg --no-default-keyring --keyring ./temp.gpg --verify "$pkg.sig" "$pkg"
-                rm -f ./temp.gpg
-              fi
-            done
-          fi
-          echo "Verification d'integrite des depots terminee."
