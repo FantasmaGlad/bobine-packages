@@ -1,0 +1,98 @@
+name: Verification Integrite Depots & Site
+
+on:
+  push:
+    branches: [main, gh-pages]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '15 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verifier l'integrite du portail et des signatures
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extraire le code source
+        uses: actions/checkout@v4
+
+      - name: Verifier la cle OpenPGP officielle
+        run: |
+          set -euo pipefail
+          test -s bobine.gpg
+          EXPECTED="B77D96D72F84F36ACAA3F8729CBF497D829EE15A"
+          FPR=$(gpg --show-keys bobine.gpg | grep -E '^[A-F0-9]{40}' | tr -d ' ' | head -1)
+          if [ "$FPR" != "$EXPECTED" ]; then
+            echo "::error::Empreinte OpenPGP inattendue : $FPR au lieu de $EXPECTED"
+            exit 1
+          fi
+          echo "Cle OpenPGP verifiee avec succes : $FPR"
+
+      - name: Verifier les fichiers statiques de deploiement
+        run: |
+          set -euo pipefail
+          test -s CNAME && grep -q "packages.bobine.fit" CNAME
+          test -f .nojekyll
+          test -s robots.txt && grep -q "Allow: /" robots.txt
+          test -s sitemap.xml && grep -q "https://packages.bobine.fit/" sitemap.xml
+          test -s index.html && grep -q "packages.bobine.fit" index.html
+          test -s fr/index.html && grep -q "packages.bobine.fit" fr/index.html
+          echo "Fichiers statiques et CNAME conformes."
+
+      - name: Valider les regles CSS Glassmorphism
+        run: |
+          set -euo pipefail
+          # Règle absolue du projet : -webkit-backdrop-filter doit toujours précéder backdrop-filter
+          node -e '
+            const fs = require("fs");
+            const files = ["index.html", "fr/index.html"];
+            for (const file of files) {
+              const content = fs.readFileSync(file, "utf8");
+              const lines = content.split("\n");
+              let prevWebkit = false;
+              for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                if (line.includes("-webkit-backdrop-filter")) {
+                  prevWebkit = true;
+                } else if (line.includes("backdrop-filter") && !line.includes("-webkit-backdrop-filter")) {
+                  if (!prevWebkit) {
+                    console.error(`Erreur Glassmorphism dans ${file}:${i+1} : backdrop-filter declare sans -webkit-backdrop-filter precedent`);
+                    process.exit(1);
+                  }
+                  prevWebkit = false;
+                }
+              }
+            }
+            console.log("Validation Glassmorphism conforme sur tous les fichiers.");
+          '
+
+      - name: Verifier l'integrite des depots presents
+        run: |
+          set -euo pipefail
+          # Si des paquets ou métadonnées sont présents (sur gh-pages), vérifier leurs signatures
+          if [ -d "fedora" ] && compgen -G "fedora/*/*/repodata/repomd.xml" > /dev/null; then
+            echo "Validation des métadonnées Fedora RPM..."
+            for repomd in fedora/*/*/repodata/repomd.xml; do
+              if [ -f "$repomd.asc" ]; then
+                gpg --no-default-keyring --keyring ./temp.gpg --import bobine.gpg
+                gpg --no-default-keyring --keyring ./temp.gpg --verify "$repomd.asc" "$repomd"
+                rm -f ./temp.gpg
+              fi
+            done
+          fi
+
+          if [ -d "arch" ] && compgen -G "arch/*/*/*.pkg.tar.zst" > /dev/null; then
+            echo "Validation des paquets Arch Linux..."
+            for pkg in arch/*/*/*.pkg.tar.zst; do
+              if [ -f "$pkg.sig" ]; then
+                gpg --no-default-keyring --keyring ./temp.gpg --import bobine.gpg
+                gpg --no-default-keyring --keyring ./temp.gpg --verify "$pkg.sig" "$pkg"
+                rm -f ./temp.gpg
+              fi
+            done
+          fi
+          echo "Verification d'integrite des depots terminee."
