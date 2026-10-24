@@ -62,7 +62,7 @@ curl -fsSL https://packages.bobine.fit/bobine.gpg | gpg --show-keys
 ```bash
 # 1. Import signing key to official system keyring
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo tee /etc/apt/keyrings/bobine.gpg > /dev/null
+curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg
 
 # 2. Add Bobine APT repository (choose stable, beta, or canary)
 echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] https://packages.bobine.fit/debian stable main" | sudo tee /etc/apt/sources.list.d/bobine.list

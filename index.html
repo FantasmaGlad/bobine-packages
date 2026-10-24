@@ -139,56 +139,56 @@
       --glass-floating-border: color-mix(in srgb, var(--specular) 78%, color-mix(in srgb, var(--ink) 10%, transparent));
       --glass-card-shadow: 0 10px 30px color-mix(in srgb, var(--ink) 7%, transparent), 0 2px 6px color-mix(in srgb, var(--ink) 4%, transparent);
       --glass-floating-shadow: 0 20px 48px color-mix(in srgb, var(--ink) 14%, transparent);
-      --terminal-bg: #161126;
-      --terminal-header: #1f1835;
-      --terminal-text: #f5f3ff;
-      --terminal-muted: #a79ec0;
-      --terminal-border: color-mix(in srgb, var(--accent-primary) 28%, #2e254d);
+      --terminal-bg: var(--glass-card-bg);
+      --terminal-header: var(--bg-surface-elevated);
+      --terminal-text: var(--text-main);
+      --terminal-muted: var(--text-muted);
+      --terminal-border: var(--border-color);
       --logo-filter: none;
     }
 
-    /* Orchidée (Dark): Cosmic night and magnetic orchid */
-    :root[data-theme="orchidee"] {
-      --bg-main: #171521;
-      --bg-surface: #231f31;
-      --bg-surface-elevated: #2e2841;
-      --bg-surface-hover: #38314e;
+    /* Charbon (Black & White — Monochromatic Alabaster & Carbon from bobine.fit) */
+    :root[data-theme="charbon"] {
+      --bg-main: #f4f4f5;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #e4e4e7;
+      --bg-surface-hover: #d4d4d8;
 
-      --text-main: #faf7fc;
-      --text-muted: #b1aabf;
-      --text-dim: #9790a6;
+      --text-main: #18181b;
+      --text-muted: #52525b;
+      --text-dim: #71717a;
 
-      --border-color: #39304e;
-      --border-focus: #d749ec;
+      --border-color: #e4e4e7;
+      --border-focus: #18181b;
 
-      --accent-primary: #a855f7;
-      --accent-secondary: #d946ef;
+      --accent-primary: #18181b;
+      --accent-secondary: #27272a;
       --accent-primary-fg: #ffffff;
 
       --bg-ambient-mesh:
-        radial-gradient(circle at 14% 6%, color-mix(in srgb, var(--accent-primary) 18%, transparent) 0%, transparent 48%),
-        radial-gradient(circle at 88% 22%, color-mix(in srgb, var(--accent-secondary) 12%, transparent) 0%, transparent 54%),
-        radial-gradient(circle at 50% 96%, color-mix(in srgb, var(--accent-primary) 9%, transparent) 0%, transparent 50%);
+        radial-gradient(circle at 12% 6%, color-mix(in srgb, var(--accent-primary) 10%, transparent) 0%, transparent 46%),
+        radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--accent-primary) 7%, transparent) 0%, transparent 52%),
+        radial-gradient(circle at 50% 95%, color-mix(in srgb, var(--accent-primary) 5%, transparent) 0%, transparent 48%);
 
-      --glass-surface-bg: color-mix(in srgb, var(--bg-surface) 62%, transparent);
-      --glass-surface-border: color-mix(in srgb, var(--specular) 14%, var(--border-color));
+      --glass-surface-bg: color-mix(in srgb, var(--specular) 70%, transparent);
+      --glass-surface-border: color-mix(in srgb, var(--ink) 12%, var(--border-color));
       --glass-card-bg: linear-gradient(
         145deg,
-        color-mix(in srgb, var(--bg-surface-elevated) 66%, transparent) 0%,
-        color-mix(in srgb, var(--bg-surface) 50%, transparent) 100%
+        color-mix(in srgb, var(--specular) 82%, transparent) 0%,
+        color-mix(in srgb, var(--specular) 60%, color-mix(in srgb, var(--accent-primary) 3%, transparent)) 100%
       );
-      --glass-card-border: color-mix(in srgb, var(--specular) 16%, var(--border-color));
-      --glass-card-highlight: inset 0 1px 0 0 color-mix(in srgb, var(--specular) 14%, transparent), inset 0 0 0 0.5px color-mix(in srgb, var(--specular) 6%, transparent);
-      --glass-floating-bg: color-mix(in srgb, var(--bg-surface-elevated) 76%, transparent);
-      --glass-floating-border: color-mix(in srgb, var(--specular) 18%, var(--border-color));
-      --glass-card-shadow: 0 12px 32px color-mix(in srgb, var(--ink) 36%, transparent);
-      --glass-floating-shadow: 0 22px 56px color-mix(in srgb, var(--ink) 52%, transparent);
-      --terminal-bg: #110e1a;
-      --terminal-header: #191526;
-      --terminal-text: #f5f3ff;
-      --terminal-muted: #9f96b8;
-      --terminal-border: color-mix(in srgb, var(--specular) 14%, var(--border-color));
-      --logo-filter: invert(1) brightness(1.1);
+      --glass-card-border: color-mix(in srgb, var(--ink) 13%, var(--border-color));
+      --glass-card-highlight: inset 0 1px 0 0 color-mix(in srgb, var(--specular) 90%, transparent), inset 0 0 0 0.5px color-mix(in srgb, var(--specular) 55%, transparent);
+      --glass-floating-bg: color-mix(in srgb, var(--specular) 82%, transparent);
+      --glass-floating-border: color-mix(in srgb, var(--ink) 14%, var(--border-color));
+      --glass-card-shadow: 0 10px 30px color-mix(in srgb, var(--ink) 7%, transparent), 0 2px 6px color-mix(in srgb, var(--ink) 4%, transparent);
+      --glass-floating-shadow: 0 20px 48px color-mix(in srgb, var(--ink) 12%, transparent);
+      --terminal-bg: var(--glass-card-bg);
+      --terminal-header: var(--bg-surface-elevated);
+      --terminal-text: var(--text-main);
+      --terminal-muted: var(--text-muted);
+      --terminal-border: var(--border-color);
+      --logo-filter: none;
     }
 
     *, *::before, *::after {
@@ -372,31 +372,6 @@
       margin: 0 auto;
     }
 
-    .hero__eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.38rem 0.95rem;
-      border-radius: var(--radius-full);
-      background: var(--glass-card-bg);
-      -webkit-backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
-      backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
-      border: 1px solid var(--glass-card-border);
-      box-shadow: var(--glass-card-highlight), var(--glass-card-shadow);
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--accent-primary);
-      margin-bottom: 1.35rem;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-success);
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-success) 24%, transparent);
-    }
-
     .hero__title {
       font-family: var(--font-title);
       font-size: clamp(2.1rem, 4.4vw, 3.45rem);
@@ -418,37 +393,8 @@
       font-size: clamp(1rem, 1.6vw, 1.15rem);
       color: var(--text-muted);
       max-width: 740px;
-      margin: 0 auto 1.85rem;
+      margin: 0 auto 2.25rem;
       line-height: 1.65;
-    }
-
-    .hero__badges {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.65rem;
-      flex-wrap: wrap;
-    }
-
-    .glass-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.42rem 0.88rem;
-      border-radius: var(--radius-full);
-      background: var(--glass-card-bg);
-      -webkit-backdrop-filter: blur(var(--blur-sm)) saturate(var(--saturate-soft));
-      backdrop-filter: blur(var(--blur-sm)) saturate(var(--saturate-soft));
-      border: 1px solid var(--glass-card-border);
-      box-shadow: var(--glass-card-highlight);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .glass-pill svg {
-      color: var(--accent-primary);
-      flex-shrink: 0;
     }
 
     .workspace-shell {
@@ -601,18 +547,6 @@
       margin-top: 0.15rem;
     }
 
-    .distro-card__pkg-badge {
-      padding: 0.25rem 0.6rem;
-      border-radius: var(--radius-sm);
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-      font-weight: 700;
-      background: color-mix(in srgb, var(--accent-primary) 14%, transparent);
-      color: var(--accent-primary);
-      border: 1px solid color-mix(in srgb, var(--accent-primary) 28%, transparent);
-      white-space: nowrap;
-    }
-
     .distro-card__chips {
       display: flex;
       flex-wrap: wrap;
@@ -642,7 +576,9 @@
       border-radius: var(--radius-lg);
       background: var(--terminal-bg);
       border: 1px solid var(--terminal-border);
-      box-shadow: 0 16px 40px color-mix(in srgb, var(--ink) 28%, transparent);
+      box-shadow: var(--glass-card-shadow);
+      -webkit-backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
+      backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
       overflow: hidden;
     }
 
@@ -963,17 +899,6 @@
       color: var(--text-main);
     }
 
-    .glass-card__tag {
-      padding: 0.22rem 0.62rem;
-      border-radius: var(--radius-full);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      background: color-mix(in srgb, var(--accent-primary) 13%, transparent);
-      color: var(--accent-primary);
-      border: 1px solid color-mix(in srgb, var(--accent-primary) 26%, transparent);
-    }
-
     .glass-card__body {
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -1008,22 +933,34 @@
       font-weight: 700;
     }
 
-    .tag-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: auto;
-      padding-top: 0.5rem;
+    .direct-dl-icon {
+      color: var(--accent-primary);
+      flex-shrink: 0;
     }
 
-    .hw-tag {
-      padding: 0.22rem 0.58rem;
+    .gpg-inspect-row {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .gpg-inspect-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .gpg-inspect-code {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 0.65rem 0.85rem;
       border-radius: var(--radius-sm);
       background: var(--bg-surface-elevated);
       border: 1px solid var(--border-color);
-      font-size: 0.74rem;
-      font-weight: 600;
       color: var(--text-main);
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
     }
 
     .gpg-box {
@@ -1116,10 +1053,10 @@
             <a href="/" class="pill-switch__btn is-active" aria-current="page">EN</a>
             <a href="/fr/" class="pill-switch__btn">FR</a>
           </div>
-          <button type="button" class="theme-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Switch between Lavande (Light) and Orchidée (Dark)" aria-label="Switch theme">
-            <svg id="themeIconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-            <svg id="themeIconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
+          <div class="pill-switch" role="group" aria-label="Theme">
+            <button type="button" class="pill-switch__btn is-active" id="themeBtnLavande" onclick="applyTheme('lavande')">Lavande</button>
+            <button type="button" class="pill-switch__btn" id="themeBtnCharbon" onclick="applyTheme('charbon')">B&amp;W</button>
+          </div>
         </div>
       </nav>
     </div>
@@ -1128,10 +1065,6 @@
   <main class="container">
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__eyebrow">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span>Unified APT, DNF &amp; Pacman Repositories · OpenPGP RSA 4096-bit Signed</span>
-      </div>
       <h1 class="hero__title">
         All the power of Bobine,<br>
         <span class="hero__title-accent">natively integrated into your Linux.</span>
@@ -1139,20 +1072,6 @@
       <p class="hero__subtitle">
         Select your distribution family, release channel, and CPU architecture. All packages are cryptographically verified and update automatically alongside your operating system on both <code>x86_64</code> and <code>ARM64</code>.
       </p>
-      <div class="hero__badges">
-        <span class="glass-pill">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-          <span>Unified Key: B77D 96D7 … 829E E15A</span>
-        </span>
-        <span class="glass-pill">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
-          <span>Intel · AMD Ryzen · Snapdragon X &amp; 8 Gen 2/3 · Apple Silicon · Pi 5</span>
-        </span>
-        <span class="glass-pill">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>100% Free AGPL-3.0 · Zero Telemetry</span>
-        </span>
-      </div>
     </section>
 
     <!-- INTERACTIVE REPOSITORY & PACKAGE CONFIGURATOR -->
@@ -1197,7 +1116,6 @@
               <div class="distro-card__title">Debian, Ubuntu &amp; Derivatives</div>
               <div class="distro-card__subtitle">APT Package Manager · Updates via apt upgrade</div>
             </div>
-            <span class="distro-card__pkg-badge">.deb · APT</span>
           </div>
           <div class="distro-card__chips">
             <span class="distro-chip"><img src="/icons/distros/debian.svg" alt="">Debian 12/13</span>
@@ -1215,7 +1133,6 @@
               <div class="distro-card__title">Fedora, RHEL &amp; Enterprise Linux</div>
               <div class="distro-card__subtitle">DNF Package Manager · Updates via dnf upgrade</div>
             </div>
-            <span class="distro-card__pkg-badge">.rpm · DNF</span>
           </div>
           <div class="distro-card__chips">
             <span class="distro-chip"><img src="/icons/distros/fedora.svg" alt="">Fedora 39/40/41+</span>
@@ -1233,7 +1150,6 @@
               <div class="distro-card__title">Arch Linux &amp; Derivatives</div>
               <div class="distro-card__subtitle">Pacman Package Manager · Updates via pacman -Syu</div>
             </div>
-            <span class="distro-card__pkg-badge">.pkg.tar.zst</span>
           </div>
           <div class="distro-card__chips">
             <span class="distro-chip"><img src="/icons/distros/arch.svg" alt="">Arch Linux</span>
@@ -1276,7 +1192,7 @@
       <!-- Direct standalone package download bar -->
       <div class="direct-dl-bar">
         <div class="direct-dl-bar__info">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-primary)" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="direct-dl-icon" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
           <div>
             <div class="direct-dl-bar__title" id="directDlTitle">Direct Standalone Package (.deb — x86_64 / amd64)</div>
             <div class="direct-dl-bar__meta" id="directDlMeta">Offline installation supported via sudo apt install ./file.deb</div>
@@ -1316,7 +1232,6 @@
                 <h3 class="glass-card__title">x86_64 Architecture (Intel &amp; AMD Ryzen)</h3>
               </div>
             </div>
-            <span class="glass-card__tag">amd64 · x86_64</span>
           </div>
           <p class="glass-card__body">
             Built for 24/7 studio mini-PCs (fanless or whisper-quiet), desktop workstations, and laptops operated in closed-lid clamshell mode. Delivers 1080p60 and 4K Ultra HD hardware decoding under 8% CPU utilization.
@@ -1335,14 +1250,6 @@
               <span><strong>AMD Ryzen (Zen 3, Zen 4, Zen 5):</strong> AMD <strong>Ryzen 5000, 6000, 7000, 8000 &amp; Ryzen AI 300</strong> (Ryzen 5 5560U, Ryzen 7 5800H, Ryzen 7 7840U/HS, Ryzen 7 8845HS — Beelink SER5 / SER7 / SER8, Minisforum UM780 XTX, Geekom A7 / A8, Framework Laptop 13 &amp; 16). AMD Radeon VA-API acceleration (<code>radeonsi</code>).</span>
             </li>
           </ul>
-          <div class="tag-cloud">
-            <span class="hw-tag">Intel N100 / N200</span>
-            <span class="hw-tag">Intel Core Ultra</span>
-            <span class="hw-tag">Dell Wyse 5070</span>
-            <span class="hw-tag">AMD Ryzen 7040 / 8040</span>
-            <span class="hw-tag">Framework Laptop 13 &amp; 16</span>
-            <span class="hw-tag">Beelink &amp; Minisforum</span>
-          </div>
         </article>
 
         <!-- Card 2: ARM64 Snapdragon, Apple Silicon, Pi 5, NVIDIA -->
@@ -1356,7 +1263,6 @@
                 <h3 class="glass-card__title">ARM64 Architecture (Snapdragon, Apple Silicon &amp; SBC)</h3>
               </div>
             </div>
-            <span class="glass-card__tag">arm64 · aarch64</span>
           </div>
           <p class="glass-card__body">
             Engineered for next-generation ultra-efficient ARM64 laptops, flagship tablets with USB-C DisplayPort Alt Mode video output, and single-board computers.
@@ -1375,14 +1281,6 @@
               <span><strong>Apple Silicon, NVIDIA &amp; SBCs:</strong> Apple <strong>M1, M2, M3, M4</strong> (Mac mini, MacBook Air/Pro under Asahi Linux / VM or native macOS), <strong>NVIDIA DGX Spark</strong> (Grace Blackwell GB10) &amp; <strong>Jetson Orin</strong>, <strong>Raspberry Pi 5</strong> (Broadcom BCM2712), <strong>Orange Pi 5</strong> &amp; <strong>Radxa Rock 5B</strong> (Rockchip RK3588).</span>
             </li>
           </ul>
-          <div class="tag-cloud">
-            <span class="hw-tag">Snapdragon X Elite / Plus</span>
-            <span class="hw-tag">Snapdragon 8 Gen 2 / Gen 3 / Elite</span>
-            <span class="hw-tag">Apple M1 – M4</span>
-            <span class="hw-tag">Raspberry Pi 5</span>
-            <span class="hw-tag">Rockchip RK3588</span>
-            <span class="hw-tag">NVIDIA DGX Spark</span>
-          </div>
         </article>
       </div>
     </section>
@@ -1401,7 +1299,6 @@
         <article class="glass-card">
           <div class="glass-card__head">
             <h3 class="glass-card__title">Official Signing Key Fingerprint (SHA-1 / V4)</h3>
-            <span class="glass-card__tag">RSA 4096-bit</span>
           </div>
           <p class="glass-card__body">
             When prompted during your first APT, DNF, or Pacman installation, verify that the key fingerprint matches:
@@ -1412,16 +1309,15 @@
               <span id="copyFpLabel">Copy fingerprint</span>
             </button>
           </div>
-          <div class="terminal-step" style="margin-top:0.4rem">
-            <span class="glass-card__body" style="font-size:0.82rem">Direct key inspection command:</span>
-            <code style="font-family:var(--font-mono);font-size:0.8rem;padding:0.65rem 0.85rem;border-radius:var(--radius-sm);background:var(--bg-surface-elevated);border:1px solid var(--border-color);color:var(--text-main)">curl -fsSL https://packages.bobine.fit/bobine.gpg | gpg --show-keys</code>
+          <div class="gpg-inspect-row">
+            <span class="gpg-inspect-label">Direct key inspection command:</span>
+            <code class="gpg-inspect-code">curl -fsSL https://packages.bobine.fit/bobine.gpg | gpg --show-keys</code>
           </div>
         </article>
 
         <article class="glass-card">
           <div class="glass-card__head">
             <h3 class="glass-card__title">Distribution Technical Notes</h3>
-            <span class="glass-card__tag">Dependencies &amp; Codecs</span>
           </div>
           <ul class="soc-list">
             <li class="soc-list__item">
@@ -1458,7 +1354,6 @@
               <span class="chip-icon-box"><img src="/icons/os/windows.svg" alt="Windows"></span>
               <span class="chip-icon-box"><img src="/icons/os/apple.svg" alt="macOS"></span>
             </div>
-            <span class="glass-card__tag">.exe &amp; .dmg</span>
           </div>
           <h3 class="glass-card__title">Windows 11/10 &amp; macOS</h3>
           <p class="glass-card__body">
@@ -1471,7 +1366,6 @@
             <div class="glass-card__icon-group">
               <span class="chip-icon-box"><img src="/icons/os/android.svg" alt="Android"></span>
             </div>
-            <span class="glass-card__tag">.apk · API 34+</span>
           </div>
           <h3 class="glass-card__title">Android, Google Books &amp; Android TV</h3>
           <p class="glass-card__body">
@@ -1486,7 +1380,6 @@
               <span class="chip-icon-box"><img src="/icons/browsers/chrome.svg" alt="Chrome"></span>
               <span class="chip-icon-box"><img src="/icons/browsers/safari.svg" alt="Safari"></span>
             </div>
-            <span class="glass-card__tag">Gecko · Blink · WebKit</span>
           </div>
           <h3 class="glass-card__title">Web Browsers &amp; Tor Network</h3>
           <p class="glass-card__body">
@@ -1531,7 +1424,7 @@
         return [
           {
             comment: "# 1. Import the official OpenPGP signing key into the system keyring",
-            cmd: "sudo install -m 0755 -d /etc/apt/keyrings\ncurl -fsSL https://packages.bobine.fit/bobine.gpg | sudo tee /etc/apt/keyrings/bobine.gpg > /dev/null"
+            cmd: "sudo install -m 0755 -d /etc/apt/keyrings\ncurl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg"
           },
           {
             comment: "# 2. Add the signed APT repository (amd64 & arm64 — " + ch + " channel)",
@@ -1723,26 +1616,56 @@
     }
 
     function applyTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      const isDark = theme === 'orchidee';
-      document.getElementById('themeIconSun').style.display = isDark ? 'block' : 'none';
-      document.getElementById('themeIconMoon').style.display = isDark ? 'none' : 'block';
-      try { localStorage.setItem('bobine_packages_theme', theme); } catch (e) {}
+      const active = (theme === 'charbon') ? 'charbon' : 'lavande';
+      document.documentElement.setAttribute('data-theme', active);
+      const btnL = document.getElementById('themeBtnLavande');
+      const btnC = document.getElementById('themeBtnCharbon');
+      if (btnL && btnC) {
+        btnL.classList.toggle('is-active', active === 'lavande');
+        btnC.classList.toggle('is-active', active === 'charbon');
+      }
+      try {
+        localStorage.setItem('bobineweb-theme', active);
+        localStorage.setItem('bobine_packages_theme', active);
+      } catch (e) {}
     }
 
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme') || 'lavande';
-      applyTheme(current === 'lavande' ? 'orchidee' : 'lavande');
+    function fetchLatestVersion() {
+      fetch('/debian/dists/stable/main/binary-amd64/Packages', { cache: 'no-cache' })
+        .then((r) => r.ok ? r.text() : Promise.reject())
+        .then((txt) => {
+          const m = txt.match(/^Version:\s*([0-9]+\.[0-9]+\.[0-9]+)/m);
+          if (m && m[1]) {
+            STATE.stableVersion = m[1];
+            renderWorkspace();
+          }
+        })
+        .catch(() => {
+          fetch('https://api.github.com/repos/FantasmaGlad/Bobine/releases/latest')
+            .then((r) => r.json())
+            .then((d) => {
+              if (d && d.tag_name) {
+                STATE.stableVersion = d.tag_name.replace(/^v/i, '');
+                renderWorkspace();
+              }
+            })
+            .catch(() => {});
+        });
     }
 
     (function init() {
       try {
-        const saved = localStorage.getItem('bobine_packages_theme');
-        if (saved === 'orchidee' || saved === 'lavande') {
+        const saved = localStorage.getItem('bobineweb-theme') || localStorage.getItem('bobine_packages_theme');
+        if (saved === 'charbon' || saved === 'lavande') {
           applyTheme(saved);
+        } else {
+          applyTheme('lavande');
         }
-      } catch (e) {}
+      } catch (e) {
+        applyTheme('lavande');
+      }
       renderWorkspace();
+      fetchLatestVersion();
     })();
   </script>
 </body>
