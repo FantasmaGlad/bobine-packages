@@ -23,7 +23,7 @@
 ### Import Official GPG Keyring
 ```bash
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo tee /etc/apt/keyrings/bobine.gpg > /dev/null
+curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg
 ```
 
 ### Add Repository & Install
