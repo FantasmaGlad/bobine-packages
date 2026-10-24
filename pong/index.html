@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Classic arcade Pong against an autonomous robot. Lightweight HTML5 canvas, responsive fullscreen, zero dependencies.">
   <meta name="robots" content="index, follow">
-  <link rel="icon" href="https://bobine.fit/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
   <link rel="canonical" href="https://packages.bobine.fit/pong/">
   <link rel="alternate" hreflang="en" href="https://packages.bobine.fit/pong/">
   <link rel="alternate" hreflang="fr" href="https://packages.bobine.fit/pong/?lang=fr">
@@ -18,13 +18,13 @@
   <meta property="og:url" content="https://packages.bobine.fit/pong/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bobine Pong">
-  <meta property="og:image" content="https://bobine.fit/og-image.png">
+  <meta property="og:image" content="https://packages.bobine.fit/og-image.webp">
 
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bobine Pong — Player vs Robot">
   <meta name="twitter:description" content="Play classic retro Pong against an autonomous robot. Lightweight HTML5 canvas, zero dependencies.">
-  <meta name="twitter:image" content="https://bobine.fit/og-image.png">
+  <meta name="twitter:image" content="https://packages.bobine.fit/og-image.webp">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -617,7 +617,7 @@
         <nav class="site-footer__links" aria-label="Footer links">
           <a href="https://bobine.fit">bobine.fit</a>
           <a href="https://bobine.fit/en/documentation" id="footer-docs" data-i18n="footer_docs">Documentation</a>
-          <a href="https://bobine.fit/en/securite" id="footer-security" data-i18n="footer_security">Security</a>
+          <a href="https://bobine.fit/en/security" id="footer-security" data-i18n="footer_security">Security</a>
           <a href="https://github.com/FantasmaGlad/Bobine" target="_blank" rel="noopener noreferrer" data-i18n="footer_source">Source Code (AGPL-3.0)</a>
           <a href="https://github.com/FantasmaGlad/Bobine/releases" target="_blank" rel="noopener noreferrer" data-i18n="footer_releases">Releases</a>
         </nav>
@@ -708,11 +708,11 @@
 
       const footerDocs = document.getElementById("footer-docs");
       if (footerDocs) {
-        footerDocs.href = lang === "fr" ? "https://bobine.fit/documentation" : "https://bobine.fit/en/documentation";
+        footerDocs.href = lang === "fr" ? "https://bobine.fit/fr/documentation" : "https://bobine.fit/en/documentation";
       }
       const footerSecurity = document.getElementById("footer-security");
       if (footerSecurity) {
-        footerSecurity.href = lang === "fr" ? "https://bobine.fit/fr/securite" : "https://bobine.fit/en/securite";
+        footerSecurity.href = lang === "fr" ? "https://bobine.fit/fr/securite" : "https://bobine.fit/en/security";
       }
 
       try {
