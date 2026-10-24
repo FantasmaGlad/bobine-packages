@@ -1,0 +1,75 @@
+name: Publish verified package site
+
+on:
+  workflow_run:
+    workflows: [Verify Package Repository Integrity]
+    branches: [main, gh-pages]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-package-site
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event != 'pull_request' && github.event.workflow_run.head_repository.full_name == github.repository)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: published
+          fetch-depth: 1
+      - uses: actions/checkout@v7
+        with:
+          repository: FantasmaGlad/BobineWeb
+          ref: 726451fea1cee0c58292e365a07e46fcee594cef
+          path: verification
+      - name: Vérifier les trois familles, canaux et architectures
+        run: |
+          python3 verification/deploy/onion/verify-packages.py published
+          python3 verification/deploy/onion/test-verify-packages.py published
+      - name: Préparer un artefact sans historique Git
+        run: |
+          mkdir site
+          tar -C published --exclude=.git --exclude=.github -cf - . | tar -C site -xf -
+          size=$(du -sb site | cut -f1)
+          echo "Taille du site : $size octets"
+          test "$size" -lt 950000000
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v5
+        id: deployment
+      - name: Purger les métadonnées mises en cache
+        env:
+          CLOUDFLARE_CACHE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+        run: |
+          python3 - <<'PYCODE'
+          import json, os, urllib.request
+          paths = ["/latest.json", "/mirror-packages.json", "/", "/fr/"]
+          for channel in ("stable", "beta", "canary"):
+              paths += [f"/debian/dists/{channel}/{name}" for name in ("InRelease", "Release", "Release.gpg")]
+          request = urllib.request.Request(
+              "https://api.cloudflare.com/client/v4/zones/" + os.environ["CLOUDFLARE_ZONE_ID"] + "/purge_cache",
+              headers={"Authorization": "Bearer " + os.environ["CLOUDFLARE_CACHE_PURGE_TOKEN"], "Content-Type": "application/json"},
+              method="POST", data=json.dumps({"files": ["https://packages.bobine.fit" + p for p in paths]}).encode())
+          with urllib.request.urlopen(request, timeout=30) as response:
+              assert json.load(response)["success"]
+          PYCODE
