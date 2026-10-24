@@ -8,7 +8,7 @@
   <meta name="keywords" content="Bobine, Linux, dépôt APT, dépôt DNF, dépôt Pacman, Debian 12, Debian 13, Ubuntu 24.04, Fedora 41, Arch Linux, CachyOS, Manjaro, RHEL, AlmaLinux, Rocky Linux, x86_64, amd64, arm64, aarch64, Snapdragon X Elite, Snapdragon 8 Gen 2, Snapdragon 8 Gen 3, Snapdragon 8 Elite, Intel N100, Intel Core Ultra, AMD Ryzen, Apple Silicon M1 M2 M3 M4, Raspberry Pi 5, Dell Wyse 5070, Framework Laptop, régie vidéo salle de sport, AGPL-3.0">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#f7f6fb">
-  <link rel="icon" href="https://bobine.fit/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
   <link rel="canonical" href="https://packages.bobine.fit/fr/">
   <link rel="alternate" hreflang="en" href="https://packages.bobine.fit/">
   <link rel="alternate" hreflang="fr" href="https://packages.bobine.fit/fr/">
@@ -20,13 +20,13 @@
   <meta property="og:url" content="https://packages.bobine.fit/fr/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bobine Linux Packages">
-  <meta property="og:image" content="https://bobine.fit/og-image.png">
+  <meta property="og:image" content="https://packages.bobine.fit/og-image.webp">
 
   <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bobine — Dépôts Officiels Linux (APT, DNF, Pacman)">
   <meta name="twitter:description" content="Dépôts officiels signés OpenPGP pour Debian, Ubuntu, Fedora et Arch Linux en x86_64 et ARM64.">
-  <meta name="twitter:image" content="https://bobine.fit/og-image.png">
+  <meta name="twitter:image" content="https://packages.bobine.fit/og-image.webp">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -1066,7 +1066,7 @@
         <a href="https://bobine.fit/fr" class="nav-link">Site officiel</a>
         <a href="https://bobine.fit/fr/linux" class="nav-link">Vitrine Linux</a>
         <a href="https://bobine.fit/fr/ordinateur" class="nav-link">PC &amp; Processeurs</a>
-        <a href="https://bobine.fit/fr/materiel" class="nav-link">Matériel vérifié</a>
+        <a href="https://bobine.fit/fr/materiel/aliexpress" class="nav-link">Matériel vérifié</a>
         <a href="https://bobine.fit/fr/documentation" class="nav-link">Documentation</a>
         <a href="/pong/?lang=fr" class="nav-link">Arcade Pong</a>
         <a href="/bobine.gpg" class="nav-link nav-link--primary" download>
@@ -1451,7 +1451,7 @@
         <a href="https://bobine.fit/fr">bobine.fit</a>
         <a href="https://bobine.fit/fr/linux">Linux</a>
         <a href="https://bobine.fit/fr/ordinateur">Ordinateurs &amp; PC</a>
-        <a href="https://bobine.fit/fr/materiel">Matériel</a>
+        <a href="https://bobine.fit/fr/materiel/aliexpress">Matériel</a>
         <a href="https://bobine.fit/fr/documentation">Documentation</a>
         <a href="https://security.bobine.fit">Sécurité</a>
         <a href="/pong/?lang=fr">Pong</a>
@@ -1518,7 +1518,7 @@
         },
         {
           comment: "# 3. Synchroniser les bases et installer Bobine",
-          cmd: "sudo pacman -Sy bobine"
+          cmd: "sudo pacman -Syu bobine"
         }
       ];
     }
