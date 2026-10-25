@@ -26,7 +26,7 @@
   <a href="https://packages.bobine.fit"><b>Web Package Hub</b></a> &nbsp;·&nbsp;
   <a href="https://bobine.fit/en"><b>Official Bobine Site</b></a> &nbsp;·&nbsp;
   <a href="https://bobine.fit/en/linux"><b>Linux Showcase</b></a> &nbsp;·&nbsp;
-  <a href="https://bobine.fit/en/ordinateur"><b>PCs &amp; Processors</b></a> &nbsp;·&nbsp;
+  <a href="https://bobine.fit/en/computer"><b>PCs &amp; Processors</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/FantasmaGlad/Bobine"><b>Bobine Source Repository</b></a> &nbsp;·&nbsp;
   <a href="README.fr.md"><b>Français</b></a>
 </p>

@@ -75,12 +75,12 @@ sudo pacman -Sy bobine
 - DNF Beta Repo File: https://packages.bobine.fit/fedora/bobine-beta.repo
 - DNF Canary Repo File: https://packages.bobine.fit/fedora/bobine-canary.repo
 - Pacman Repository Root: https://packages.bobine.fit/arch/
-- Retro Pong Arcade Game: https://packages.bobine.fit/pong/
+- Pong (browser game): https://packages.bobine.fit/pong/ (English) and https://packages.bobine.fit/fr/pong/ (French)
 
 ## Interconnectivity & Upstream Links
 - Main Website: https://bobine.fit
 - Linux Hub: https://bobine.fit/fr/linux (French) and https://bobine.fit/en/linux (English)
-- PC & Hardware Compatibility: https://bobine.fit/fr/ordinateur and https://bobine.fit/fr/materiel
+- PC & Hardware Compatibility: https://bobine.fit/fr/ordinateur, https://bobine.fit/en/computer and https://bobine.fit/fr/materiel
 - Full Documentation: https://bobine.fit/fr/documentation and https://bobine.fit/en/documentation
 - Security Advisories: https://security.bobine.fit
 - Source Code Repository: https://github.com/FantasmaGlad/Bobine
