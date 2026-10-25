@@ -32,6 +32,13 @@ for (const f of ["index.html", "fr/index.html", "pong/index.html", "fr/pong/inde
 }
 
 // 2. Pages générées à jour -----------------------------------------------------------------------------------------
+for (const page of ["index.html", "fr/index.html", "pong/index.html", "fr/pong/index.html"]) {
+  for (const match of read(page).matchAll(/<img[^>]+src="(\/icons\/[^" ]+)"/g)) {
+    try { if (!read(match[1].slice(1)).includes("<svg")) fail(`${page}: logo SVG invalide ${match[1]}`); }
+    catch { fail(`${page}: logo absent ${match[1]}`); }
+  }
+  if (read(page).includes('id="themeSelect"') || read(page).includes('class="lang-switch"')) fail(`${page}: sélecteur distinct du site principal`);
+}
 const gen = spawnSync(process.execPath, [join(root, "scripts/build-portal.mjs"), "--check"], { encoding: "utf8" });
 if (gen.status !== 0) fail(`pages générées périmées : ${gen.stderr.trim()}`);
 
@@ -70,6 +77,28 @@ if (url) {
         }
       }
     }
+    // Les commandes doivent aussi fonctionner une fois le menu et la palette ouverts.
+    let palettes = 0;
+    for (const path of ["/", "/fr/", "/pong/", "/fr/pong/"]) for (const [width, height] of [[360, 640], [640, 360], [1280, 800]]) {
+      await send("Emulation.setDeviceMetricsOverride", {width, height, deviceScaleFactor:1, mobile:width < 768});
+      await send("Page.navigate", {url:url + path});
+      for (let i = 0; i < 100; i++) { if (await evaluate("document.readyState === 'complete' && !!document.getElementById('themeToggle')")) break; await delay(100); }
+      await evaluate(`(() => { const menu=document.getElementById('menuBtn'); if(getComputedStyle(menu).display!=='none') menu.click(); document.getElementById('themeToggle').click(); })()`);
+      await delay(200);
+      const palette = await evaluate(`(() => {const p=document.getElementById('themePalette'), r=p.getBoundingClientRect(); return {hidden:p.hidden,left:r.left,right:r.right,top:r.top,bottom:r.bottom,small:[...p.querySelectorAll('button')].filter(e=>!e.hidden&&e.getClientRects().length).some(e=>{const b=e.getBoundingClientRect();return b.width<43.9||b.height<43.9})};})()`);
+      if (palette.hidden || palette.left < 0 || palette.right > width + 1 || palette.top < 0 || palette.bottom > height + 1 || palette.small) fail(`${path} ${width}x${height}: palette hors écran ou cibles trop petites ${JSON.stringify(palette)}`);
+      await evaluate(`document.querySelector('[data-theme-group="dark"]').click(); document.querySelector('[data-theme-value="orchidee"]').click()`);
+      const selected = await evaluate(`document.documentElement.dataset.theme === 'orchidee' && document.getElementById('themePalette').hidden && localStorage.getItem('bobineweb-theme') === 'orchidee' && document.cookie.includes('bobine-theme=orchidee')`);
+      if (!selected) fail(`${path}: sélection et stockage du thème`);
+      await evaluate(`document.getElementById('themeToggle').click()`);
+      await send('Input.dispatchKeyEvent', {type:'keyDown', key:'Escape', code:'Escape', windowsVirtualKeyCode:27});
+      await send('Input.dispatchKeyEvent', {type:'keyUp', key:'Escape', code:'Escape', windowsVirtualKeyCode:27});
+      if (!await evaluate(`document.getElementById('themePalette').hidden && document.activeElement.id === 'themeToggle'`)) fail(`${path}: fermeture clavier et retour du focus`);
+      const broken = await evaluate(`Array.from(document.querySelectorAll('img.brand-icon')).filter(e=>e.complete&&e.naturalWidth===0).length`);
+      if (broken) fail(`${path}: ${broken} logos introuvables`);
+      palettes++;
+    }
+    console.log(`check-portal : ${palettes} palettes ouvertes, sélection, stockage et fermeture clavier vérifiés.`);
     console.log(`check-portal : ${views} vues mesurées.`);
   } finally {
     await browser.close();
