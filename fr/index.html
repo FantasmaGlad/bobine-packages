@@ -2,1723 +2,184 @@
 <html lang="fr" data-theme="lavande">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bobine — Dépôts Officiels Linux (APT Debian/Ubuntu, DNF Fedora, Pacman Arch) | x86_64 &amp; ARM64</title>
-  <meta name="description" content="Dépôts officiels signés OpenPGP pour installer et mettre à jour Bobine sur Linux : Debian, Ubuntu, Mint (.deb APT), Fedora, RHEL, AlmaLinux, Rocky (.rpm DNF) et Arch Linux, CachyOS, Manjaro (Pacman) en x86_64 et ARM64 (Snapdragon X Elite, Snapdragon 8 Gen 2/3, Apple Silicon, Raspberry Pi 5, Intel N100, AMD Ryzen).">
-  <meta name="keywords" content="Bobine, Linux, dépôt APT, dépôt DNF, dépôt Pacman, Debian 12, Debian 13, Ubuntu 24.04, Fedora 41, Arch Linux, CachyOS, Manjaro, RHEL, AlmaLinux, Rocky Linux, x86_64, amd64, arm64, aarch64, Snapdragon X Elite, Snapdragon 8 Gen 2, Snapdragon 8 Gen 3, Snapdragon 8 Elite, Intel N100, Intel Core Ultra, AMD Ryzen, Apple Silicon M1 M2 M3 M4, Raspberry Pi 5, Dell Wyse 5070, Framework Laptop, régie vidéo salle de sport, AGPL-3.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Paquets Linux Bobine : dépôts APT, DNF et Pacman signés</title>
+  <meta name="description" content="Dépôts officiels signés OpenPGP pour Bobine sur Debian, Ubuntu, Fedora, RHEL et Arch Linux, en x86_64 et ARM64, avec les canaux Stable, Bêta et Canary.">
+  <meta name="keywords" content="Bobine, Linux, dépôt APT, dépôt DNF, dépôt Pacman, Debian, Ubuntu, Fedora, Arch Linux, ARM64, x86_64, AGPL-3.0">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#f7f6fb">
   <link rel="icon" href="/favicon.ico">
   <link rel="canonical" href="https://packages.bobine.fit/fr/">
-  <link rel="alternate" hreflang="en" href="https://packages.bobine.fit/">
   <link rel="alternate" hreflang="fr" href="https://packages.bobine.fit/fr/">
+  <link rel="alternate" hreflang="en" href="https://packages.bobine.fit/">
   <link rel="alternate" hreflang="x-default" href="https://packages.bobine.fit/">
-
-  <!-- OpenGraph / Social Meta -->
-  <meta property="og:title" content="Bobine — Dépôts Officiels Linux (APT, DNF, Pacman — x86_64 &amp; ARM64)">
-  <meta property="og:description" content="Installez Bobine nativement sur Debian, Ubuntu, Fedora et Arch Linux. Paquets signés OpenPGP pour processeurs Intel, AMD Ryzen, Qualcomm Snapdragon, Apple Silicon et Raspberry Pi 5.">
+  <meta property="og:title" content="Paquets Linux Bobine : dépôts APT, DNF et Pacman signés">
+  <meta property="og:description" content="Installez Bobine sur Debian, Ubuntu, Fedora et Arch Linux depuis des dépôts signés OpenPGP, en x86_64 et ARM64.">
   <meta property="og:url" content="https://packages.bobine.fit/fr/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bobine Linux Packages">
+  <meta property="og:locale" content="fr_FR">
   <meta property="og:image" content="https://packages.bobine.fit/og-image.webp">
-
-  <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bobine — Dépôts Officiels Linux (APT, DNF, Pacman)">
-  <meta name="twitter:description" content="Dépôts officiels signés OpenPGP pour Debian, Ubuntu, Fedora et Arch Linux en x86_64 et ARM64.">
+  <meta name="twitter:title" content="Paquets Linux Bobine : dépôts APT, DNF et Pacman signés">
+  <meta name="twitter:description" content="Installez Bobine sur Debian, Ubuntu, Fedora et Arch Linux depuis des dépôts signés OpenPGP, en x86_64 et ARM64.">
   <meta name="twitter:image" content="https://packages.bobine.fit/og-image.webp">
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://packages.bobine.fit/#website",
-        "url": "https://packages.bobine.fit/fr/",
-        "name": "Bobine — Dépôts Officiels de Paquets Linux",
-        "description": "Portail officiel des dépôts APT (.deb), DNF (.rpm) et Pacman (.pkg.tar.zst) signés cryptographiquement pour le logiciel Bobine.",
-        "inLanguage": ["fr", "en"]
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://bobine.fit/#software",
-        "name": "Bobine",
-        "operatingSystem": "Debian, Ubuntu, Linux Mint, Pop!_OS, Fedora, RHEL, AlmaLinux, Rocky Linux, Arch Linux, EndeavourOS, CachyOS, Manjaro, Windows 11, macOS, Android, Android TV",
-        "processorRequirements": "x86_64 (Intel Core Ultra, Intel N100, Intel Celeron, AMD Ryzen) & ARM64 / aarch64 (Qualcomm Snapdragon X Elite, Snapdragon X Plus, Snapdragon 8 Gen 2, Snapdragon 8 Gen 3, Snapdragon 8 Elite, Apple M1/M2/M3/M4, Broadcom BCM2712 Raspberry Pi 5, Rockchip RK3588, NVIDIA Grace)",
-        "softwareVersion": "5.0.5",
-        "applicationCategory": "MultimediaApplication",
-        "license": "https://www.gnu.org/licenses/agpl-3.0.html",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EUR"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Bobine",
-          "url": "https://bobine.fit"
-        },
-        "downloadUrl": "https://packages.bobine.fit/debian/pool/main/b/bobine/"
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    /* ==========================================================================
-       BOBINE DESIGN SYSTEM — THÈME LAVANDE & ORCHIDÉE (APPLE GLASSMORPHISM)
-       Aligné sur Bobine 5.0.5 (globals.css) : zéro rgba() en dur, color-mix
-       physiques (--specular / --ink), -webkit-backdrop-filter avant backdrop-filter.
-       ========================================================================== */
-    :root {
-      --ink: #000000;
-      --specular: #ffffff;
-      --blur-scale: 1;
-      --blur-xs: calc(4px * var(--blur-scale));
-      --blur-sm: calc(8px * var(--blur-scale));
-      --blur-md: calc(14px * var(--blur-scale));
-      --blur-lg: calc(22px * var(--blur-scale));
-      --blur-xl: calc(30px * var(--blur-scale));
-      --blur-2xl: calc(36px * var(--blur-scale));
-      --saturate-soft: 165%;
-      --saturate-rich: 190%;
-
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
-      --radius-xl: 24px;
-      --radius-full: 999px;
-
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-      --font-title: 'Archivo Expanded', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace;
-
-      --accent-success: #16a34a;
-      --accent-warning: #d97706;
-      --accent-error: #e11d48;
-      --transition-fast: 0.16s cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-normal: 0.26s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* Lavande (Clair — Défaut) : Nacre irisée et améthyste profonde */
-    :root,
-    :root[data-theme="lavande"] {
-      --bg-main: #f7f6fb;
-      --bg-surface: #ffffff;
-      --bg-surface-elevated: #eeeaf6;
-      --bg-surface-hover: #e3ddf0;
-
-      --text-main: #161126;
-      --text-muted: #504868;
-      --text-dim: #6c6386;
-
-      --border-color: #ded8ec;
-      --border-focus: #7c3aed;
-
-      --accent-primary: #7c3aed;
-      --accent-secondary: #9333ea;
-      --accent-primary-fg: #ffffff;
-
-      --bg-ambient-mesh:
-        radial-gradient(circle at 12% 6%, color-mix(in srgb, var(--accent-primary) 15%, transparent) 0%, transparent 46%),
-        radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--accent-secondary) 11%, transparent) 0%, transparent 52%),
-        radial-gradient(circle at 50% 95%, color-mix(in srgb, var(--accent-primary) 8%, transparent) 0%, transparent 48%);
-
-      --glass-surface-bg: color-mix(in srgb, var(--specular) 64%, transparent);
-      --glass-surface-border: color-mix(in srgb, var(--specular) 74%, color-mix(in srgb, var(--ink) 8%, transparent));
-      --glass-card-bg: linear-gradient(
-        145deg,
-        color-mix(in srgb, var(--specular) 76%, transparent) 0%,
-        color-mix(in srgb, var(--specular) 54%, color-mix(in srgb, var(--accent-primary) 4%, transparent)) 100%
-      );
-      --glass-card-border: color-mix(in srgb, var(--specular) 76%, color-mix(in srgb, var(--ink) 9%, transparent));
-      --glass-card-highlight: inset 0 1px 0 0 color-mix(in srgb, var(--specular) 88%, transparent), inset 0 0 0 0.5px color-mix(in srgb, var(--specular) 55%, transparent);
-      --glass-floating-bg: color-mix(in srgb, var(--specular) 80%, transparent);
-      --glass-floating-border: color-mix(in srgb, var(--specular) 78%, color-mix(in srgb, var(--ink) 10%, transparent));
-      --glass-card-shadow: 0 10px 30px color-mix(in srgb, var(--ink) 7%, transparent), 0 2px 6px color-mix(in srgb, var(--ink) 4%, transparent);
-      --glass-floating-shadow: 0 20px 48px color-mix(in srgb, var(--ink) 14%, transparent);
-      --terminal-bg: var(--glass-card-bg);
-      --terminal-header: var(--bg-surface-elevated);
-      --terminal-text: var(--text-main);
-      --terminal-muted: var(--text-muted);
-      --terminal-border: var(--border-color);
-      --logo-filter: none;
-    }
-
-    /* Charbon (Noir & Blanc — Albâtre & Carbone monochrome de bobine.fit) */
-    :root[data-theme="charbon"] {
-      --bg-main: #f4f4f5;
-      --bg-surface: #ffffff;
-      --bg-surface-elevated: #e4e4e7;
-      --bg-surface-hover: #d4d4d8;
-
-      --text-main: #18181b;
-      --text-muted: #52525b;
-      --text-dim: #71717a;
-
-      --border-color: #e4e4e7;
-      --border-focus: #18181b;
-
-      --accent-primary: #18181b;
-      --accent-secondary: #27272a;
-      --accent-primary-fg: #ffffff;
-
-      --bg-ambient-mesh:
-        radial-gradient(circle at 12% 6%, color-mix(in srgb, var(--accent-primary) 10%, transparent) 0%, transparent 46%),
-        radial-gradient(circle at 88% 18%, color-mix(in srgb, var(--accent-primary) 7%, transparent) 0%, transparent 52%),
-        radial-gradient(circle at 50% 95%, color-mix(in srgb, var(--accent-primary) 5%, transparent) 0%, transparent 48%);
-
-      --glass-surface-bg: color-mix(in srgb, var(--specular) 70%, transparent);
-      --glass-surface-border: color-mix(in srgb, var(--ink) 12%, var(--border-color));
-      --glass-card-bg: linear-gradient(
-        145deg,
-        color-mix(in srgb, var(--specular) 82%, transparent) 0%,
-        color-mix(in srgb, var(--specular) 60%, color-mix(in srgb, var(--accent-primary) 3%, transparent)) 100%
-      );
-      --glass-card-border: color-mix(in srgb, var(--ink) 13%, var(--border-color));
-      --glass-card-highlight: inset 0 1px 0 0 color-mix(in srgb, var(--specular) 90%, transparent), inset 0 0 0 0.5px color-mix(in srgb, var(--specular) 55%, transparent);
-      --glass-floating-bg: color-mix(in srgb, var(--specular) 82%, transparent);
-      --glass-floating-border: color-mix(in srgb, var(--ink) 14%, var(--border-color));
-      --glass-card-shadow: 0 10px 30px color-mix(in srgb, var(--ink) 7%, transparent), 0 2px 6px color-mix(in srgb, var(--ink) 4%, transparent);
-      --glass-floating-shadow: 0 20px 48px color-mix(in srgb, var(--ink) 12%, transparent);
-      --terminal-bg: var(--glass-card-bg);
-      --terminal-header: var(--bg-surface-elevated);
-      --terminal-text: var(--text-main);
-      --terminal-muted: var(--text-muted);
-      --terminal-border: var(--border-color);
-      --logo-filter: none;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      background-color: var(--bg-main);
-      background-image: var(--bg-ambient-mesh);
-      background-attachment: fixed;
-      color: var(--text-main);
-      font-family: var(--font-sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      transition: background-color var(--transition-normal), color var(--transition-normal);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* ==========================================================================
-       HEADER GLASSMORPHISM FLOTTANT (SANS ENCADRÉ "packages.bobine.fit")
-       ========================================================================== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--glass-floating-bg);
-      -webkit-backdrop-filter: blur(var(--blur-xl)) saturate(var(--saturate-rich));
-      backdrop-filter: blur(var(--blur-xl)) saturate(var(--saturate-rich));
-      border-bottom: 1px solid var(--glass-floating-border);
-      box-shadow: 0 4px 20px color-mix(in srgb, var(--ink) 5%, transparent);
-    }
-
-    .site-header__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0.85rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-    }
-
-    .brand__logo {
-      height: 28px;
-      width: auto;
-      display: block;
-      filter: var(--logo-filter);
-      transition: transform var(--transition-fast);
-    }
-
-    .brand:hover .brand__logo {
-      transform: scale(1.03);
-    }
-
-    .brand__subtitle {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      padding-left: 0.75rem;
-      border-left: 1px solid var(--border-color);
-    }
-
-    .header-nav {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      flex-wrap: wrap;
-    }
-
-    .nav-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 0.8rem;
-      border-radius: var(--radius-full);
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      transition: all var(--transition-fast);
-    }
-
-    .nav-link:hover {
-      color: var(--text-main);
-      background: var(--bg-surface-hover);
-    }
-
-    .nav-link--primary {
-      background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
-      color: var(--accent-primary);
-      border: 1px solid color-mix(in srgb, var(--accent-primary) 26%, transparent);
-    }
-
-    .nav-link--primary:hover {
-      background: var(--accent-primary);
-      color: var(--accent-primary-fg);
-    }
-
-    .header-controls {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding-left: 0.4rem;
-    }
-
-    .pill-switch {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.2rem;
-      border-radius: var(--radius-full);
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-color);
-    }
-
-    .pill-switch__btn {
-      padding: 0.28rem 0.62rem;
-      border-radius: var(--radius-full);
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .pill-switch__btn.is-active {
-      background: var(--accent-primary);
-      color: var(--accent-primary-fg);
-      box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-primary) 35%, transparent);
-    }
-
-    .theme-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: var(--radius-full);
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .theme-btn:hover {
-      background: var(--bg-surface-hover);
-      border-color: var(--accent-primary);
-      color: var(--accent-primary);
-    }
-
-    /* ==========================================================================
-       CONTENEUR PRINCIPAL & HERO LAVANDE
-       ========================================================================== */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem 4.5rem;
-    }
-
-    .hero {
-      padding: 3.5rem 0 2.5rem;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero__title {
-      font-family: var(--font-title);
-      font-size: clamp(2.1rem, 4.4vw, 3.45rem);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.08;
-      color: var(--text-main);
-      margin-bottom: 1.1rem;
-    }
-
-    .hero__title-accent {
-      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero__subtitle {
-      font-size: clamp(1rem, 1.6vw, 1.15rem);
-      color: var(--text-muted);
-      max-width: 740px;
-      margin: 0 auto 1.85rem;
-      line-height: 1.65;
-    }
-
-    /* ==========================================================================
-       SECTION WORKSPACE : SÉLECTEUR DE DISTRIBUTION, CANAL, ARCHITECTURE & TERMINAL
-       ========================================================================== */
-    .workspace-shell {
-      background: var(--glass-card-bg);
-      -webkit-backdrop-filter: blur(var(--blur-xl)) saturate(var(--saturate-rich));
-      backdrop-filter: blur(var(--blur-xl)) saturate(var(--saturate-rich));
-      border: 1px solid var(--glass-card-border);
-      box-shadow: var(--glass-card-highlight), var(--glass-floating-shadow);
-      border-radius: var(--radius-xl);
-      padding: 1.75rem;
-      margin-bottom: 3rem;
-    }
-
-    .workspace-controls-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      padding-bottom: 1.35rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .control-group {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      flex-wrap: wrap;
-    }
-
-    .control-group__label {
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--text-dim);
-    }
-
-    .segmented-bar {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      padding: 0.28rem;
-      border-radius: var(--radius-md);
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-color);
-    }
-
-    .seg-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: var(--radius-sm);
-      border: none;
-      background: transparent;
-      color: var(--text-muted);
-      font-family: var(--font-sans);
-      font-size: 0.84rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .seg-btn:hover {
-      color: var(--text-main);
-    }
-
-    .seg-btn.is-active {
-      background: var(--bg-surface);
-      color: var(--text-main);
-      box-shadow: 0 2px 8px color-mix(in srgb, var(--ink) 10%, transparent);
-    }
-
-    .channel-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .channel-dot--stable { background: var(--accent-success); }
-    .channel-dot--beta { background: var(--accent-warning); }
-    .channel-dot--canary { background: var(--accent-primary); }
-
-    /* Grille des 3 grandes familles Linux */
-    .distro-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    @media (max-width: 920px) {
-      .distro-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .distro-card {
-      position: relative;
-      text-align: left;
-      padding: 1.35rem;
-      border-radius: var(--radius-lg);
-      background: var(--glass-surface-bg);
-      -webkit-backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
-      backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
-      border: 1.5px solid var(--glass-surface-border);
-      box-shadow: var(--glass-card-highlight);
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .distro-card:hover {
-      transform: translateY(-2px);
-      border-color: color-mix(in srgb, var(--accent-primary) 45%, var(--border-color));
-      box-shadow: var(--glass-card-highlight), var(--glass-card-shadow);
-    }
-
-    .distro-card.is-active {
-      background: linear-gradient(
-        145deg,
-        color-mix(in srgb, var(--accent-primary) 11%, var(--bg-surface)) 0%,
-        color-mix(in srgb, var(--accent-primary) 4%, var(--bg-surface)) 100%
-      );
-      border-color: var(--accent-primary);
-      box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 22%, transparent), var(--glass-card-shadow);
-    }
-
-    .distro-card__top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
-
-    .distro-card__title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--text-main);
-      letter-spacing: -0.01em;
-    }
-
-    .distro-card__subtitle {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.15rem;
-    }
-
-    .distro-card__chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.38rem;
-    }
-
-    .distro-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.22rem 0.52rem;
-      border-radius: var(--radius-sm);
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-color);
-      font-size: 0.73rem;
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .distro-chip img {
-      width: 13px;
-      height: 13px;
-      object-fit: contain;
-    }
-
-    /* ==========================================================================
-       TERMINAL APPLE GLASS ( BOUTON COPIER EN BARRE D'EN-TÊTE, ZÉRO CHEVAUCHEMENT )
-       ========================================================================== */
-    .terminal-window {
-      border-radius: var(--radius-lg);
-      background: var(--terminal-bg);
-      border: 1px solid var(--terminal-border);
-      box-shadow: 0 16px 40px color-mix(in srgb, var(--ink) 28%, transparent);
-      overflow: hidden;
-    }
-
-    .terminal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.75rem 1.15rem;
-      background: var(--terminal-header);
-      border-bottom: 1px solid color-mix(in srgb, var(--specular) 10%, transparent);
-      flex-wrap: wrap;
-    }
-
-    .terminal-header__left {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-
-    .terminal-dots {
-      display: inline-flex;
-      gap: 0.42rem;
-    }
-
-    .terminal-dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-    }
-
-    .terminal-dot--red { background: #ff5f56; }
-    .terminal-dot--yellow { background: #ffbd2e; }
-    .terminal-dot--green { background: #27c93f; }
-
-    .terminal-title {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--terminal-muted);
-    }
-
-    .terminal-header__right {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      flex-wrap: wrap;
-    }
-
-    .dnf-subtabs {
-      display: none;
-      align-items: center;
-      gap: 0.25rem;
-      background: color-mix(in srgb, var(--specular) 8%, transparent);
-      padding: 0.2rem;
-      border-radius: var(--radius-sm);
-    }
-
-    .dnf-subtabs.is-visible {
-      display: inline-flex;
-    }
-
-    .dnf-tab {
-      padding: 0.25rem 0.58rem;
-      border-radius: 5px;
-      border: none;
-      background: transparent;
-      color: var(--terminal-muted);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .dnf-tab.is-active {
-      background: var(--accent-primary);
-      color: var(--accent-primary-fg);
-    }
-
-    .copy-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.4rem 0.85rem;
-      border-radius: var(--radius-sm);
-      background: color-mix(in srgb, var(--accent-primary) 24%, transparent);
-      border: 1px solid color-mix(in srgb, var(--accent-primary) 50%, transparent);
-      color: var(--terminal-text);
-      font-family: var(--font-sans);
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .copy-btn:hover {
-      background: var(--accent-primary);
-      color: var(--accent-primary-fg);
-    }
-
-    .copy-btn.is-copied {
-      background: var(--accent-success);
-      border-color: var(--accent-success);
-      color: var(--specular);
-    }
-
-    .terminal-body {
-      padding: 1.35rem 1.5rem;
-      overflow-x: auto;
-    }
-
-    .terminal-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-    }
-
-    .terminal-step {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .terminal-step__comment {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--terminal-muted);
-      user-select: none;
-    }
-
-    .terminal-step__cmd {
-      font-family: var(--font-mono);
-      font-size: 0.86rem;
-      color: var(--terminal-text);
-      line-height: 1.65;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    .cmd-prompt {
-      color: #a78bfa;
-      user-select: none;
-      margin-right: 0.5rem;
-      font-weight: 700;
-    }
-
-    /* Barre de téléchargement autonome direct sous le terminal */
-    .direct-dl-bar {
-      margin-top: 1.15rem;
-      padding: 1rem 1.25rem;
-      border-radius: var(--radius-md);
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .direct-dl-bar__info {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .direct-dl-bar__title {
-      font-size: 0.86rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    .direct-dl-bar__meta {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .direct-dl-bar__actions {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-glass {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.5rem 0.95rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.82rem;
-      font-weight: 700;
-      background: var(--bg-surface);
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      transition: all var(--transition-fast);
-    }
-
-    .btn-glass:hover {
-      border-color: var(--accent-primary);
-      color: var(--accent-primary);
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.5rem 1.05rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.82rem;
-      font-weight: 700;
-      background: var(--accent-primary);
-      color: var(--accent-primary-fg);
-      border: 1px solid var(--accent-primary);
-      box-shadow: 0 4px 14px color-mix(in srgb, var(--accent-primary) 30%, transparent);
-      transition: all var(--transition-fast);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.08);
-      transform: translateY(-1px);
-    }
-
-    /* ==========================================================================
-       SECTIONS THÉMATIQUES : PUCES & MATÉRIELS, SÉCURITÉ GPG, ÉCOSYSTÈME
-       ========================================================================== */
-    .section {
-      margin-top: 3.5rem;
-    }
-
-    .section__header {
-      margin-bottom: 1.5rem;
-    }
-
-    .section__eyebrow {
-      font-size: 0.76rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-primary);
-      margin-bottom: 0.35rem;
-    }
-
-    .section__title {
-      font-family: var(--font-title);
-      font-size: clamp(1.45rem, 2.5vw, 2rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      color: var(--text-main);
-    }
-
-    .section__desc {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      max-width: 780px;
-      margin-top: 0.35rem;
-    }
-
-    .bento-grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-    }
-
-    .bento-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-
-    @media (max-width: 920px) {
-      .bento-grid-2,
-      .bento-grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .glass-card {
-      background: var(--glass-card-bg);
-      -webkit-backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
-      backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
-      border: 1px solid var(--glass-card-border);
-      box-shadow: var(--glass-card-highlight), var(--glass-card-shadow);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .glass-card__head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .glass-card__icon-group {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .chip-icon-box {
-      width: 38px;
-      height: 38px;
-      border-radius: var(--radius-md);
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-color);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.45rem;
-    }
-
-    .chip-icon-box img,
-    .chip-icon-box svg {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .glass-card__title {
-      font-size: 1.12rem;
-      font-weight: 800;
-      color: var(--text-main);
-    }
-
-    .glass-card__body {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    .soc-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      margin-top: 0.25rem;
-    }
-
-    .soc-list__item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .soc-list__item svg {
-      color: var(--accent-primary);
-      flex-shrink: 0;
-      margin-top: 0.18rem;
-    }
-
-    .soc-list__item strong {
-      color: var(--text-main);
-      font-weight: 700;
-    }
-
-    .direct-dl-icon {
-      color: var(--accent-primary);
-      flex-shrink: 0;
-    }
-
-    .gpg-inspect-row {
-      margin-top: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .gpg-inspect-label {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .gpg-inspect-code {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      padding: 0.65rem 0.85rem;
-      border-radius: var(--radius-sm);
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      overflow-x: auto;
-      white-space: pre-wrap;
-      word-break: break-all;
-    }
-
-    /* Carte de vérification GPG */
-    .gpg-box {
-      padding: 1rem 1.2rem;
-      border-radius: var(--radius-md);
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .gpg-box__fp {
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--accent-primary);
-      letter-spacing: 0.03em;
-      word-break: break-all;
-    }
-
-    /* ==========================================================================
-       PIED DE PAGE
-       ========================================================================== */
-    .site-footer {
-      margin-top: 4.5rem;
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--border-color);
-      background: var(--glass-surface-bg);
-      -webkit-backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
-      backdrop-filter: blur(var(--blur-md)) saturate(var(--saturate-soft));
-    }
-
-    .site-footer__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 1.15rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a:hover {
-      color: var(--accent-primary);
-      text-decoration: underline;
-    }
-
-    @media (max-width: 640px) {
-      .brand__subtitle { display: none; }
-      .workspace-shell { padding: 1.15rem; }
-      .terminal-header { padding: 0.65rem 0.9rem; }
-      .terminal-body { padding: 1rem; }
-    }
-  </style>
+  <script>document.documentElement.className='js';(function(){try{var m=document.cookie.match(/(?:^|; )bobine-theme=([w-]+)/);var t=(m&&m[1])||localStorage.getItem('bobineweb-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+  <link rel="stylesheet" href="/assets/bobine-tokens.css">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://packages.bobine.fit/#website","url":"https://packages.bobine.fit/","name":"Bobine Linux packages","description":"Dépôts officiels signés OpenPGP pour Bobine sur Debian, Ubuntu, Fedora, RHEL et Arch Linux, en x86_64 et ARM64, avec les canaux Stable, Bêta et Canary.","inLanguage":["en","fr"]},{"@type":"SoftwareApplication","@id":"https://bobine.fit/#software","name":"Bobine","operatingSystem":"Debian, Ubuntu, Linux Mint, Fedora, RHEL, AlmaLinux, Rocky Linux, Arch Linux, Windows, macOS, Android, Android TV","applicationCategory":"MultimediaApplication","license":"https://www.gnu.org/licenses/agpl-3.0.html","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"Bobine","url":"https://bobine.fit"},"downloadUrl":"https://packages.bobine.fit/debian/"}]}</script>
 </head>
 <body>
-
-  <!-- En-tête Apple Glassmorphism Lavande sans aucun encadré "packages.bobine.fit" -->
+  <a class="skip-link" href="#main">Aller au contenu</a>
   <header class="site-header">
     <div class="site-header__inner">
-      <a href="https://bobine.fit/fr" class="brand" aria-label="Bobine — Accueil">
-        <img src="/logo_bobine_entier.png" alt="Bobine" class="brand__logo" width="112" height="28">
-        <span class="brand__subtitle">Dépôts Linux &amp; Paquets Signés</span>
+      <a href="https://bobine.fit/fr" class="brand" aria-label="Bobine">
+        <img src="/logo_bobine_entier.png" alt="Bobine" width="112" height="28">
+        <span>Paquets Linux signés</span>
       </a>
-
-      <nav class="header-nav" aria-label="Navigation principale">
-        <a href="https://bobine.fit/fr" class="nav-link">Site officiel</a>
-        <a href="https://bobine.fit/fr/linux" class="nav-link">Vitrine Linux</a>
-        <a href="https://bobine.fit/fr/ordinateur" class="nav-link">PC &amp; Processeurs</a>
-        <a href="https://bobine.fit/fr/materiel/aliexpress" class="nav-link">Matériel vérifié</a>
-        <a href="https://bobine.fit/fr/documentation" class="nav-link">Documentation</a>
-        <a href="/pong/?lang=fr" class="nav-link">Arcade Pong</a>
-        <a href="/bobine.gpg" class="nav-link nav-link--primary" download>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
-          <span>Clé OpenPGP</span>
-        </a>
-
-        <div class="header-controls">
-          <div class="pill-switch" role="group" aria-label="Langue">
-            <a href="/" class="pill-switch__btn">EN</a>
-            <a href="/fr/" class="pill-switch__btn is-active" aria-current="page">FR</a>
+      <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav" aria-label="Menu"><span class="icon-mask" style="--src:url(/icons/ui/menu.svg)" aria-hidden="true"></span></button>
+      <nav class="header-nav" id="siteNav" aria-label="Navigation principale">
+          <a href="https://bobine.fit/fr/documentation">Documentation</a>
+          <a href="https://bobine.fit/fr/linux">Linux</a>
+          <a href="/fr/pong/">Pong</a>
+          <a href="/bobine.gpg" download>bobine.gpg</a>
+          <a class="btn" href="https://bobine.fit/fr/telechargement">Télécharger</a>
+          <div class="header-controls">
+            <div class="lang-switch" role="group" aria-label="Langue">
+              <a href="/" >EN</a>
+              <a href="/fr/" aria-current="page">FR</a>
+            </div>
+            <label class="sr-only" for="themeSelect">Thème</label>
+            <select id="themeSelect" class="theme-select" aria-label="Thème"><option value="charbon">Charbon</option><option value="clair">Carmin</option><option value="miel">Ambre</option><option value="menthe">Sauge</option><option value="ciel">Azur</option><option value="lavande">Lavande</option><option value="beige">Sable</option><option value="coco">Cacao</option><option value="les-mills-sombre">Onyx</option><option value="charbon-sombre">Graphite</option><option value="automne">Cuivre</option><option value="hiver">Abysse</option><option value="lune">Indigo</option><option value="chili">Rubis</option><option value="orchidee">Orchidée</option><option value="taupe">Moka</option></select>
           </div>
-          <div class="pill-switch" role="group" aria-label="Thème">
-            <button type="button" class="pill-switch__btn is-active" id="themeBtnLavande" onclick="applyTheme('lavande')">Lavande</button>
-            <button type="button" class="pill-switch__btn" id="themeBtnCharbon" onclick="applyTheme('charbon')">Noir &amp; Blanc</button>
-          </div>
-        </div>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <!-- HERO -->
+  <main id="main" class="container">
     <section class="hero">
-      <h1 class="hero__title">
-        Toute la puissance de Bobine,<br>
-        <span class="hero__title-accent">nativement intégrée à votre Linux.</span>
-      </h1>
-      <p class="hero__subtitle">
-        Sélectionnez votre famille de distribution, votre canal de publication et votre architecture processeur. Vos paquets sont vérifiés cryptographiquement et se mettent à jour automatiquement avec votre système en <code>x86_64</code> comme en <code>ARM64</code>.
-      </p>
+      <h1>Bobine, installé et mis à jour avec votre système Linux.</h1>
+      <p>Choisissez votre famille de distribution, votre canal et votre architecture. Les paquets et les index des dépôts sont signés avec la même clé OpenPGP et se mettent à jour avec votre gestionnaire de paquets, en x86_64 et en ARM64.</p>
     </section>
 
-    <!-- CONFIGURATEUR INTERACTIF DE DÉPÔT & PAQUET -->
-    <section class="workspace-shell" aria-label="Configurateur d'installation Linux">
-      <div class="workspace-controls-bar">
-        <div class="control-group">
-          <span class="control-group__label">Canal :</span>
-          <div class="segmented-bar" role="group" aria-label="Canal de version">
-            <button type="button" class="seg-btn is-active" data-channel="stable" onclick="setChannel('stable')">
-              <span class="channel-dot channel-dot--stable" aria-hidden="true"></span>
-              <span>Stable (Recommandé)</span>
-            </button>
-            <button type="button" class="seg-btn" data-channel="beta" onclick="setChannel('beta')">
-              <span class="channel-dot channel-dot--beta" aria-hidden="true"></span>
-              <span>Bêta</span>
-            </button>
-            <button type="button" class="seg-btn" data-channel="canary" onclick="setChannel('canary')">
-              <span class="channel-dot channel-dot--canary" aria-hidden="true"></span>
-              <span>Canary</span>
-            </button>
-          </div>
+    <section id="configurator" class="glass workspace" aria-label="Configurateur d'installation Linux">
+      <div class="controls">
+        <div class="control" role="group" aria-label="Canal">
+          <span class="control__label">Canal</span>
+          <div class="seg"><button type="button" data-channel="stable" aria-pressed="true">Stable (recommandé)</button><button type="button" data-channel="beta" aria-pressed="false">Bêta</button><button type="button" data-channel="canary" aria-pressed="false">Canary</button></div>
         </div>
-
-        <div class="control-group">
-          <span class="control-group__label">Architecture :</span>
-          <div class="segmented-bar" role="group" aria-label="Architecture processeur">
-            <button type="button" class="seg-btn is-active" data-arch="x86_64" onclick="setArch('x86_64')">
-              <span>x86_64 / amd64 (Intel &amp; AMD)</span>
-            </button>
-            <button type="button" class="seg-btn" data-arch="arm64" onclick="setArch('arm64')">
-              <span>ARM64 / aarch64 (Snapdragon, Pi 5, Apple M)</span>
-            </button>
-          </div>
+        <div class="control" role="group" aria-label="Architecture">
+          <span class="control__label">Architecture</span>
+          <div class="seg"><button type="button" data-arch="x86_64" aria-pressed="true">x86_64 / amd64 (Intel, AMD)</button><button type="button" data-arch="arm64" aria-pressed="false">ARM64 / aarch64</button></div>
         </div>
       </div>
 
-      <!-- 3 cartes de sélection de famille Linux -->
-      <div class="distro-grid" role="tablist" aria-label="Famille de distribution Linux">
-        <button type="button" class="distro-card is-active" data-distro="debian" onclick="setDistro('debian')" role="tab" aria-selected="true">
-          <div class="distro-card__top">
-            <div>
-              <div class="distro-card__title">Debian, Ubuntu &amp; Dérivés</div>
-              <div class="distro-card__subtitle">Gestionnaire APT · Mise à jour via apt upgrade</div>
-            </div>
-            <span class="distro-card__pkg-badge">.deb · APT</span>
-          </div>
-          <div class="distro-card__chips">
-            <span class="distro-chip"><img src="/icons/distros/debian.svg" alt="">Debian 12/13</span>
-            <span class="distro-chip"><img src="/icons/distros/ubuntu.svg" alt="">Ubuntu 22.04/24.04</span>
-            <span class="distro-chip"><img src="/icons/distros/linuxmint.svg" alt="">Linux Mint</span>
-            <span class="distro-chip"><img src="/icons/distros/popos.svg" alt="">Pop!_OS</span>
-            <span class="distro-chip"><img src="/icons/distros/zorin.svg" alt="">Zorin OS</span>
-            <span class="distro-chip"><img src="/icons/distros/raspberrypi.svg" alt="">Raspberry Pi OS</span>
-          </div>
+      <div class="control" role="group" aria-label="Famille de distribution">
+        <span class="control__label">Famille de distribution</span>
+        <div class="distros">
+        <button type="button" class="distro" data-distro="debian" aria-pressed="true">
+          <span class="distro__title">Debian, Ubuntu et dérivées</span>
+          <span class="distro__sub">APT · mises à jour avec apt upgrade</span>
+          <span class="distro__chips"><span><span class="icon-mask" style="--src:url(/icons/distros/debian.svg)" aria-hidden="true"></span>Debian 12/13</span><span><span class="icon-mask" style="--src:url(/icons/distros/ubuntu.svg)" aria-hidden="true"></span>Ubuntu 22.04/24.04</span><span><span class="icon-mask" style="--src:url(/icons/distros/linuxmint.svg)" aria-hidden="true"></span>Linux Mint</span><span><span class="icon-mask" style="--src:url(/icons/distros/popos.svg)" aria-hidden="true"></span>Pop!_OS</span><span><span class="icon-mask" style="--src:url(/icons/distros/zorin.svg)" aria-hidden="true"></span>Zorin OS</span><span><span class="icon-mask" style="--src:url(/icons/distros/raspberrypi.svg)" aria-hidden="true"></span>Raspberry Pi OS</span></span>
         </button>
-
-        <button type="button" class="distro-card" data-distro="fedora" onclick="setDistro('fedora')" role="tab" aria-selected="false">
-          <div class="distro-card__top">
-            <div>
-              <div class="distro-card__title">Fedora, RHEL &amp; Enterprise Linux</div>
-              <div class="distro-card__subtitle">Gestionnaire DNF · Mise à jour via dnf upgrade</div>
-            </div>
-            <span class="distro-card__pkg-badge">.rpm · DNF</span>
-          </div>
-          <div class="distro-card__chips">
-            <span class="distro-chip"><img src="/icons/distros/fedora.svg" alt="">Fedora 39/40/41+</span>
-            <span class="distro-chip"><img src="/icons/distros/nobara.svg" alt="">Nobara</span>
-            <span class="distro-chip"><img src="/icons/distros/rhel.svg" alt="">RHEL 9</span>
-            <span class="distro-chip"><img src="/icons/distros/almalinux.svg" alt="">AlmaLinux</span>
-            <span class="distro-chip"><img src="/icons/distros/rockylinux.svg" alt="">Rocky Linux</span>
-            <span class="distro-chip"><img src="/icons/distros/opensuse.svg" alt="">openSUSE</span>
-          </div>
+        <button type="button" class="distro" data-distro="fedora" aria-pressed="false">
+          <span class="distro__title">Fedora, RHEL et Enterprise Linux</span>
+          <span class="distro__sub">DNF · mises à jour avec dnf upgrade</span>
+          <span class="distro__chips"><span><span class="icon-mask" style="--src:url(/icons/distros/fedora.svg)" aria-hidden="true"></span>Fedora</span><span><span class="icon-mask" style="--src:url(/icons/distros/nobara.svg)" aria-hidden="true"></span>Nobara</span><span><span class="icon-mask" style="--src:url(/icons/distros/rhel.svg)" aria-hidden="true"></span>RHEL 9</span><span><span class="icon-mask" style="--src:url(/icons/distros/almalinux.svg)" aria-hidden="true"></span>AlmaLinux</span><span><span class="icon-mask" style="--src:url(/icons/distros/rockylinux.svg)" aria-hidden="true"></span>Rocky Linux</span><span><span class="icon-mask" style="--src:url(/icons/distros/opensuse.svg)" aria-hidden="true"></span>openSUSE</span></span>
         </button>
-
-        <button type="button" class="distro-card" data-distro="arch" onclick="setDistro('arch')" role="tab" aria-selected="false">
-          <div class="distro-card__top">
-            <div>
-              <div class="distro-card__title">Arch Linux &amp; Dérivés</div>
-              <div class="distro-card__subtitle">Gestionnaire Pacman · Mise à jour via pacman -Syu</div>
-            </div>
-            <span class="distro-card__pkg-badge">.pkg.tar.zst</span>
-          </div>
-          <div class="distro-card__chips">
-            <span class="distro-chip"><img src="/icons/distros/arch.svg" alt="">Arch Linux</span>
-            <span class="distro-chip"><img src="/icons/distros/endeavouros.svg" alt="">EndeavourOS</span>
-            <span class="distro-chip"><img src="/icons/distros/cachyos.svg" alt="">CachyOS</span>
-            <span class="distro-chip"><img src="/icons/distros/manjaro.svg" alt="">Manjaro</span>
-          </div>
+        <button type="button" class="distro" data-distro="arch" aria-pressed="false">
+          <span class="distro__title">Arch Linux et dérivées</span>
+          <span class="distro__sub">Pacman · mises à jour avec pacman -Syu</span>
+          <span class="distro__chips"><span><span class="icon-mask" style="--src:url(/icons/distros/arch.svg)" aria-hidden="true"></span>Arch Linux</span><span><span class="icon-mask" style="--src:url(/icons/distros/endeavouros.svg)" aria-hidden="true"></span>EndeavourOS</span><span><span class="icon-mask" style="--src:url(/icons/distros/cachyos.svg)" aria-hidden="true"></span>CachyOS</span><span><span class="icon-mask" style="--src:url(/icons/distros/manjaro.svg)" aria-hidden="true"></span>Manjaro</span></span>
         </button>
-      </div>
-
-      <!-- Fenêtre Terminal Apple Glass -->
-      <div class="terminal-window">
-        <div class="terminal-header">
-          <div class="terminal-header__left">
-            <div class="terminal-dots" aria-hidden="true">
-              <span class="terminal-dot terminal-dot--red"></span>
-              <span class="terminal-dot terminal-dot--yellow"></span>
-              <span class="terminal-dot terminal-dot--green"></span>
-            </div>
-            <span class="terminal-title" id="terminalTitle">bash — Dépôt APT (Debian / Ubuntu) · Canal Stable</span>
-          </div>
-
-          <div class="terminal-header__right">
-            <div class="dnf-subtabs" id="dnfSubtabs" role="group" aria-label="Version de DNF">
-              <button type="button" class="dnf-tab is-active" data-dnf="dnf5" onclick="setDnfMode('dnf5')">Fedora 41+ (DNF 5)</button>
-              <button type="button" class="dnf-tab" data-dnf="dnf4" onclick="setDnfMode('dnf4')">RHEL / Alma / Rocky (DNF 4)</button>
-            </div>
-            <button type="button" class="copy-btn" id="copyBtn" onclick="copyCommands()">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span id="copyBtnLabel">Copier les commandes</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="terminal-body">
-          <div class="terminal-steps" id="terminalSteps"></div>
         </div>
       </div>
 
-      <!-- Téléchargement direct de paquet autonome -->
-      <div class="direct-dl-bar">
-        <div class="direct-dl-bar__info">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent-primary)" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          <div>
-            <div class="direct-dl-bar__title" id="directDlTitle">Paquet autonome direct (.deb — x86_64 / amd64)</div>
-            <div class="direct-dl-bar__meta" id="directDlMeta">Installation hors-ligne possible via sudo apt install ./fichier.deb</div>
-          </div>
+      <div class="terminal">
+        <div class="terminal__bar">
+          <span id="terminalTitle"></span>
+          <span class="actions">
+            <span id="dnfTabs" class="seg hidden" role="group" aria-label="Version de DNF"><button type="button" data-dnf="dnf5" aria-pressed="true">Fedora 41+ (DNF 5)</button><button type="button" data-dnf="dnf4" aria-pressed="false">RHEL, Alma, Rocky (DNF 4)</button></span>
+            <button type="button" id="copyCommands" class="btn"><span>Copier les commandes</span></button>
+          </span>
         </div>
-        <div class="direct-dl-bar__actions">
-          <a href="/bobine.gpg" class="btn-glass" download>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>bobine.gpg</span>
-          </a>
-          <a href="https://github.com/FantasmaGlad/Bobine/releases" id="directDlLink" class="btn-primary">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span id="directDlBtnText">Télécharger le paquet .deb</span>
-          </a>
+        <div class="terminal__body" id="terminalSteps"></div>
+      </div>
+
+      <div class="dl-bar">
+        <div>
+          <div class="dl-bar__title" id="dlTitle">Paquet direct (.deb, amd64)</div>
+          <div class="dl-bar__meta" id="dlMeta">Installation hors ligne : sudo apt install ./fichier.deb</div>
+        </div>
+        <div class="actions">
+          <a href="/bobine.gpg" class="btn" download>bobine.gpg</a>
+          <a href="https://github.com/FantasmaGlad/Bobine/releases" id="dlLink" class="btn btn--primary"><span id="dlBtnText">Télécharger le .deb</span></a>
         </div>
       </div>
+      <noscript>
+        <div class="noscript"><strong>Sans JavaScript : Debian et Ubuntu, canal Stable</strong>
+<pre>sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg
+echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] https://packages.bobine.fit/debian stable main" | sudo tee /etc/apt/sources.list.d/bobine.list
+sudo apt update &amp;&amp; sudo apt install bobine</pre></div>
+      </noscript>
     </section>
 
-    <!-- SECTION COMPATIBILITÉ MATÉRIELLE, PROCESSEURS & PUCES (x86_64 & ARM64) -->
-    <section class="section" id="compatibilite-materielle">
-      <div class="section__header">
-        <div class="section__eyebrow">Ingénierie Matérielle &amp; Accélération GPU</div>
-        <h2 class="section__title">Processeurs, Puces &amp; Modèles Pris en Charge</h2>
-        <p class="section__desc">
-          Bobine compile ses paquets nativement pour les architectures <code>x86_64</code> (<code>amd64</code>) et <code>ARM64</code> (<code>aarch64</code>) sans couche d'émulation, en exploitant directement les moteurs de décodage vidéo matériel VA-API, NVDEC, V4L2, VideoToolbox et MediaCodec.
-        </p>
+    <section class="section" id="architectures">
+      <div class="section__eyebrow">Architectures</div>
+      <h2>Processeurs visés</h2>
+      <p class="section__desc">Bobine est compilé nativement pour x86_64 (amd64) et ARM64 (aarch64), sans émulation.</p>
+      <div class="grid-2">
+        <article class="glass card"><h3><span class="icon-mask" style="--src:url(/icons/chips/intel.svg)" aria-hidden="true"></span><span class="icon-mask" style="--src:url(/icons/chips/amd.svg)" aria-hidden="true"></span>x86_64 (Intel et AMD)</h3><p>Processeurs Intel Core, Core Ultra et série N, AMD Ryzen, clients légers de type Dell Wyse 5070 et mini PC pour un usage 24/7.</p></article>
+        <article class="glass card"><h3><span class="icon-mask" style="--src:url(/icons/chips/snapdragon.svg)" aria-hidden="true"></span><span class="icon-mask" style="--src:url(/icons/os/apple.svg)" aria-hidden="true"></span><span class="icon-mask" style="--src:url(/icons/distros/raspberrypi.svg)" aria-hidden="true"></span>ARM64 (Snapdragon, Apple Silicon, cartes monocartes)</h3><p>Portables Snapdragon X, tablettes ARM avec sortie vidéo USB-C, Raspberry Pi 5 et cartes similaires.</p></article>
       </div>
+      <p class="section__desc">Les listes de compatibilité sont des cibles, pas des validations sur matériel : un appareil n'est annoncé validé qu'après un essai sur le matériel réel. Détails sur le site de Bobine. <a href="https://bobine.fit/fr/ordinateur">Voir les pages de compatibilité</a>.</p>
+    </section>
 
-      <div class="bento-grid-2">
-        <!-- Carte 1 : x86_64 Intel & AMD -->
-        <article class="glass-card">
-          <div class="glass-card__head">
-            <div class="glass-card__icon-group">
-              <span class="chip-icon-box"><img src="/icons/chips/intel.svg" alt="Intel"></span>
-              <span class="chip-icon-box"><img src="/icons/chips/amd.svg" alt="AMD"></span>
-              <div>
-                <h3 class="glass-card__title">Architecture x86_64 (Intel &amp; AMD Ryzen)</h3>
-              </div>
-            </div>
-            <span class="glass-card__tag">amd64 · x86_64</span>
-          </div>
-          <p class="glass-card__body">
-            Idéal pour les mini PC de régie 24/7 (fanless ou silencieux), les stations de bureau et les ordinateurs portables exploités capot fermé (mode clamshell). Décodage matériel 1080p60 et 4K Ultra HD à moins de 8 % de charge CPU.
-          </p>
-          <ul class="soc-list">
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Intel Basse Consommation &amp; Appliances :</strong> Intel Processor <strong>N100, N200, N95, N97, Core i3-N305</strong> (Alder Lake-N / Twin Lake) et Intel Celeron <strong>J4105, J4125, N5105</strong> (clients légers Dell Wyse 5070, Beelink Mini S12 Pro, Minisforum UN100, MeLE Quieter 4C). Accélération Intel QuickSync VA-API (<code>iHD</code> / <code>i965</code>).</span>
-            </li>
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Intel Core &amp; Core Ultra :</strong> Intel <strong>Core Ultra 5 / 7 / 9</strong> (Séries 1 Meteor Lake &amp; Séries 2 Lunar Lake / Arrow Lake, GPU Intel Arc) et Intel Core i3 / i5 / i7 / i9 de 8e à 14e génération (Intel NUC, ASUS NUC, HP EliteDesk 800 Mini, Lenovo ThinkCentre Tiny, Dell OptiPlex Micro).</span>
-            </li>
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>AMD Ryzen (Zen 3, Zen 4, Zen 5) :</strong> AMD <strong>Ryzen 5000, 6000, 7000, 8000 et Ryzen AI 300</strong> (Ryzen 5 5560U, Ryzen 7 5800H, Ryzen 7 7840U/HS, Ryzen 7 8845HS — Beelink SER5 / SER7 / SER8, Minisforum UM780 XTX, Geekom A7 / A8, Framework Laptop 13 &amp; 16). Accélération AMD Radeon VA-API (<code>radeonsi</code>).</span>
-            </li>
-          </ul>
-          <div class="tag-cloud">
-            <span class="hw-tag">Intel N100 / N200</span>
-            <span class="hw-tag">Intel Core Ultra</span>
-            <span class="hw-tag">Dell Wyse 5070</span>
-            <span class="hw-tag">AMD Ryzen 7040 / 8040</span>
-            <span class="hw-tag">Framework Laptop 13 &amp; 16</span>
-            <span class="hw-tag">Beelink &amp; Minisforum</span>
-          </div>
+    <section class="section" id="security">
+      <div class="section__eyebrow">Sécurité</div>
+      <h2>Une seule signature OpenPGP pour tous les dépôts</h2>
+      <p class="section__desc">Les index des dépôts (InRelease, repomd.xml.asc, bobine.db.sig) et les paquets sont signés avec la même clé. Votre gestionnaire de paquets refuse un fichier altéré.</p>
+      <div class="grid-2">
+        <article class="glass card">
+          <h3>Empreinte de la clé de signature</h3>
+          <p>Vérifiez que l'empreinte affichée par votre gestionnaire de paquets correspond à celle-ci :</p>
+          <div class="gpg"><code id="gpgFp">B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A</code><button type="button" class="btn" id="copyFp"><span>Copier l'empreinte</span></button></div>
+          <p>Inspecter la clé directement : <code>curl -fsSL https://packages.bobine.fit/bobine.gpg | gpg --show-keys</code></p>
         </article>
-
-        <!-- Carte 2 : ARM64 Snapdragon, Apple Silicon, Pi 5, NVIDIA -->
-        <article class="glass-card">
-          <div class="glass-card__head">
-            <div class="glass-card__icon-group">
-              <span class="chip-icon-box"><img src="/icons/chips/snapdragon.svg" alt="Qualcomm Snapdragon"></span>
-              <span class="chip-icon-box"><img src="/icons/os/apple.svg" alt="Apple Silicon"></span>
-              <span class="chip-icon-box"><img src="/icons/distros/raspberrypi.svg" alt="Raspberry Pi"></span>
-              <div>
-                <h3 class="glass-card__title">Architecture ARM64 (Snapdragon, Apple Silicon &amp; SBC)</h3>
-              </div>
-            </div>
-            <span class="glass-card__tag">arm64 · aarch64</span>
-          </div>
-          <p class="glass-card__body">
-            Conçu pour la nouvelle génération de PC ARM64 ultra-sobres, les tablettes hautes performances à sortie vidéo USB-C DisplayPort Alt Mode et les nano-ordinateurs monocartes.
-          </p>
-          <ul class="soc-list">
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Qualcomm Snapdragon PC (Oryon) :</strong> <strong>Snapdragon X Elite</strong> (<code>X1E-80-100</code>, <code>X1E-84-100</code>, <code>X1E-78-100</code>), <strong>Snapdragon X Plus</strong> (<code>X1P-64-100</code>, <code>X1P-42-100</code>) et Snapdragon 8cx Gen 3 (Lenovo ThinkPad T14s Gen 6, Yoga Slim 7x, Surface Laptop 7, ASUS Vivobook S 15, Dell XPS 13 9345).</span>
-            </li>
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Puces Mobiles &amp; Tablettes Grand Public :</strong> Qualcomm <strong>Snapdragon 8 Gen 2</strong> (<code>SM8550-AB</code>), <strong>Snapdragon 8 Gen 3</strong> (<code>SM8650-AB</code>), <strong>Snapdragon 8 Elite</strong> (<code>SM8750-AB</code>), <strong>Snapdragon 8+ Gen 1</strong>, <strong>MediaTek Dimensity 9300+ / Kompanio</strong> et <strong>Google Tensor G2 / G3 / G4</strong> (Samsung Galaxy Tab S9 / S9+ / S9 Ultra, Xiaomi Pad 6S Pro / Pad 6 Max, OnePlus Pad, Google Books / Chromebooks ARM64).</span>
-            </li>
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Apple Silicon, NVIDIA &amp; Nano-PC :</strong> Apple <strong>M1, M2, M3, M4</strong> (Mac mini, MacBook Air/Pro sous Asahi Linux / VM ou macOS natif), <strong>NVIDIA DGX Spark</strong> (Grace Blackwell GB10) &amp; <strong>Jetson Orin</strong>, <strong>Raspberry Pi 5</strong> (Broadcom BCM2712), <strong>Orange Pi 5</strong> &amp; <strong>Radxa Rock 5B</strong> (Rockchip RK3588).</span>
-            </li>
-          </ul>
-          <div class="tag-cloud">
-            <span class="hw-tag">Snapdragon X Elite / Plus</span>
-            <span class="hw-tag">Snapdragon 8 Gen 2 / Gen 3 / Elite</span>
-            <span class="hw-tag">Apple M1 – M4</span>
-            <span class="hw-tag">Raspberry Pi 5</span>
-            <span class="hw-tag">Rockchip RK3588</span>
-            <span class="hw-tag">NVIDIA DGX Spark</span>
-          </div>
+        <article class="glass card">
+          <h3>Notes par distribution</h3>
+          <ul><li><strong>Fedora et RPM Fusion :</strong> Fedora fournit ffmpeg-free par défaut. Activez RPM Fusion puis lancez sudo dnf swap ffmpeg-free ffmpeg --allowerasing pour disposer de tous les codecs.</li><li><strong>RHEL 9, AlmaLinux, Rocky Linux :</strong> Activez d'abord EPEL (sudo dnf install epel-release) pour que les dépendances multimédia et WebKitGTK soient résolues.</li><li><strong>Mises à jour depuis l'application :</strong> Bobine détecte s'il a été installé avec dpkg/apt, rpm/dnf ou pacman et se met à jour dans le même format, via Polkit.</li></ul>
         </article>
       </div>
     </section>
 
-    <!-- SECTION VÉRIFICATION CRYPTOGRAPHIQUE & INFRASTRUCTURE -->
-    <section class="section" id="securite-gpg">
-      <div class="section__header">
-        <div class="section__eyebrow">Sécurité &amp; Intégrité</div>
-        <h2 class="section__title">Signature Cryptographique OpenPGP Unifiée</h2>
-        <p class="section__desc">
-          Chaque indice de dépôt (<code>InRelease</code>, <code>repomd.xml.asc</code>, <code>bobine.db.sig</code>) et chaque paquet binaire sont signés avec la clé officielle de Bobine. Votre gestionnaire de paquets refuse automatiquement tout fichier altéré.
-        </p>
-      </div>
-
-      <div class="bento-grid-2">
-        <article class="glass-card">
-          <div class="glass-card__head">
-            <h3 class="glass-card__title">Empreinte de la Clé Officielle (SHA-1 / V4)</h3>
-            <span class="glass-card__tag">RSA 4096 bits</span>
-          </div>
-          <p class="glass-card__body">
-            Lors de la première installation avec APT, DNF ou Pacman, comparez l'empreinte affichée dans votre terminal avec celle-ci :
-          </p>
-          <div class="gpg-box">
-            <code class="gpg-box__fp" id="gpgFpText">B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A</code>
-            <button type="button" class="btn-glass" onclick="copyFingerprint()">
-              <span id="copyFpLabel">Copier l'empreinte</span>
-            </button>
-          </div>
-          <div class="terminal-step" style="margin-top:0.4rem">
-            <span class="glass-card__body" style="font-size:0.82rem">Commande d'inspection directe :</span>
-            <code style="font-family:var(--font-mono);font-size:0.8rem;padding:0.65rem 0.85rem;border-radius:var(--radius-sm);background:var(--bg-surface-elevated);border:1px solid var(--border-color);color:var(--text-main)">curl -fsSL https://packages.bobine.fit/bobine.gpg | gpg --show-keys</code>
-          </div>
-        </article>
-
-        <article class="glass-card">
-          <div class="glass-card__head">
-            <h3 class="glass-card__title">Notes Techniques par Distribution</h3>
-            <span class="glass-card__tag">Dépendances &amp; Codecs</span>
-          </div>
-          <ul class="soc-list">
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              <span><strong>Fedora &amp; RPM Fusion (ffmpeg complet) :</strong> Fedora livre par défaut <code>ffmpeg-free</code> sans certains décodeurs matériels. Activez RPM Fusion puis exécutez <code>sudo dnf swap ffmpeg-free ffmpeg --allowerasing</code> pour bénéficier de tous les codecs vidéo.</span>
-            </li>
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              <span><strong>RHEL 9, AlmaLinux &amp; Rocky Linux :</strong> Activez au préalable le dépôt <code>epel-release</code> (<code>sudo dnf install epel-release</code>) afin de résoudre les dépendances multimédias et WebKitGTK.</span>
-            </li>
-            <li class="soc-list__item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              <span><strong>Mises à jour depuis l'application Bobine :</strong> Bobine détecte automatiquement si le paquet a été installé via <code>dpkg/apt</code>, <code>rpm/dnf</code> ou <code>pacman</code> et applique les mises à jour au format natif correspondant via Polkit.</span>
-            </li>
-          </ul>
-        </article>
+    <section class="section" id="ecosystem">
+      <div class="section__eyebrow">Autres plateformes</div>
+      <h2>Windows, macOS, Android et navigateurs</h2>
+      <p class="section__desc">Bobine s'installe aussi sur d'autres systèmes et se pilote depuis n'importe quel navigateur moderne du réseau local.</p>
+      <div class="grid-2">
+        <a class="glass card" href="https://bobine.fit/fr/ordinateur"><h3><span class="icon-mask" style="--src:url(/icons/os/windows.svg)" aria-hidden="true"></span><span class="icon-mask" style="--src:url(/icons/os/apple.svg)" aria-hidden="true"></span>Windows et macOS</h3><p>Installateurs Windows (x86_64, ARM64) et image disque pour les Mac Apple Silicon.</p></a>
+        <a class="glass card" href="https://bobine.fit/fr/google-book"><h3><span class="icon-mask" style="--src:url(/icons/os/android.svg)" aria-hidden="true"></span><span class="icon-mask" style="--src:url(/icons/os/androidtv.svg)" aria-hidden="true"></span>Android, Google Book et Android TV</h3><p>Un APK pour les tablettes et Google Book, et un APK pour les boîtiers Android TV et Google TV.</p></a>
+        <a class="glass card" href="https://bobine.fit/fr/documentation"><h3><span class="icon-mask" style="--src:url(/icons/browsers/firefox.svg)" aria-hidden="true"></span><span class="icon-mask" style="--src:url(/icons/browsers/chrome.svg)" aria-hidden="true"></span><span class="icon-mask" style="--src:url(/icons/browsers/safari.svg)" aria-hidden="true"></span>Navigateurs et Tor</h3><p>Pilotage depuis Firefox, Chrome, Edge, Brave, Safari et Tor Browser, avec un miroir Tor du site et de ces dépôts.</p></a>
       </div>
     </section>
-
-    <!-- SECTION ÉCOSYSTÈME MULTIPLATEFORME & NAVIGATEURS -->
-    <section class="section" id="ecosysteme">
-      <div class="section__header">
-        <div class="section__eyebrow">Écosystème Complet</div>
-        <h2 class="section__title">Autres Systèmes &amp; Navigateurs Supportés</h2>
-        <p class="section__desc">
-          En complément des dépôts Linux, Bobine est distribué nativement sur tous les systèmes d'exploitation et se pilote depuis tout navigateur web moderne du réseau local.
-        </p>
-      </div>
-
-      <div class="bento-grid-3">
-        <a href="https://bobine.fit/fr/ordinateur" class="glass-card">
-          <div class="glass-card__head">
-            <div class="glass-card__icon-group">
-              <span class="chip-icon-box"><img src="/icons/os/windows.svg" alt="Windows"></span>
-              <span class="chip-icon-box"><img src="/icons/os/apple.svg" alt="macOS"></span>
-            </div>
-            <span class="glass-card__tag">.exe &amp; .dmg</span>
-          </div>
-          <h3 class="glass-card__title">Windows 11/10 &amp; macOS</h3>
-          <p class="glass-card__body">
-            Installeurs natifs Windows <code>x86_64</code> et <code>ARM64</code> (Snapdragon X) et image disque macOS Apple Silicon (M1 à M4) avec mode capot fermé (clamshell) sans veille.
-          </p>
-        </a>
-
-        <a href="https://bobine.fit/fr/google-book" class="glass-card">
-          <div class="glass-card__head">
-            <div class="glass-card__icon-group">
-              <span class="chip-icon-box"><img src="/icons/os/android.svg" alt="Android"></span>
-            </div>
-            <span class="glass-card__tag">.apk · API 34+</span>
-          </div>
-          <h3 class="glass-card__title">Android, Google Books &amp; Android TV</h3>
-          <p class="glass-card__body">
-            Application native embarquant Python 3.13 et MediaCodec pour tablettes tactiles (Snapdragon 8 Gen 2/3, Tensor), ordinateurs Google Books et boîtiers Android TV / Google TV.
-          </p>
-        </a>
-
-        <a href="https://bobine.fit/fr/documentation#navigateurs" class="glass-card">
-          <div class="glass-card__head">
-            <div class="glass-card__icon-group">
-              <span class="chip-icon-box"><img src="/icons/browsers/firefox.svg" alt="Firefox"></span>
-              <span class="chip-icon-box"><img src="/icons/browsers/chrome.svg" alt="Chrome"></span>
-              <span class="chip-icon-box"><img src="/icons/browsers/safari.svg" alt="Safari"></span>
-            </div>
-            <span class="glass-card__tag">Gecko · Blink · WebKit</span>
-          </div>
-          <h3 class="glass-card__title">Navigateurs &amp; Réseau Tor</h3>
-          <p class="glass-card__body">
-            Pilotage sans application depuis Firefox (Bureau, ESR, Android), Chrome, Brave, Edge, Safari (macOS/iOS) et Tor Browser, avec normalisation H.264 automatique à la demande.
-          </p>
-        </a>
-      </div>
-    </section>
+    <p id="copyStatus" class="sr-only" role="status" aria-live="polite" aria-label="État de la copie"></p>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
-      <div>
-        <strong>Bobine</strong> — Régie Vidéo &amp; Audio Autonome sous licence libre AGPL-3.0 · Clé OpenPGP <code>829EE15A</code>
-      </div>
-      <nav class="footer-links" aria-label="Liens de pied de page">
+      <div>Régie vidéo et audio autonome, logiciel libre sous AGPL-3.0. Clé OpenPGP 829EE15A.</div>
+      <nav class="footer-links" aria-label="Footer">
         <a href="https://bobine.fit/fr">bobine.fit</a>
         <a href="https://bobine.fit/fr/linux">Linux</a>
-        <a href="https://bobine.fit/fr/ordinateur">Ordinateurs &amp; PC</a>
-        <a href="https://bobine.fit/fr/materiel/aliexpress">Matériel</a>
         <a href="https://bobine.fit/fr/documentation">Documentation</a>
         <a href="https://security.bobine.fit">Sécurité</a>
-        <a href="/pong/?lang=fr">Pong</a>
+        <a href="/fr/pong/">Pong</a>
         <a href="/llms.txt">llms.txt</a>
         <a href="https://github.com/FantasmaGlad/Bobine" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
     </div>
   </footer>
-
-  <script>
-    const STATE = {
-      distro: 'debian',
-      channel: 'stable',
-      arch: 'x86_64',
-      dnfMode: 'dnf5',
-      stableVersion: '5.0.5'
-    };
-
-    function getCommands() {
-      const ch = STATE.channel;
-      if (STATE.distro === 'debian') {
-        return [
-          {
-            comment: "# 1. Importer la clé de signature OpenPGP officielle dans le trousseau système",
-            cmd: "sudo install -m 0755 -d /etc/apt/keyrings\ncurl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg"
-          },
-          {
-            comment: "# 2. Ajouter le dépôt APT signé (amd64 & arm64 — canal " + ch + ")",
-            cmd: 'echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] https://packages.bobine.fit/debian ' + ch + ' main" | sudo tee /etc/apt/sources.list.d/bobine.list'
-          },
-          {
-            comment: "# 3. Actualiser l'index et installer Bobine",
-            cmd: "sudo apt update && sudo apt install bobine"
-          }
-        ];
-      }
-      if (STATE.distro === 'fedora') {
-        const addCmd = STATE.dnfMode === 'dnf5'
-          ? "sudo dnf config-manager addrepo --from-repofile=https://packages.bobine.fit/fedora/bobine-" + ch + ".repo"
-          : "sudo dnf config-manager --add-repo https://packages.bobine.fit/fedora/bobine-" + ch + ".repo";
-        return [
-          {
-            comment: "# 1. Ajouter le dépôt DNF signé (x86_64 & aarch64 — canal " + ch + ")",
-            cmd: addCmd
-          },
-          {
-            comment: "# 2. Installer Bobine (vérifiez l'empreinte B77D 96D7 … 829E E15A à l'invite GPG)",
-            cmd: "sudo dnf install bobine"
-          },
-          {
-            comment: "# 3. Recommandé sur Fedora : activer le paquet ffmpeg complet (via RPM Fusion)",
-            cmd: "sudo dnf swap ffmpeg-free ffmpeg --allowerasing"
-          }
-        ];
-      }
-      return [
-        {
-          comment: "# 1. Importer et signer localement la clé OpenPGP officielle dans le trousseau pacman",
-          cmd: "curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo pacman-key --add -\nsudo pacman-key --lsign-key B77D96D72F84F36ACAA3F8729CBF497D829EE15A"
-        },
-        {
-          comment: "# 2. Déclarer le dépôt [bobine] dans /etc/pacman.conf (canal " + ch + ")",
-          cmd: "sudo tee -a /etc/pacman.conf << 'EOF'\n\n[bobine]\nSigLevel = Required DatabaseOptional\nServer = https://packages.bobine.fit/arch/" + ch + "/$arch\nEOF"
-        },
-        {
-          comment: "# 3. Synchroniser les bases et installer Bobine",
-          cmd: "sudo pacman -Syu bobine"
-        }
-      ];
-    }
-
-    function getDirectDownloadInfo() {
-      const v = STATE.stableVersion;
-      const isArm = STATE.arch === 'arm64';
-      const ch = STATE.channel;
-
-      if (STATE.distro === 'debian') {
-        const debArch = isArm ? 'arm64' : 'amd64';
-        const url = ch === 'stable'
-          ? 'https://github.com/FantasmaGlad/Bobine/releases/latest/download/bobine_' + v + '_' + debArch + '.deb'
-          : 'https://github.com/FantasmaGlad/Bobine/releases/download/' + ch + '/bobine-' + ch + '-' + debArch + '.deb';
-        return {
-          title: 'Paquet autonome direct (.deb — ' + (isArm ? 'ARM64 / aarch64' : 'x86_64 / amd64') + ')',
-          meta: 'Installation locale hors dépôt : sudo apt install ./bobine_' + v + '_' + debArch + '.deb',
-          btn: 'Télécharger .deb (' + debArch + ')',
-          url: url
-        };
-      }
-      if (STATE.distro === 'fedora') {
-        const rpmArch = isArm ? 'aarch64' : 'x86_64';
-        const url = ch === 'canary'
-          ? '/fedora/canary/' + rpmArch + '/bobine-canary.' + rpmArch + '.rpm'
-          : (ch === 'beta'
-              ? 'https://github.com/FantasmaGlad/Bobine/releases/download/beta/bobine-beta.' + rpmArch + '.rpm'
-              : 'https://github.com/FantasmaGlad/Bobine/releases/latest/download/bobine-' + v + '-1.' + rpmArch + '.rpm');
-        return {
-          title: 'Paquet autonome direct (.rpm — ' + rpmArch + ')',
-          meta: 'Installation locale hors dépôt : sudo dnf install ./bobine.' + rpmArch + '.rpm',
-          btn: 'Télécharger .rpm (' + rpmArch + ')',
-          url: url
-        };
-      }
-      const pkgArch = isArm ? 'aarch64' : 'x86_64';
-      const url = ch === 'canary'
-        ? '/arch/canary/' + pkgArch + '/bobine-canary-' + pkgArch + '.pkg.tar.zst'
-        : (ch === 'beta'
-            ? 'https://github.com/FantasmaGlad/Bobine/releases/download/beta/bobine-beta-' + pkgArch + '.pkg.tar.zst'
-            : 'https://github.com/FantasmaGlad/Bobine/releases/latest/download/bobine-' + v + '-1-' + pkgArch + '.pkg.tar.zst');
-      return {
-        title: 'Paquet autonome direct (.pkg.tar.zst — ' + pkgArch + ')',
-        meta: 'Installation locale hors dépôt : sudo pacman -U ./bobine-' + pkgArch + '.pkg.tar.zst',
-        btn: 'Télécharger .pkg.tar.zst (' + pkgArch + ')',
-        url: url
-      };
-    }
-
-    function renderWorkspace() {
-      const distroNames = {
-        debian: 'Dépôt APT (Debian / Ubuntu)',
-        fedora: 'Dépôt DNF (Fedora / RHEL)',
-        arch: 'Dépôt Pacman (Arch Linux)'
-      };
-      const channelNames = {
-        stable: 'Canal Stable',
-        beta: 'Canal Bêta',
-        canary: 'Canal Canary'
-      };
-      document.getElementById('terminalTitle').textContent =
-        'bash — ' + distroNames[STATE.distro] + ' · ' + channelNames[STATE.channel];
-
-      const dnfSubtabs = document.getElementById('dnfSubtabs');
-      dnfSubtabs.classList.toggle('is-visible', STATE.distro === 'fedora');
-
-      const container = document.getElementById('terminalSteps');
-      container.innerHTML = '';
-      const steps = getCommands();
-      steps.forEach((step) => {
-        const div = document.createElement('div');
-        div.className = 'terminal-step';
-        const comment = document.createElement('div');
-        comment.className = 'terminal-step__comment';
-        comment.textContent = step.comment;
-        const cmd = document.createElement('pre');
-        cmd.className = 'terminal-step__cmd';
-        cmd.textContent = step.cmd;
-        div.appendChild(comment);
-        div.appendChild(cmd);
-        container.appendChild(div);
-      });
-
-      const dl = getDirectDownloadInfo();
-      document.getElementById('directDlTitle').textContent = dl.title;
-      document.getElementById('directDlMeta').textContent = dl.meta;
-      document.getElementById('directDlBtnText').textContent = dl.btn;
-      document.getElementById('directDlLink').href = dl.url;
-    }
-
-    function setDistro(distro) {
-      STATE.distro = distro;
-      document.querySelectorAll('.distro-card').forEach((btn) => {
-        const active = btn.getAttribute('data-distro') === distro;
-        btn.classList.toggle('is-active', active);
-        btn.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-      renderWorkspace();
-    }
-
-    function setChannel(channel) {
-      STATE.channel = channel;
-      document.querySelectorAll('[data-channel]').forEach((btn) => {
-        btn.classList.toggle('is-active', btn.getAttribute('data-channel') === channel);
-      });
-      renderWorkspace();
-    }
-
-    function setArch(arch) {
-      STATE.arch = arch;
-      document.querySelectorAll('[data-arch]').forEach((btn) => {
-        btn.classList.toggle('is-active', btn.getAttribute('data-arch') === arch);
-      });
-      renderWorkspace();
-    }
-
-    function setDnfMode(mode) {
-      STATE.dnfMode = mode;
-      document.querySelectorAll('[data-dnf]').forEach((btn) => {
-        btn.classList.toggle('is-active', btn.getAttribute('data-dnf') === mode);
-      });
-      renderWorkspace();
-    }
-
-    function copyCommands() {
-      const raw = getCommands().map((s) => s.cmd).join('\n\n');
-      navigator.clipboard.writeText(raw).then(() => {
-        const btn = document.getElementById('copyBtn');
-        const label = document.getElementById('copyBtnLabel');
-        btn.classList.add('is-copied');
-        label.textContent = 'Commandes copiées';
-        setTimeout(() => {
-          btn.classList.remove('is-copied');
-          label.textContent = 'Copier les commandes';
-        }, 2000);
-      });
-    }
-
-    function copyFingerprint() {
-      navigator.clipboard.writeText('B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A').then(() => {
-        const label = document.getElementById('copyFpLabel');
-        label.textContent = 'Empreinte copiée';
-        setTimeout(() => {
-          label.textContent = "Copier l'empreinte";
-        }, 2000);
-      });
-    }
-
-    function applyTheme(theme) {
-      const active = (theme === 'charbon') ? 'charbon' : 'lavande';
-      document.documentElement.setAttribute('data-theme', active);
-      const btnL = document.getElementById('themeBtnLavande');
-      const btnC = document.getElementById('themeBtnCharbon');
-      if (btnL && btnC) {
-        btnL.classList.toggle('is-active', active === 'lavande');
-        btnC.classList.toggle('is-active', active === 'charbon');
-      }
-      try {
-        localStorage.setItem('bobineweb-theme', active);
-        localStorage.setItem('bobine_packages_theme', active);
-      } catch (e) {}
-    }
-
-    function fetchLatestVersion() {
-      fetch('/debian/dists/stable/main/binary-amd64/Packages', { cache: 'no-cache' })
-        .then((r) => r.ok ? r.text() : Promise.reject())
-        .then((txt) => {
-          const m = txt.match(/^Version:\s*([0-9]+\.[0-9]+\.[0-9]+)/m);
-          if (m && m[1]) {
-            STATE.stableVersion = m[1];
-            renderWorkspace();
-          }
-        })
-        .catch(() => {
-          fetch('/latest.json')
-            .then((r) => r.json())
-            .then((d) => {
-              if (d && d.version) {
-                STATE.stableVersion = d.version.replace(/^v/i, '');
-                renderWorkspace();
-              }
-            })
-            .catch(() => {});
-        });
-    }
-
-    (function init() {
-      try {
-        const saved = localStorage.getItem('bobineweb-theme') || localStorage.getItem('bobine_packages_theme');
-        if (saved === 'charbon' || saved === 'lavande') {
-          applyTheme(saved);
-        } else {
-          applyTheme('lavande');
-        }
-      } catch (e) {
-        applyTheme('lavande');
-      }
-      renderWorkspace();
-      fetchLatestVersion();
-    })();
-  </script>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>
