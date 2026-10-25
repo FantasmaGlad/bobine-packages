@@ -9,10 +9,8 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://packages.bobine.fit";
 const FP = "B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A";
-const THEMES = [
-  ["charbon", "Charbon"], ["clair", "Carmin"], ["miel", "Ambre"], ["menthe", "Sauge"], ["ciel", "Azur"], ["lavande", "Lavande"], ["beige", "Sable"], ["coco", "Cacao"],
-  ["les-mills-sombre", "Onyx"], ["charbon-sombre", "Graphite"], ["automne", "Cuivre"], ["hiver", "Abysse"], ["lune", "Indigo"], ["chili", "Rubis"], ["orchidee", "Orchidée"], ["taupe", "Moka"],
-];
+const {lightThemes, darkThemes, themeMeta} = JSON.parse(readFileSync(join(root, "assets/bobine-themes.json"), "utf8"));
+
 
 const L = {
   en: {
@@ -198,7 +196,7 @@ const L = {
 };
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const icon = (kind, name) => `<span class="icon-mask" style="--src:url(/icons/${kind}/${name}.svg)" aria-hidden="true"></span>`;
+const icon = (kind, name) => `<img class="brand-icon brand-icon--image" src="/icons/${kind}/${name}.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy">`;
 const iconOf = (name) => (["windows", "apple", "android", "androidtv", "framework", "tor", "linux"].includes(name) ? icon("os", name) : ["intel", "amd", "snapdragon"].includes(name) ? icon("chips", name) : ["firefox", "chrome", "safari", "edge", "brave", "torbrowser"].includes(name) ? icon("browsers", name) : icon("distros", name));
 
 /** Balises communes de <head> : métadonnées, jetons, feuilles de style et script d'anti-clignotement du thème. */
@@ -229,21 +227,37 @@ function head(t, o) {
   <meta name="twitter:image" content="${SITE}/og-image.webp">
   <script>document.documentElement.className='js';(function(){try{var m=document.cookie.match(/(?:^|; )bobine-theme=([\w-]+)/);var t=(m&&m[1])||localStorage.getItem('bobineweb-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
   <link rel="stylesheet" href="/assets/bobine-tokens.css">
-  <link rel="stylesheet" href="/assets/site.css">${o.extraCss ? `\n  <link rel="stylesheet" href="${o.extraCss}">` : ""}
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/bobine-controls.css">${o.extraCss ? `\n  <link rel="stylesheet" href="${o.extraCss}">` : ""}
   <script type="application/ld+json">${JSON.stringify(o.jsonLd)}</script>`;
 }
 
 /** En-tête commun : marque, navigation, langue, thème ; `langLinks` = [adresse EN, adresse FR]. */
 function header(t, langLinks) {
-  const options = THEMES.map(([id, label]) => `<option value="${id}">${esc(label)}</option>`).join("");
+  const isFr = t.lang === "fr";
+  const options = [...lightThemes, ...darkThemes].map((id) => {
+    const m = themeMeta[id];
+    return `<button type="button" role="option" class="theme-card-option" data-theme-value="${id}" data-dark="${m.isDark}" data-label="${esc(m.label)}" aria-selected="false"${m.isDark ? " hidden" : ""}><span class="theme-card-option__swatch-wrapper"><span class="theme-card-option__swatch"></span></span><span class="theme-card-option__info"><span class="theme-card-option__name">${esc(m.label)}</span><span class="theme-card-option__desc">${esc(m.desc)}</span></span><span class="theme-card-option__check" aria-hidden="true">✓</span></button>`;
+  }).join("");
   const controls = `
           <div class="header-controls">
-            <div class="lang-switch" role="group" aria-label="${esc(t.langLabel)}">
-              <a href="${langLinks[0]}" ${t.lang === "en" ? 'aria-current="page"' : ""}>EN</a>
-              <a href="${langLinks[1]}" ${t.lang === "fr" ? 'aria-current="page"' : ""}>FR</a>
+            <nav class="locale-switcher" aria-label="Langue / Language">
+              <a class="locale-switcher__link${t.lang === "en" ? " is-active" : ""}" href="${langLinks[0]}" ${t.lang === "en" ? 'aria-current="true"' : ""}>EN</a>
+              <a class="locale-switcher__link${isFr ? " is-active" : ""}" href="${langLinks[1]}" ${isFr ? 'aria-current="true"' : ""}>FR</a>
+            </nav>
+            <div class="theme-switcher-wrapper" id="themePicker">
+              <div class="theme-switcher-pill-group">
+                <button type="button" class="theme-switcher-btn" id="themeCycle" aria-label="${isFr ? "Thème suivant" : "Next theme"}"><span class="theme-swatch-icon" data-theme="lavande" aria-hidden="true"></span><span class="theme-switcher-btn__label">Lavande</span></button>
+                <button type="button" class="theme-switcher-arrow-btn" id="themeToggle" aria-label="${isFr ? "Ouvrir les 16 thèmes" : "Open all 16 themes"}" aria-expanded="false" aria-haspopup="dialog" aria-controls="themePalette"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="chevron-flip" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+              </div>
+              <div class="theme-dropdown-modal" id="themePalette" role="dialog" aria-label="${isFr ? "Palette des thèmes" : "Theme palette"}" hidden>
+                <div class="theme-segmented-control" role="tablist" aria-label="${esc(t.themeLabel)}">
+                  <button type="button" role="tab" class="theme-segment-btn is-active" data-theme-group="light" aria-selected="true">${isFr ? "Thèmes Clairs" : "Light themes"}<span class="theme-segment-count">${lightThemes.length}</span></button>
+                  <button type="button" role="tab" class="theme-segment-btn" data-theme-group="dark" aria-selected="false">${isFr ? "Thèmes Sombres" : "Dark themes"}<span class="theme-segment-count">${darkThemes.length}</span></button>
+                </div>
+                <div class="theme-grid" role="listbox" aria-label="${esc(t.themeLabel)}">${options}</div>
+              </div>
             </div>
-            <label class="sr-only" for="themeSelect">${esc(t.themeLabel)}</label>
-            <select id="themeSelect" class="theme-select" aria-label="${esc(t.themeLabel)}">${options}</select>
           </div>`;
   const nav = `${t.nav.map(([href, label]) => `<a href="${href}">${esc(label)}</a>`).join("\n          ")}
           <a href="/bobine.gpg" download>${esc(t.keyFile)}</a>

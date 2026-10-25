@@ -60,8 +60,24 @@ jobs:
             test -s "icons/browsers/${browser}.svg"
           done
 
-      - name: Verify portal sources (generated pages, no fixed colors, Pong naming)
-        run: node scripts/check-portal.mjs
+      - name: Verify portal sources, mobile layouts and theme controls
+        run: |
+          python3 -m http.server 3103 --bind 127.0.0.1 > /tmp/portal-server.log 2>&1 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:3103/ > /dev/null && break
+            sleep 1
+          done
+          PORTAL_URL=http://127.0.0.1:3103 node scripts/check-portal.mjs
+
+      - name: Verify shared controls match their BobineWeb revision
+        run: |
+          revision=$(node -p 'JSON.parse(require("node:fs").readFileSync("assets/branding-source.json", "utf8")).revision')
+          for file in bobine-controls.css bobine-themes.json; do
+            curl --retry 3 -fsSL "https://raw.githubusercontent.com/FantasmaGlad/BobineWeb/$revision/public/$file" -o "/tmp/$file"
+            cmp "/tmp/$file" "assets/$file"
+          done
 
       - name: Verify the design tokens match BobineWeb
         run: |

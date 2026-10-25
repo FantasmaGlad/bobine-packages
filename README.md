@@ -149,3 +149,15 @@ sudo pacman -Sy bobine
 
 This repository and its packaging configurations are licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 Copyright (c) 2026 Bobine.
+
+## Shared visual identity
+
+The portal uses the Bobine site's language and theme controls, with the same 16 themes and shared preference. Brand SVGs retain their colors and proportions. To synchronize a BobineWeb checkout:
+
+```sh
+node scripts/sync-branding.mjs ../BobineWeb
+node scripts/build-portal.mjs
+node scripts/check-portal.mjs
+```
+
+See [assets/NOTICE.md](assets/NOTICE.md) for credits and provenance. CI checks generated files, their source revision, 40 layouts and 12 open palettes in Chromium.
