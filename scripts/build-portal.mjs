@@ -94,11 +94,10 @@ const L = {
     copyStatus: "Copy status",
     pong: {
       title: "Pong: play against the robot",
-      description: "Pong, the classic arcade game, in your browser: first to 7 points wins against the robot. Keyboard, mouse or touch, no account and no tracking.",
+      description: "Pong, the classic arcade game, in your browser: first to 7 points wins against the robot. Arrow keys, W/S, mouse or touch; no account and no tracking.",
       keywords: "Pong, arcade game, retro game, Bobine",
       h1: "Pong",
       player: "Player", robot: "Robot",
-      startTitle: "Ready to play?", startText: "First to 7 points wins. Move with the arrow keys, W/S, the mouse or your finger.", start: "Start",
       winTitle: "Victory!", winText: "You won the 7-point match against the robot.",
       lossTitle: "Defeat", lossText: "The robot reached 7 points.", again: "Play again",
       back: "Back to the package hub", crumbHome: "Packages",
@@ -189,7 +188,6 @@ const L = {
       keywords: "Pong, jeu d'arcade, jeu rétro, Bobine",
       h1: "Pong",
       player: "Joueur", robot: "Robot",
-      startTitle: "Prêt à jouer ?", startText: "Le premier à 7 points gagne. Déplacez-vous avec les flèches, W/S (Z/S), la souris ou le doigt.", start: "Commencer",
       winTitle: "Victoire !", winText: "Vous avez remporté la manche à 7 points face au robot.",
       lossTitle: "Défaite", lossText: "Le robot a atteint 7 points.", again: "Recommencer",
       back: "Retour aux dépôts Linux", crumbHome: "Paquets",
@@ -443,10 +441,10 @@ function pongPage(t) {
       <div class="pong-score__box"><span class="pong-score__label">${esc(p.robot)}</span><span class="pong-score__val" id="scoreBot">0</span></div>
     </div>
     <canvas id="pongCanvas" aria-label="Pong"></canvas>
-    <div class="pong-overlay is-visible" id="overlay" role="dialog" aria-modal="false" aria-labelledby="overlayTitle">
-      <h2 id="overlayTitle">${esc(p.startTitle)}</h2>
-      <p id="overlayText">${esc(p.startText)}</p>
-      <button type="button" class="btn btn--primary" id="overlayBtn">${esc(p.start)}</button>
+    <div class="pong-overlay" id="overlay" role="dialog" aria-modal="false" aria-labelledby="overlayTitle">
+      <h2 id="overlayTitle"></h2>
+      <p id="overlayText"></p>
+      <button type="button" class="btn btn--primary" id="overlayBtn">${esc(p.again)}</button>
     </div>
     <noscript><p class="pong-noscript">JavaScript required.</p></noscript>
   </main>
