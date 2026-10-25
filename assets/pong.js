@@ -10,6 +10,7 @@
   var overlayTitle = document.getElementById('overlayTitle');
   var overlayText = document.getElementById('overlayText');
   var overlayBtn = document.getElementById('overlayBtn');
+  var AGAIN = document.documentElement.lang === 'fr' ? 'Recommencer' : 'Play again';
   var WIN = 7;
 
   // Ancien lien bilingue : /pong/?lang=fr
@@ -81,7 +82,6 @@
     serve(Math.random() > 0.5 ? 1 : -1);
     overlay.classList.remove('is-visible');
     running = true;
-    tone(440, 'square', 0.05, 0.05);
   }
   overlayBtn.addEventListener('click', start);
 
@@ -142,8 +142,8 @@
     tone(784, 'sine', 0.16, 0.08);
     if (score[who] >= WIN) {
       running = false;
-      if (who === 'player') { seq([523, 659, 784, 1046], 'sine', 0.14, 0.08, 100); showOverlay(S.winTitle, S.winText, document.documentElement.lang === 'fr' ? 'Recommencer' : 'Play again'); }
-      else { seq([392, 330, 261, 220], 'sawtooth', 0.18, 0.07, 120); showOverlay(S.lossTitle, S.lossText, document.documentElement.lang === 'fr' ? 'Recommencer' : 'Play again'); }
+      if (who === 'player') { seq([523, 659, 784, 1046], 'sine', 0.14, 0.08, 100); showOverlay(S.winTitle, S.winText, AGAIN); }
+      else { seq([392, 330, 261, 220], 'sawtooth', 0.18, 0.07, 120); showOverlay(S.lossTitle, S.lossText, AGAIN); }
     } else serve(dir);
   }
 
@@ -166,7 +166,9 @@
     render();
     requestAnimationFrame(loop);
   }
+  // Le jeu se lance dès l'arrivée sur la page ; le son se débloque au premier geste (règle des navigateurs).
   resize();
-  serve(1);
+  start();
+  ['pointerdown', 'keydown'].forEach(function (name) { window.addEventListener(name, function () { tone(1, 'sine', 0.001, 0.0001); }, { once: true }); });
   requestAnimationFrame(loop);
 })();

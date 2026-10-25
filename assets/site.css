@@ -43,7 +43,9 @@ h1, h2, h3 { color: var(--text-heading); line-height: 1.2; margin: 0; }
 .header-nav { display: flex; align-items: center; gap: 0.25rem 0.5rem; flex: 1; justify-content: flex-end; }
 .header-nav a, .header-nav .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: 0 0.7rem; border-radius: var(--radius-md); font-size: var(--fs-0-875rem); text-decoration: none; color: var(--text-body); }
 .header-nav a:hover { background: var(--accent-subtle); }
-.header-nav .btn { background: var(--accent-primary); color: var(--accent-primary-fg); font-weight: 600; }
+.header-nav .btn { min-height: 36px; padding: 0 0.7rem; background: transparent; color: var(--text-heading); border: 1px solid var(--glass-card-border); font-weight: 500; font-size: var(--fs-0-82rem); }
+.header-nav .btn:hover { background: var(--accent-subtle); border-color: var(--accent-primary); }
+@media (pointer: coarse) { .header-nav .btn { min-height: 44px; } }
 .header-controls { display: flex; align-items: center; gap: 0.5rem; }
 .lang-switch { display: inline-flex; border: 1px solid var(--glass-card-border); border-radius: var(--radius-md); overflow: hidden; }
 .lang-switch a { min-width: 44px; justify-content: center; border-radius: 0; }
