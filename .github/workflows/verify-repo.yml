@@ -30,6 +30,12 @@ jobs:
           test -f index.html
           test -f fr/index.html
           test -f pong/index.html
+          test -f fr/pong/index.html
+          test -s assets/site.css
+          test -s assets/site.js
+          test -s assets/pong.js
+          test -s assets/pong.css
+          test -s assets/bobine-tokens.css
           test -f logo_bobine_entier.png
           test -f CNAME
           test -f .nojekyll
@@ -54,17 +60,25 @@ jobs:
             test -s "icons/browsers/${browser}.svg"
           done
 
+      - name: Verify portal sources (generated pages, no fixed colors, Pong naming)
+        run: node scripts/check-portal.mjs
+
+      - name: Verify the design tokens match BobineWeb
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/FantasmaGlad/BobineWeb/main/public/bobine-tokens.css -o /tmp/bobine-tokens.css
+          cmp /tmp/bobine-tokens.css assets/bobine-tokens.css || { echo "::error::assets/bobine-tokens.css differs from BobineWeb/public/bobine-tokens.css : copy the generated file"; exit 1; }
+
       - name: Verify portal links and local previews
         run: |
           set -euo pipefail
           test -s favicon.ico
           test -s og-image.webp
           for family in debian fedora arch; do test -s "$family/index.html"; done
-          if grep -nE 'bobine.fit/(og-image.png|en/ordinateur|en/securite|fr/materiel"|en/hardware")' index.html fr/index.html pong/index.html; then
+          if grep -nE 'bobine.fit/(og-image.png|en/ordinateur|en/securite|fr/materiel"|en/hardware")' index.html fr/index.html pong/index.html fr/pong/index.html; then
             echo "ERROR: obsolete portal link"
             exit 1
           fi
-          for page in index.html fr/index.html pong/index.html; do
+          for page in index.html fr/index.html pong/index.html fr/pong/index.html; do
             grep -q 'https://packages.bobine.fit/og-image.webp' "$page"
           done
 
@@ -117,7 +131,7 @@ jobs:
         run: |
           set -euo pipefail
           cd source
-          git ls-files -z -- '*.html' 'icons/**' 'favicon.ico' 'og-image.webp' 'logo_bobine_entier.png' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' |
+          git ls-files -z -- '*.html' 'assets/**' 'icons/**' 'favicon.ico' 'og-image.webp' 'logo_bobine_entier.png' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' |
             tar --null -T - -cf - | tar -xf - -C ../published
       - name: Publish without replacing package binaries
         working-directory: published
@@ -125,7 +139,7 @@ jobs:
           set -euo pipefail
           git config user.name fanta
           git config user.email 193235053+FantasmaGlad@users.noreply.github.com
-          git add -- '*.html' icons favicon.ico og-image.webp logo_bobine_entier.png robots.txt sitemap.xml llms.txt CNAME .nojekyll
+          git add -- '*.html' assets icons favicon.ico og-image.webp logo_bobine_entier.png robots.txt sitemap.xml llms.txt CNAME .nojekyll
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "fix(portail): synchroniser les liens et ressources validés"
           for attempt in 1 2 3; do
