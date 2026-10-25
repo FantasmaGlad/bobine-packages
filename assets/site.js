@@ -1,7 +1,8 @@
 /* Portail packages.bobine.fit : thème partagé avec bobine.fit (cookie du domaine) et configurateur de dépôts. */
 (function () {
   'use strict';
-  var THEMES = ['charbon', 'clair', 'miel', 'menthe', 'ciel', 'lavande', 'beige', 'coco', 'les-mills-sombre', 'charbon-sombre', 'automne', 'hiver', 'lune', 'chili', 'orchidee', 'taupe'];
+  var options = Array.from(document.querySelectorAll('[data-theme-value]'));
+  var THEMES = options.map(function (option) { return option.dataset.themeValue; });
   var LANG = document.documentElement.lang === 'fr' ? 'fr' : 'en';
 
   // --- Thème : cookie bobine-theme sur .bobine.fit (lu aussi par le site), localStorage en repli ---
@@ -17,11 +18,62 @@
     var domain = /(^|\.)bobine\.fit$/.test(host) ? '; domain=.bobine.fit' : '';
     document.cookie = 'bobine-theme=' + theme + domain + '; path=/; max-age=31536000; samesite=lax' + (location.protocol === 'https:' ? '; secure' : '');
     try { localStorage.setItem('bobineweb-theme', theme); } catch (e) { /* stockage indisponible */ }
-    var select = document.getElementById('themeSelect');
-    if (select) select.value = theme;
+    options.forEach(function (option) {
+      var active = option.dataset.themeValue === theme;
+      option.setAttribute('aria-selected', String(active));
+      option.classList.toggle('is-active', active);
+      if (active) {
+        document.querySelector('.theme-switcher-btn__label').textContent = option.dataset.label;
+        document.querySelector('.theme-swatch-icon').dataset.theme = theme;
+        document.getElementById('themeCycle').setAttribute('aria-label', (LANG === 'fr' ? 'Thème actif : ' : 'Current theme: ') + option.dataset.label + (LANG === 'fr' ? '. Thème suivant' : '. Next theme'));
+      }
+    });
   }
-  var themeSelect = document.getElementById('themeSelect');
-  if (themeSelect) themeSelect.addEventListener('change', function () { applyTheme(themeSelect.value); });
+  var picker = document.getElementById('themePicker');
+  var palette = document.getElementById('themePalette');
+  var toggle = document.getElementById('themeToggle');
+  function setGroup(dark) {
+    options.forEach(function (option) { option.hidden = (option.dataset.dark === 'true') !== dark; });
+    document.querySelectorAll('[data-theme-group]').forEach(function (tab) {
+      var active = (tab.dataset.themeGroup === 'dark') === dark;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+    });
+  }
+  function closePalette(focus) {
+    palette.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.querySelector('svg').classList.remove('is-open');
+    if (focus) toggle.focus();
+  }
+  toggle.addEventListener('click', function () {
+    if (!palette.hidden) { closePalette(false); return; }
+    var selected = options.find(function (o) { return o.dataset.themeValue === storedTheme(); });
+    setGroup(selected.dataset.dark === 'true');
+    palette.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.querySelector('svg').classList.add('is-open');
+    selected.focus();
+  });
+  document.getElementById('themeCycle').addEventListener('click', function () {
+    applyTheme(THEMES[(THEMES.indexOf(storedTheme()) + 1) % THEMES.length]);
+  });
+  options.forEach(function (option) { option.addEventListener('click', function () {
+    applyTheme(option.dataset.themeValue); closePalette(true);
+  }); });
+  document.querySelectorAll('[data-theme-group]').forEach(function (tab) { tab.addEventListener('click', function () { setGroup(tab.dataset.themeGroup === 'dark'); }); });
+  document.addEventListener('click', function (event) { if (!picker.contains(event.target)) closePalette(false); });
+  document.addEventListener('keydown', function (event) {
+    if (palette.hidden) return;
+    if (event.key === 'Escape') { event.preventDefault(); event.stopImmediatePropagation(); closePalette(true); return; }
+    if (!event.target.matches('[data-theme-value]')) return;
+    var visible = options.filter(function (option) { return !option.hidden; });
+    var index = visible.indexOf(event.target);
+    var offset = {ArrowRight:1, ArrowLeft:-1, ArrowDown:2, ArrowUp:-2}[event.key];
+    if (offset !== undefined) { event.preventDefault(); visible[(index + offset + visible.length) % visible.length].focus(); }
+    if (event.key === 'Home' || event.key === 'End') { event.preventDefault(); visible[event.key === 'Home' ? 0 : visible.length - 1].focus(); }
+  });
+  picker.addEventListener('focusout', function (event) { if (event.relatedTarget && !picker.contains(event.relatedTarget)) closePalette(false); });
   applyTheme(storedTheme());
 
   // --- Menu des petits écrans ---
