@@ -80,7 +80,7 @@ sudo pacman -Sy bobine
 ## Interconnectivity & Upstream Links
 - Main Website: https://bobine.fit
 - Linux Hub: https://bobine.fit/fr/linux (French) and https://bobine.fit/en/linux (English)
-- PC & Hardware Compatibility: https://bobine.fit/fr/ordinateur, https://bobine.fit/en/computer and https://bobine.fit/fr/materiel
+- Downloads & Compatibility: https://bobine.fit/fr/telechargement, https://bobine.fit/en/download and https://bobine.fit/fr/materiel/aliexpress
 - Full Documentation: https://bobine.fit/fr/documentation and https://bobine.fit/en/documentation
 - Security Advisories: https://security.bobine.fit
 - Source Code Repository: https://github.com/FantasmaGlad/Bobine

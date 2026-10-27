@@ -26,7 +26,7 @@
   <a href="https://packages.bobine.fit/fr/"><b>Portail Web des Paquets</b></a> &nbsp;·&nbsp;
   <a href="https://bobine.fit/fr"><b>Site Officiel Bobine</b></a> &nbsp;·&nbsp;
   <a href="https://bobine.fit/fr/linux"><b>Vitrine Linux</b></a> &nbsp;·&nbsp;
-  <a href="https://bobine.fit/fr/ordinateur"><b>PC &amp; Processeurs</b></a> &nbsp;·&nbsp;
+  <a href="https://bobine.fit/fr/telechargement"><b>Téléchargement</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/FantasmaGlad/Bobine"><b>Dépôt Source Bobine</b></a> &nbsp;·&nbsp;
   <a href="README.md"><b>English</b></a>
 </p>
@@ -150,14 +150,24 @@ sudo pacman -Sy bobine
 Ce dépôt et ses configurations de paquets sont distribués sous licence **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 Copyright (c) 2026 Bobine.
 
-## Identité visuelle commune
+## 7. Architecture Statique SSG & Identité Visuelle
 
-Le portail reprend les styles des sélecteurs de langue et de thème du site Bobine, avec les mêmes 16 thèmes et la même préférence partagée. Les marques sont affichées comme des SVG en couleurs, à proportions conservées. Pour synchroniser un checkout de BobineWeb :
+Le portail web `packages.bobine.fit` repose sur une architecture statique SSG moderne, alignée sur le design system de Bobine :
 
-```sh
-node scripts/sync-branding.mjs ../BobineWeb
-node scripts/build-portal.mjs
-node scripts/check-portal.mjs
-```
+- **Thème par défaut** : Thème **Lavande** (`data-theme="lavande"`), avec en-tête centré, cartes en verre translucide Liquid Glass (`bobine-tokens.css`) et 16 thèmes dynamiques partagés avec `bobine.fit`.
+- **Badges et logos officiels** : Badges distincts haute fidélité pour les trois canaux (**Stable**, **Bêta**, **Canary**), logos des processeurs (**Qualcomm Snapdragon**, **Intel**, **AMD**) et des navigateurs (**Chrome**, **Firefox**, **Safari**, **Edge**, **Brave**, **Opera**, **Tor**).
+- **Scripts de compilation et de contrôle** :
+  ```bash
+  # Compiler les pages statiques du portail (accueil et Pong)
+  npm run build
 
-Les crédits et la provenance des ressources se trouvent dans [assets/NOTICE.md](assets/NOTICE.md). La CI contrôle les fichiers générés, leur correspondance à la révision source, 40 mises en page et 12 palettes ouvertes dans Chromium.
+  # Vérifier la conformité des sources et des pages générées
+  npm run check
+
+  # Synchroniser l'identité et les jetons depuis BobineWeb
+  npm run sync:branding ../BobineWeb
+  ```
+- **Maintenance des dépôts sous-jacents** : Les répertoires `debian/`, `fedora/` et `arch/`, la clé OpenPGP `bobine.gpg`, les fichiers `.repo`, ainsi que la configuration des miroirs Tor sont strictement préservés et suivis dans Git.
+- **Vérification CI & Déploiement** : Le workflow GitHub Actions `verify-repo.yml` audite l'intégrité cryptographique des signatures de paquets, la conformité géométrique responsive (360px à 1280px) et déploie le portail vers GitHub Pages (`publish-pages.yml`).
+
+Les crédits et la provenance des ressources se trouvent dans [assets/NOTICE.md](assets/NOTICE.md).

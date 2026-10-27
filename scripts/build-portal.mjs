@@ -39,7 +39,7 @@ const L = {
     heroText: "Choose your distribution family, release channel and architecture. Packages and repository indexes are signed with the same OpenPGP key and update with your package manager on x86_64 and ARM64.",
     confLabel: "Linux installation configurator",
     channel: "Channel",
-    channels: [["stable", "Stable (recommended)"], ["beta", "Beta"], ["canary", "Canary"]],
+    channels: [["stable", "Stable (recommended)", "/assets/channels/bobine-stable.webp"], ["beta", "Beta", "/assets/channels/bobine-beta.webp"], ["canary", "Canary", "/assets/channels/bobine-canary.webp"]],
     arch: "Architecture",
     archs: [["x86_64", "x86_64 / amd64 (Intel, AMD)"], ["arm64", "ARM64 / aarch64"]],
     family: "Distribution family",
@@ -61,7 +61,7 @@ const L = {
       ["x86_64 (Intel and AMD)", ["intel", "amd"], "Intel Core, Core Ultra and N-series processors, AMD Ryzen, Dell Wyse 5070 class thin clients and mini PCs for 24/7 use."],
       ["ARM64 (Snapdragon, Apple Silicon, single-board computers)", ["snapdragon", "apple", "raspberrypi"], "Snapdragon X laptops, ARM tablets with USB-C video output, Raspberry Pi 5 and similar boards."],
     ],
-    archLink: ["https://bobine.fit/en/computer", "See the compatibility pages"],
+    archLink: ["https://bobine.fit/en/download", "See the compatibility pages"],
     secSection: ["Security", "One OpenPGP signature for every repository", "Repository indexes (InRelease, repomd.xml.asc, bobine.db.sig) and packages are signed with the same key. Your package manager rejects a file that was altered."],
     fpTitle: "Signing key fingerprint",
     fpText: "Check that the fingerprint shown by your package manager matches this one:",
@@ -75,9 +75,9 @@ const L = {
     ],
     ecoSection: ["Other platforms", "Windows, macOS, Android and browsers", "Bobine also installs on other systems and is controlled from any modern browser on the local network."],
     eco: [
-      ["https://bobine.fit/en/computer", ["windows", "apple"], "Windows and macOS", "Installers for Windows (x86_64, ARM64) and a disk image for Apple Silicon Macs."],
-      ["https://bobine.fit/en/google-book", ["android", "androidtv"], "Android, Google Book and Android TV", "An APK for tablets and Google Book, and an APK for Android TV and Google TV boxes."],
-      ["https://bobine.fit/en/documentation", ["firefox", "chrome", "safari"], "Browsers and Tor", "Remote control from Firefox, Chrome, Edge, Brave, Safari and Tor Browser, with a Tor mirror of the site and of these repositories."],
+      ["https://bobine.fit/en/download", ["windows", "apple"], "Windows and macOS", "Installers for Windows (x86_64, ARM64) and a disk image for Apple Silicon Macs."],
+      ["https://bobine.fit/en/download", ["android", "androidtv"], "Android and Android TV", "An APK for tablets, Google Books and ARM kiosks, and an APK for Android TV and Google TV boxes."],
+      ["https://bobine.fit/en/documentation", ["chrome", "firefox", "safari", "edge", "brave", "opera", "torbrowser"], "Browsers and Tor", "Remote control from Chrome, Firefox, Safari, Edge, Brave, Opera and Tor Browser, with a Tor mirror of the site and of these repositories."],
     ],
     footerLead: "Autonomous video and audio playout, free software under AGPL-3.0. OpenPGP key 829EE15A.",
     footerLinks: [
@@ -129,7 +129,7 @@ const L = {
     heroText: "Choisissez votre famille de distribution, votre canal et votre architecture. Les paquets et les index des dépôts sont signés avec la même clé OpenPGP et se mettent à jour avec votre gestionnaire de paquets, en x86_64 et en ARM64.",
     confLabel: "Configurateur d'installation Linux",
     channel: "Canal",
-    channels: [["stable", "Stable (recommandé)"], ["beta", "Bêta"], ["canary", "Canary"]],
+    channels: [["stable", "Stable (recommandé)", "/assets/channels/bobine-stable.webp"], ["beta", "Bêta", "/assets/channels/bobine-beta.webp"], ["canary", "Canary", "/assets/channels/bobine-canary.webp"]],
     arch: "Architecture",
     archs: [["x86_64", "x86_64 / amd64 (Intel, AMD)"], ["arm64", "ARM64 / aarch64"]],
     family: "Famille de distribution",
@@ -151,7 +151,7 @@ const L = {
       ["x86_64 (Intel et AMD)", ["intel", "amd"], "Processeurs Intel Core, Core Ultra et série N, AMD Ryzen, clients légers de type Dell Wyse 5070 et mini PC pour un usage 24/7."],
       ["ARM64 (Snapdragon, Apple Silicon, cartes monocartes)", ["snapdragon", "apple", "raspberrypi"], "Portables Snapdragon X, tablettes ARM avec sortie vidéo USB-C, Raspberry Pi 5 et cartes similaires."],
     ],
-    archLink: ["https://bobine.fit/fr/ordinateur", "Voir les pages de compatibilité"],
+    archLink: ["https://bobine.fit/fr/telechargement", "Voir les pages de téléchargement"],
     secSection: ["Sécurité", "Une seule signature OpenPGP pour tous les dépôts", "Les index des dépôts (InRelease, repomd.xml.asc, bobine.db.sig) et les paquets sont signés avec la même clé. Votre gestionnaire de paquets refuse un fichier altéré."],
     fpTitle: "Empreinte de la clé de signature",
     fpText: "Vérifiez que l'empreinte affichée par votre gestionnaire de paquets correspond à celle-ci :",
@@ -165,9 +165,9 @@ const L = {
     ],
     ecoSection: ["Autres plateformes", "Windows, macOS, Android et navigateurs", "Bobine s'installe aussi sur d'autres systèmes et se pilote depuis n'importe quel navigateur moderne du réseau local."],
     eco: [
-      ["https://bobine.fit/fr/ordinateur", ["windows", "apple"], "Windows et macOS", "Installateurs Windows (x86_64, ARM64) et image disque pour les Mac Apple Silicon."],
-      ["https://bobine.fit/fr/google-book", ["android", "androidtv"], "Android, Google Book et Android TV", "Un APK pour les tablettes et Google Book, et un APK pour les boîtiers Android TV et Google TV."],
-      ["https://bobine.fit/fr/documentation", ["firefox", "chrome", "safari"], "Navigateurs et Tor", "Pilotage depuis Firefox, Chrome, Edge, Brave, Safari et Tor Browser, avec un miroir Tor du site et de ces dépôts."],
+      ["https://bobine.fit/fr/telechargement", ["windows", "apple"], "Windows et macOS", "Installateurs Windows (x86_64, ARM64) et image disque pour les Mac Apple Silicon."],
+      ["https://bobine.fit/fr/telechargement", ["android", "androidtv"], "Android et Android TV", "Un APK pour les tablettes, Google Books et bornes ARM, et un APK pour les boîtiers Android TV et Google TV."],
+      ["https://bobine.fit/fr/documentation", ["chrome", "firefox", "safari", "edge", "brave", "opera", "torbrowser"], "Navigateurs et Tor", "Pilotage depuis Chrome, Firefox, Safari, Edge, Brave, Opera et Tor Browser, avec un miroir Tor du site et de ces dépôts."],
     ],
     footerLead: "Régie vidéo et audio autonome, logiciel libre sous AGPL-3.0. Clé OpenPGP 829EE15A.",
     footerLinks: [
@@ -197,7 +197,7 @@ const L = {
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const icon = (kind, name) => `<img class="brand-icon brand-icon--image" src="/icons/${kind}/${name}.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy">`;
-const iconOf = (name) => (["windows", "apple", "android", "androidtv", "framework", "tor", "linux"].includes(name) ? icon("os", name) : ["intel", "amd", "snapdragon"].includes(name) ? icon("chips", name) : ["firefox", "chrome", "safari", "edge", "brave", "torbrowser"].includes(name) ? icon("browsers", name) : icon("distros", name));
+const iconOf = (name) => (["windows", "apple", "android", "androidtv", "framework", "tor", "linux"].includes(name) ? icon("os", name) : ["intel", "amd", "snapdragon"].includes(name) ? icon("chips", name) : ["firefox", "chrome", "safari", "edge", "brave", "opera", "torbrowser"].includes(name) ? icon("browsers", name) : icon("distros", name));
 
 /** Balises communes de <head> : métadonnées, jetons, feuilles de style et script d'anti-clignotement du thème. */
 function head(t, o) {
@@ -309,7 +309,7 @@ function page(t) {
           <span class="distro__sub">${esc(sub)}</span>
           <span class="distro__chips">${chips.map(([ic, label]) => `<span>${iconOf(ic)}${esc(label)}</span>`).join("")}</span>
         </button>`).join("");
-  const seg = (items, attr, selected) => items.map(([v, label]) => `<button type="button" ${attr}="${v}" aria-pressed="${v === selected}">${esc(label)}</button>`).join("");
+  const seg = (items, attr, selected) => items.map(([v, label, badge]) => `<button type="button" ${attr}="${v}" aria-pressed="${v === selected}">${badge ? `<img class="channel-badge" src="${badge}" alt="" width="20" height="20" loading="lazy">` : ""}<span>${esc(label)}</span></button>`).join("");
   return `<!DOCTYPE html>
 <html lang="${t.lang}" data-theme="lavande">
 <head>

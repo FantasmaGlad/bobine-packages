@@ -26,7 +26,7 @@
   <a href="https://packages.bobine.fit"><b>Web Package Hub</b></a> &nbsp;·&nbsp;
   <a href="https://bobine.fit/en"><b>Official Bobine Site</b></a> &nbsp;·&nbsp;
   <a href="https://bobine.fit/en/linux"><b>Linux Showcase</b></a> &nbsp;·&nbsp;
-  <a href="https://bobine.fit/en/computer"><b>PCs &amp; Processors</b></a> &nbsp;·&nbsp;
+  <a href="https://bobine.fit/en/download"><b>Download</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/FantasmaGlad/Bobine"><b>Bobine Source Repository</b></a> &nbsp;·&nbsp;
   <a href="README.fr.md"><b>Français</b></a>
 </p>
@@ -150,14 +150,24 @@ sudo pacman -Sy bobine
 This repository and its packaging configurations are licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
 Copyright (c) 2026 Bobine.
 
-## Shared visual identity
+## 7. Static SSG Architecture & Visual Identity
 
-The portal uses the Bobine site's language and theme controls, with the same 16 themes and shared preference. Brand SVGs retain their colors and proportions. To synchronize a BobineWeb checkout:
+The web portal at `packages.bobine.fit` is powered by a modern static SSG architecture aligned with Bobine's design system:
 
-```sh
-node scripts/sync-branding.mjs ../BobineWeb
-node scripts/build-portal.mjs
-node scripts/check-portal.mjs
-```
+- **Default Theme**: **Lavender** (`data-theme="lavande"`), centered hero headline, Liquid Glass translucent glass cards (`bobine-tokens.css`), and 16 dynamic themes synchronized with `bobine.fit`.
+- **Official Badges & Logos**: High-fidelity badges for the three release channels (**Stable**, **Beta**, **Canary**), processor manufacturer logos (**Qualcomm Snapdragon**, **Intel**, **AMD**), and web browser logos (**Chrome**, **Firefox**, **Safari**, **Edge**, **Brave**, **Opera**, **Tor**).
+- **Build & Verification Scripts**:
+  ```bash
+  # Build static portal pages (index and Pong)
+  npm run build
 
-See [assets/NOTICE.md](assets/NOTICE.md) for credits and provenance. CI checks generated files, their source revision, 40 layouts and 12 open palettes in Chromium.
+  # Check portal sources, tokens, and output conformance
+  npm run check
+
+  # Synchronize branding assets and tokens from BobineWeb
+  npm run sync:branding ../BobineWeb
+  ```
+- **Underlying Repository Maintenance**: Package directories `debian/`, `fedora/`, and `arch/`, the OpenPGP key `bobine.gpg`, `.repo` configurations, and Tor `.onion` mirror settings are strictly preserved and tracked in Git.
+- **CI Verification & Deployment**: The GitHub Actions workflow `verify-repo.yml` verifies cryptographic package signatures, responsive geometry from 360px to 1280px, and deploys the portal to GitHub Pages (`publish-pages.yml`).
+
+See [assets/NOTICE.md](assets/NOTICE.md) for third-party credits and provenance.
