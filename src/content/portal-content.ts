@@ -133,10 +133,10 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
         chips: [
           ["debian", "Debian 13+"],
           ["ubuntu", "Ubuntu 24.04+"],
-          ["linuxmint", "Linux Mint 22+"],
-          ["popos", "Pop!_OS 24.04+"],
-          ["zorin", "Zorin OS 18+"],
-          ["raspberrypi", "Raspberry Pi OS (Trixie+)"],
+          ["linuxmint", "Linux Mint"],
+          ["popos", "Pop!_OS"],
+          ["zorin", "Zorin OS"],
+          ["raspberrypi", "Raspberry Pi OS"],
         ],
       },
       {
@@ -147,8 +147,8 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
           ["fedora", "Fedora"],
           ["nobara", "Nobara"],
           ["rhel", "RHEL 10+"],
-          ["almalinux", "AlmaLinux 10+"],
-          ["rockylinux", "Rocky Linux 10+"],
+          ["almalinux", "AlmaLinux"],
+          ["rockylinux", "Rocky Linux"],
         ],
       },
       {
@@ -307,10 +307,10 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
         chips: [
           ["debian", "Debian 13+"],
           ["ubuntu", "Ubuntu 24.04+"],
-          ["linuxmint", "Linux Mint 22+"],
-          ["popos", "Pop!_OS 24.04+"],
-          ["zorin", "Zorin OS 18+"],
-          ["raspberrypi", "Raspberry Pi OS (Trixie+)"],
+          ["linuxmint", "Linux Mint"],
+          ["popos", "Pop!_OS"],
+          ["zorin", "Zorin OS"],
+          ["raspberrypi", "Raspberry Pi OS"],
         ],
       },
       {
@@ -321,8 +321,8 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
           ["fedora", "Fedora"],
           ["nobara", "Nobara"],
           ["rhel", "RHEL 10+"],
-          ["almalinux", "AlmaLinux 10+"],
-          ["rockylinux", "Rocky Linux 10+"],
+          ["almalinux", "AlmaLinux"],
+          ["rockylinux", "Rocky Linux"],
         ],
       },
       {
