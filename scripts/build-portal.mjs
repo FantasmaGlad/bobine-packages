@@ -44,8 +44,8 @@ const L = {
     archs: [["x86_64", "x86_64 / amd64 (Intel, AMD)"], ["arm64", "ARM64 / aarch64"]],
     family: "Distribution family",
     families: [
-      ["debian", "Debian, Ubuntu and derivatives", "APT · updates with apt upgrade", [["debian", "Debian 13+"], ["ubuntu", "Ubuntu 24.04+"], ["linuxmint", "Linux Mint"], ["popos", "Pop!_OS"], ["zorin", "Zorin OS"], ["raspberrypi", "Raspberry Pi OS"]]],
-      ["fedora", "Fedora, RHEL and Enterprise Linux", "DNF · updates with dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 10+"], ["almalinux", "AlmaLinux"], ["rockylinux", "Rocky Linux"]]],
+      ["debian", "Debian, Ubuntu and derivatives", "APT · updates with apt upgrade", [["debian", "Debian 13+"], ["ubuntu", "Ubuntu 24.04+"], ["linuxmint", "Linux Mint 22+"], ["popos", "Pop!_OS 24.04+"], ["zorin", "Zorin OS 18+"], ["raspberrypi", "Raspberry Pi OS (Trixie+)"]]],
+      ["fedora", "Fedora, RHEL and Enterprise Linux", "DNF · updates with dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 10+"], ["almalinux", "AlmaLinux 10+"], ["rockylinux", "Rocky Linux 10+"]]],
       ["arch", "Arch Linux and derivatives", "Pacman · updates with pacman -Syu", [["arch", "Arch Linux"], ["endeavouros", "EndeavourOS"], ["cachyos", "CachyOS"], ["manjaro", "Manjaro"]]],
     ],
     dnfTabs: [["dnf5", "Fedora 41+ (DNF 5)"], ["dnf4", "RHEL, Alma, Rocky (DNF 4)"]],
@@ -134,8 +134,8 @@ const L = {
     archs: [["x86_64", "x86_64 / amd64 (Intel, AMD)"], ["arm64", "ARM64 / aarch64"]],
     family: "Famille de distribution",
     families: [
-      ["debian", "Debian, Ubuntu et dérivées", "APT · mises à jour avec apt upgrade", [["debian", "Debian 13+"], ["ubuntu", "Ubuntu 24.04+"], ["linuxmint", "Linux Mint"], ["popos", "Pop!_OS"], ["zorin", "Zorin OS"], ["raspberrypi", "Raspberry Pi OS"]]],
-      ["fedora", "Fedora, RHEL et Enterprise Linux", "DNF · mises à jour avec dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 10+"], ["almalinux", "AlmaLinux"], ["rockylinux", "Rocky Linux"]]],
+      ["debian", "Debian, Ubuntu et dérivées", "APT · mises à jour avec apt upgrade", [["debian", "Debian 13+"], ["ubuntu", "Ubuntu 24.04+"], ["linuxmint", "Linux Mint 22+"], ["popos", "Pop!_OS 24.04+"], ["zorin", "Zorin OS 18+"], ["raspberrypi", "Raspberry Pi OS (Trixie+)"]]],
+      ["fedora", "Fedora, RHEL et Enterprise Linux", "DNF · mises à jour avec dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 10+"], ["almalinux", "AlmaLinux 10+"], ["rockylinux", "Rocky Linux 10+"]]],
       ["arch", "Arch Linux et dérivées", "Pacman · mises à jour avec pacman -Syu", [["arch", "Arch Linux"], ["endeavouros", "EndeavourOS"], ["cachyos", "CachyOS"], ["manjaro", "Manjaro"]]],
     ],
     dnfTabs: [["dnf5", "Fedora 41+ (DNF 5)"], ["dnf4", "RHEL, Alma, Rocky (DNF 4)"]],
