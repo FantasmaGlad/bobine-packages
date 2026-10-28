@@ -131,12 +131,12 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
         title: "Debian, Ubuntu et dérivées",
         sub: "APT · mises à jour avec apt upgrade",
         chips: [
-          ["debian", "Debian 12/13"],
-          ["ubuntu", "Ubuntu 22.04/24.04"],
-          ["linuxmint", "Linux Mint"],
-          ["popos", "Pop!_OS"],
-          ["zorin", "Zorin OS"],
-          ["raspberrypi", "Raspberry Pi OS"],
+          ["debian", "Debian 13+"],
+          ["ubuntu", "Ubuntu 24.04+"],
+          ["linuxmint", "Linux Mint 22+"],
+          ["popos", "Pop!_OS 24.04+"],
+          ["zorin", "Zorin OS 18+"],
+          ["raspberrypi", "Raspberry Pi OS (Trixie+)"],
         ],
       },
       {
@@ -146,10 +146,9 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
         chips: [
           ["fedora", "Fedora"],
           ["nobara", "Nobara"],
-          ["rhel", "RHEL 9"],
-          ["almalinux", "AlmaLinux"],
-          ["rockylinux", "Rocky Linux"],
-          ["opensuse", "openSUSE"],
+          ["rhel", "RHEL 10+"],
+          ["almalinux", "AlmaLinux 10+"],
+          ["rockylinux", "Rocky Linux 10+"],
         ],
       },
       {
@@ -206,7 +205,7 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
     notes: "Notes par distribution",
     notesList: [
       ["Fedora et RPM Fusion", "Fedora fournit ffmpeg-free par défaut. Activez RPM Fusion puis lancez sudo dnf swap ffmpeg-free ffmpeg --allowerasing pour disposer de tous les codecs."],
-      ["RHEL 9, AlmaLinux, Rocky Linux", "Activez d'abord EPEL (sudo dnf install epel-release) pour que les dépendances multimédia et WebKitGTK soient résolues."],
+      ["RHEL 10+, AlmaLinux 10+, Rocky Linux 10+", "Activez d'abord EPEL (sudo dnf install epel-release) pour que les dépendances multimédia et WebKitGTK soient résolues."],
       ["Mises à jour depuis l'application", "Bobine détecte s'il a été installé avec dpkg/apt, rpm/dnf ou pacman et se met à jour dans le même format, via Polkit."],
     ],
     ecoSection: [
@@ -306,12 +305,12 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
         title: "Debian, Ubuntu and derivatives",
         sub: "APT · updates with apt upgrade",
         chips: [
-          ["debian", "Debian 12/13"],
-          ["ubuntu", "Ubuntu 22.04/24.04"],
-          ["linuxmint", "Linux Mint"],
-          ["popos", "Pop!_OS"],
-          ["zorin", "Zorin OS"],
-          ["raspberrypi", "Raspberry Pi OS"],
+          ["debian", "Debian 13+"],
+          ["ubuntu", "Ubuntu 24.04+"],
+          ["linuxmint", "Linux Mint 22+"],
+          ["popos", "Pop!_OS 24.04+"],
+          ["zorin", "Zorin OS 18+"],
+          ["raspberrypi", "Raspberry Pi OS (Trixie+)"],
         ],
       },
       {
@@ -321,10 +320,9 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
         chips: [
           ["fedora", "Fedora"],
           ["nobara", "Nobara"],
-          ["rhel", "RHEL 9"],
-          ["almalinux", "AlmaLinux"],
-          ["rockylinux", "Rocky Linux"],
-          ["opensuse", "openSUSE"],
+          ["rhel", "RHEL 10+"],
+          ["almalinux", "AlmaLinux 10+"],
+          ["rockylinux", "Rocky Linux 10+"],
         ],
       },
       {
@@ -381,7 +379,7 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
     notes: "Distribution notes",
     notesList: [
       ["Fedora and RPM Fusion", "Fedora ships ffmpeg-free by default. Enable RPM Fusion, then run sudo dnf swap ffmpeg-free ffmpeg --allowerasing for the full codec set."],
-      ["RHEL 9, AlmaLinux, Rocky Linux", "Enable EPEL first (sudo dnf install epel-release) so the multimedia and WebKitGTK dependencies resolve."],
+      ["RHEL 10+, AlmaLinux 10+, Rocky Linux 10+", "Enable EPEL first (sudo dnf install epel-release) so the multimedia and WebKitGTK dependencies resolve."],
       ["Updates from the app", "Bobine detects whether it was installed with dpkg/apt, rpm/dnf or pacman and updates itself in the same format, through Polkit."],
     ],
     ecoSection: [

@@ -51,12 +51,12 @@ curl -fsSL https://packages.bobine.fit/bobine.gpg | gpg --show-keys
 ## 2. Famille Debian & Ubuntu (Gestionnaire APT — `.deb`)
 
 <p>
-  <img src="icons/distros/debian.svg" width="16" height="16" alt=""> <b>Debian 12 / 13</b> &nbsp;·&nbsp;
-  <img src="icons/distros/ubuntu.svg" width="16" height="16" alt=""> <b>Ubuntu 22.04 / 24.04 LTS</b> &nbsp;·&nbsp;
-  <img src="icons/distros/linuxmint.svg" width="16" height="16" alt=""> <b>Linux Mint 21 / 22</b> &nbsp;·&nbsp;
-  <img src="icons/distros/popos.svg" width="16" height="16" alt=""> <b>Pop!_OS</b> &nbsp;·&nbsp;
-  <img src="icons/distros/zorin.svg" width="16" height="16" alt=""> <b>Zorin OS</b> &nbsp;·&nbsp;
-  <img src="icons/distros/raspberrypi.svg" width="16" height="16" alt=""> <b>Raspberry Pi OS</b>
+  <img src="icons/distros/debian.svg" width="16" height="16" alt=""> <b>Debian 13+</b> &nbsp;·&nbsp;
+  <img src="icons/distros/ubuntu.svg" width="16" height="16" alt=""> <b>Ubuntu 24.04 LTS+</b> &nbsp;·&nbsp;
+  <img src="icons/distros/linuxmint.svg" width="16" height="16" alt=""> <b>Linux Mint 22+</b> &nbsp;·&nbsp;
+  <img src="icons/distros/popos.svg" width="16" height="16" alt=""> <b>Pop!_OS 24.04+</b> &nbsp;·&nbsp;
+  <img src="icons/distros/zorin.svg" width="16" height="16" alt=""> <b>Zorin OS 18+</b> &nbsp;·&nbsp;
+  <img src="icons/distros/raspberrypi.svg" width="16" height="16" alt=""> <b>Raspberry Pi OS (Trixie+)</b>
 </p>
 
 ```bash
@@ -78,10 +78,9 @@ sudo apt update && sudo apt install bobine
 <p>
   <img src="icons/distros/fedora.svg" width="16" height="16" alt=""> <b>Fedora 39 / 40 / 41+</b> &nbsp;·&nbsp;
   <img src="icons/distros/nobara.svg" width="16" height="16" alt=""> <b>Nobara Linux</b> &nbsp;·&nbsp;
-  <img src="icons/distros/rhel.svg" width="16" height="16" alt=""> <b>RHEL 9</b> &nbsp;·&nbsp;
-  <img src="icons/distros/almalinux.svg" width="16" height="16" alt=""> <b>AlmaLinux 9</b> &nbsp;·&nbsp;
-  <img src="icons/distros/rockylinux.svg" width="16" height="16" alt=""> <b>Rocky Linux 9</b> &nbsp;·&nbsp;
-  <img src="icons/distros/opensuse.svg" width="16" height="16" alt=""> <b>openSUSE</b>
+  <img src="icons/distros/rhel.svg" width="16" height="16" alt=""> <b>RHEL 10+</b> &nbsp;·&nbsp;
+  <img src="icons/distros/almalinux.svg" width="16" height="16" alt=""> <b>AlmaLinux 10+</b> &nbsp;·&nbsp;
+  <img src="icons/distros/rockylinux.svg" width="16" height="16" alt=""> <b>Rocky Linux 10+</b>
 </p>
 
 ```bash
@@ -92,7 +91,7 @@ sudo dnf config-manager addrepo --from-repofile=https://packages.bobine.fit/fedo
 sudo dnf install bobine
 ```
 
-*Pour Fedora 39/40, RHEL 9, AlmaLinux 9 et Rocky Linux 9 (DNF 4)* :
+*Pour Fedora 39/40 (DNF 4)* :
 ```bash
 sudo dnf config-manager --add-repo https://packages.bobine.fit/fedora/bobine-stable.repo
 sudo dnf install bobine
