@@ -9,8 +9,8 @@
   - `x86_64` / `amd64`: Intel Core Ultra (Series 1 & 2), Intel Core i3/i5/i7/i9, Intel Processor N100 / N200 / N95 / N305, Intel Celeron J4105 / J4125 (Dell Wyse 5070), AMD Ryzen 5000 / 7000 / 8000 / 9000 Series (Zen 3, Zen 4, Zen 5).
   - `aarch64` / `arm64`: Qualcomm Snapdragon X Elite & X Plus, Qualcomm Snapdragon 8 Gen 2 / 8 Gen 3 / 8 Elite, Apple Silicon M1 / M2 / M3 / M4 (Asahi Linux & VM), NVIDIA DGX Spark (Grace Blackwell) & Jetson Orin, Raspberry Pi 5 (Broadcom BCM2712), Rockchip RK3588 (Orange Pi 5, Radxa Rock 5B), MediaTek Dimensity / Kompanio, Google Tensor G2 / G3 / G4.
 - **Supported Distribution Families**:
-  - **Debian & Ubuntu (APT — `.deb`)**: Debian 12 (Bookworm), Debian 13 (Trixie), Ubuntu 22.04 LTS (Jammy), Ubuntu 24.04 LTS (Noble), Linux Mint 21/22, Pop!_OS, Zorin OS, Raspberry Pi OS.
-  - **Fedora & Enterprise Linux (DNF — `.rpm`)**: Fedora Workstation 39/40/41+, Nobara Linux, Red Hat Enterprise Linux (RHEL 9), AlmaLinux 9, Rocky Linux 9, openSUSE Tumbleweed/Leap.
+  - **Debian & Ubuntu (APT — `.deb`)**: Debian 13 (Trixie) and later, Ubuntu 24.04 LTS (Noble) and later, Linux Mint 22+, Pop!_OS 24.04+, Zorin OS 18+, Raspberry Pi OS (Trixie or later).
+  - **Fedora & Enterprise Linux (DNF — `.rpm`)**: Fedora Workstation 39/40/41+, Nobara Linux, Red Hat Enterprise Linux (RHEL 10+), AlmaLinux 10+, Rocky Linux 10+.
   - **Arch Linux & Derivatives (Pacman — `.pkg.tar.zst`)**: Arch Linux, EndeavourOS, CachyOS, Manjaro Linux, Arch Linux ARM.
 - **Cryptographic Signature**: OpenPGP RSA 4096-bit signing key
 - **Key Fingerprint**: `B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A`
@@ -41,7 +41,7 @@ sudo dnf config-manager addrepo --from-repofile=https://packages.bobine.fit/fedo
 sudo dnf install bobine
 ```
 
-### Fedora 39/40, RHEL, AlmaLinux, Rocky Linux (DNF 4)
+### Fedora 39/40 (DNF 4)
 ```bash
 sudo dnf config-manager --add-repo https://packages.bobine.fit/fedora/bobine-stable.repo
 sudo dnf install bobine

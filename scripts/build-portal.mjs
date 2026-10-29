@@ -44,8 +44,8 @@ const L = {
     archs: [["x86_64", "x86_64 / amd64 (Intel, AMD)"], ["arm64", "ARM64 / aarch64"]],
     family: "Distribution family",
     families: [
-      ["debian", "Debian, Ubuntu and derivatives", "APT · updates with apt upgrade", [["debian", "Debian 12/13"], ["ubuntu", "Ubuntu 22.04/24.04"], ["linuxmint", "Linux Mint"], ["popos", "Pop!_OS"], ["zorin", "Zorin OS"], ["raspberrypi", "Raspberry Pi OS"]]],
-      ["fedora", "Fedora, RHEL and Enterprise Linux", "DNF · updates with dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 9"], ["almalinux", "AlmaLinux"], ["rockylinux", "Rocky Linux"], ["opensuse", "openSUSE"]]],
+      ["debian", "Debian, Ubuntu and derivatives", "APT · updates with apt upgrade", [["debian", "Debian 13+"], ["ubuntu", "Ubuntu 24.04+"], ["linuxmint", "Linux Mint 22+"], ["popos", "Pop!_OS 24.04+"], ["zorin", "Zorin OS 18+"], ["raspberrypi", "Raspberry Pi OS (Trixie+)"]]],
+      ["fedora", "Fedora, RHEL and Enterprise Linux", "DNF · updates with dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 10+"], ["almalinux", "AlmaLinux 10+"], ["rockylinux", "Rocky Linux 10+"]]],
       ["arch", "Arch Linux and derivatives", "Pacman · updates with pacman -Syu", [["arch", "Arch Linux"], ["endeavouros", "EndeavourOS"], ["cachyos", "CachyOS"], ["manjaro", "Manjaro"]]],
     ],
     dnfTabs: [["dnf5", "Fedora 41+ (DNF 5)"], ["dnf4", "RHEL, Alma, Rocky (DNF 4)"]],
@@ -70,7 +70,7 @@ const L = {
     notes: "Distribution notes",
     notesList: [
       ["Fedora and RPM Fusion", "Fedora ships ffmpeg-free by default. Enable RPM Fusion, then run sudo dnf swap ffmpeg-free ffmpeg --allowerasing for the full codec set."],
-      ["RHEL 9, AlmaLinux, Rocky Linux", "Enable EPEL first (sudo dnf install epel-release) so the multimedia and WebKitGTK dependencies resolve."],
+      ["RHEL 10+, AlmaLinux 10+, Rocky Linux 10+", "Enable EPEL first (sudo dnf install epel-release) so the multimedia and WebKitGTK dependencies resolve."],
       ["Updates from the app", "Bobine detects whether it was installed with dpkg/apt, rpm/dnf or pacman and updates itself in the same format, through Polkit."],
     ],
     ecoSection: ["Other platforms", "Windows, macOS, Android and browsers", "Bobine also installs on other systems and is controlled from any modern browser on the local network."],
@@ -134,8 +134,8 @@ const L = {
     archs: [["x86_64", "x86_64 / amd64 (Intel, AMD)"], ["arm64", "ARM64 / aarch64"]],
     family: "Famille de distribution",
     families: [
-      ["debian", "Debian, Ubuntu et dérivées", "APT · mises à jour avec apt upgrade", [["debian", "Debian 12/13"], ["ubuntu", "Ubuntu 22.04/24.04"], ["linuxmint", "Linux Mint"], ["popos", "Pop!_OS"], ["zorin", "Zorin OS"], ["raspberrypi", "Raspberry Pi OS"]]],
-      ["fedora", "Fedora, RHEL et Enterprise Linux", "DNF · mises à jour avec dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 9"], ["almalinux", "AlmaLinux"], ["rockylinux", "Rocky Linux"], ["opensuse", "openSUSE"]]],
+      ["debian", "Debian, Ubuntu et dérivées", "APT · mises à jour avec apt upgrade", [["debian", "Debian 13+"], ["ubuntu", "Ubuntu 24.04+"], ["linuxmint", "Linux Mint 22+"], ["popos", "Pop!_OS 24.04+"], ["zorin", "Zorin OS 18+"], ["raspberrypi", "Raspberry Pi OS (Trixie+)"]]],
+      ["fedora", "Fedora, RHEL et Enterprise Linux", "DNF · mises à jour avec dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 10+"], ["almalinux", "AlmaLinux 10+"], ["rockylinux", "Rocky Linux 10+"]]],
       ["arch", "Arch Linux et dérivées", "Pacman · mises à jour avec pacman -Syu", [["arch", "Arch Linux"], ["endeavouros", "EndeavourOS"], ["cachyos", "CachyOS"], ["manjaro", "Manjaro"]]],
     ],
     dnfTabs: [["dnf5", "Fedora 41+ (DNF 5)"], ["dnf4", "RHEL, Alma, Rocky (DNF 4)"]],
@@ -160,7 +160,7 @@ const L = {
     notes: "Notes par distribution",
     notesList: [
       ["Fedora et RPM Fusion", "Fedora fournit ffmpeg-free par défaut. Activez RPM Fusion puis lancez sudo dnf swap ffmpeg-free ffmpeg --allowerasing pour disposer de tous les codecs."],
-      ["RHEL 9, AlmaLinux, Rocky Linux", "Activez d'abord EPEL (sudo dnf install epel-release) pour que les dépendances multimédia et WebKitGTK soient résolues."],
+      ["RHEL 10+, AlmaLinux 10+, Rocky Linux 10+", "Activez d'abord EPEL (sudo dnf install epel-release) pour que les dépendances multimédia et WebKitGTK soient résolues."],
       ["Mises à jour depuis l'application", "Bobine détecte s'il a été installé avec dpkg/apt, rpm/dnf ou pacman et se met à jour dans le même format, via Polkit."],
     ],
     ecoSection: ["Autres plateformes", "Windows, macOS, Android et navigateurs", "Bobine s'installe aussi sur d'autres systèmes et se pilote depuis n'importe quel navigateur moderne du réseau local."],
