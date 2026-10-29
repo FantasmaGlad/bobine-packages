@@ -1,5 +1,5 @@
 {
-  "verified_at": 1793274234,
+  "verified_at": 1793275214,
   "versions": {
     "apt/stable/amd64": [
       "5.0.5"
@@ -20,22 +20,22 @@
       "5.0.5-1"
     ],
     "apt/beta/amd64": [
-      "5.0.5+beta.305"
+      "5.0.7~1.beta.383"
     ],
     "apt/beta/arm64": [
-      "5.0.5+beta.305"
+      "5.0.7~1.beta.383"
     ],
     "dnf/beta/x86_64": [
-      "5.0.5-1.beta.305"
+      "5.0.7-0.2.beta.383"
     ],
     "pacman/beta/x86_64": [
-      "5.0.5-1.305"
+      "5.0.7beta.383-1"
     ],
     "dnf/beta/aarch64": [
-      "5.0.5-1.beta.305"
+      "5.0.7-0.2.beta.383"
     ],
     "pacman/beta/aarch64": [
-      "5.0.5-1.305"
+      "5.0.7beta.383-1"
     ],
     "apt/canary/amd64": [
       "5.0.7~0.canary.382"

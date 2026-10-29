@@ -1,19 +1,19 @@
 Package: bobine
-Version: 5.0.5+beta.305
+Version: 5.0.7~1.beta.383
 Architecture: arm64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
-Depends: ffmpeg, udisks2, smartmontools, exfatprogs, e2fsprogs, dosfstools, ntfs-3g, gvfs-backends, gvfs-fuse, libmtp-runtime, polkitd, dbus-user-session
+Depends: libc6 (>= 2.38), ffmpeg, udisks2, smartmontools, exfatprogs, e2fsprogs, dosfstools, ntfs-3g, gvfs-backends, gvfs-fuse, libmtp-runtime, polkitd, dbus-user-session
 Recommends: avahi-daemon
 Homepage: https://bobine.fit
 Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.0.5+beta.305_arm64.deb
-Size: 33709664
-SHA256: 60badbf99b78d2b92919424acf94836d91c1cca67c6fc0437831238bceee6d72
-SHA1: 6f075becc981b634aa3fc00740c2310e08c13226
-MD5sum: 75616d0d3546cd76f3560f239c21028f
+Filename: pool/main/b/bobine/bobine_5.0.7~1.beta.383_arm64.deb
+Size: 33741700
+SHA256: 7bb84ca387e30ba24203fb281542a6c6baed970e5777428b2ed96c7b6c6c33c3
+SHA1: 7b5c8349e8acd45a7feb4c28074f83e27590f1b0
+MD5sum: 1f0298d168de75484e27b34fe3140fe9
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
@@ -29,5 +29,5 @@ Description: Video and audio playout for gyms and fitness studios
   - backup, restore and factory reset.
  .
  Licence: GNU AGPL v3.0 or later. Source code: https://github.com/FantasmaGlad/Bobine
-Installed-Size: 81692
+Installed-Size: 81956
 
