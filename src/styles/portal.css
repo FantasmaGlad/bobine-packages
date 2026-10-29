@@ -57,7 +57,7 @@ h1, h2, h3 { color: var(--text-heading); line-height: 1.2; margin: 0; }
 }
 
 /* Mise en page */
-.container { width: 100%; max-width: 76rem; margin-inline: auto; padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.75rem) 3rem; display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.5rem); flex: 1; }
+.container { width: 100%; max-width: 76rem; margin-inline: auto; padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.75rem) 3rem; display: flex; flex-direction: column; gap: clamp(1.5rem, 3vw, 2.5rem); flex: 1; overflow-x: clip; }
 .hero { display: flex; flex-direction: column; gap: 0.75rem; max-width: 52rem; margin-inline: auto; text-align: center; align-items: center; }
 .hero h1 { font-size: var(--fs-clamp-1-85rem-3-8vw-2-6rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text-heading); text-wrap: balance; }
 .hero p { margin: 0; font-size: var(--fs-1-1rem); color: var(--text-body); max-width: 44rem; }
