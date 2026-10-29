@@ -1,23 +1,23 @@
 {
-  "verified_at": 1793275214,
+  "verified_at": 1793277798,
   "versions": {
     "apt/stable/amd64": [
-      "5.0.5"
+      "5.0.7"
     ],
     "apt/stable/arm64": [
-      "5.0.5"
+      "5.0.7"
     ],
     "dnf/stable/x86_64": [
-      "5.0.5-1"
+      "5.0.7-1"
     ],
     "pacman/stable/x86_64": [
-      "5.0.5-1"
+      "5.0.7-1"
     ],
     "dnf/stable/aarch64": [
-      "5.0.5-1"
+      "5.0.7-1"
     ],
     "pacman/stable/aarch64": [
-      "5.0.5-1"
+      "5.0.7-1"
     ],
     "apt/beta/amd64": [
       "5.0.7~1.beta.383"
