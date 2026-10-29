@@ -66,11 +66,12 @@ if (url) {
             const small = [...document.querySelectorAll('a, button, select, summary')].filter((e) => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden' && !e.closest('.sr-only') && !e.closest('p, li') && !e.classList.contains('skip-link')).flatMap((e) => { const b = e.getBoundingClientRect(); return b.width < 43.9 || b.height < 43.9 ? [e.tagName + ':' + e.textContent.trim().slice(0, 24) + ' ' + Math.round(b.width) + 'x' + Math.round(b.height)] : []; });
             const arena = document.querySelector('.pong-main');
             const header = document.querySelector('.site-header').getBoundingClientRect().height;
-            return { scroll: root.scrollWidth, width: root.clientWidth, small, arena: arena ? arena.getBoundingClientRect().height / innerHeight : null, header };
+            const wide = [...document.querySelectorAll('body *')].filter((e) => e.getClientRects().length && e.getBoundingClientRect().right > root.clientWidth + 0.5).slice(0, 3).map((e) => e.tagName + '.' + String(e.className).slice(0, 40) + ' ' + Math.round(e.getBoundingClientRect().right));
+            return { scroll: root.scrollWidth, width: root.clientWidth, wide, small, arena: arena ? arena.getBoundingClientRect().height / innerHeight : null, header };
           })()`);
           views++;
           const where = `${path} ${width}x${height} ${theme}`;
-          if (r.scroll > r.width) fail(`${where} : débordement horizontal (${r.scroll} > ${r.width})`);
+          if (r.scroll > r.width) fail(`${where} : débordement horizontal (${r.scroll} > ${r.width}) ${r.wide.join(', ')}`);
           if (r.small.length) fail(`${where} : cibles sous 44 px : ${r.small.slice(0, 4).join(", ")}`);
           if (r.arena !== null && width === 360 && r.arena < 0.8) fail(`${where} : arène à ${Math.round(r.arena * 100)} % de la hauteur (minimum 80 %)`);
           if (r.arena !== null && height === 360 && r.arena < 0.55) fail(`${where} : arène à ${Math.round(r.arena * 100)} % de la hauteur en paysage`);
