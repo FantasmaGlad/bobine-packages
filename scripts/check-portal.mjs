@@ -66,7 +66,7 @@ if (url) {
             const small = [...document.querySelectorAll('a, button, select, summary')].filter((e) => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden' && !e.closest('.sr-only') && !e.closest('p, li') && !e.classList.contains('skip-link')).flatMap((e) => { const b = e.getBoundingClientRect(); return b.width < 43.9 || b.height < 43.9 ? [e.tagName + ':' + e.textContent.trim().slice(0, 24) + ' ' + Math.round(b.width) + 'x' + Math.round(b.height)] : []; });
             const arena = document.querySelector('.pong-main');
             const header = document.querySelector('.site-header').getBoundingClientRect().height;
-            const wide = [...document.querySelectorAll('body *')].filter((e) => e.getClientRects().length && e.getBoundingClientRect().right > root.clientWidth + 0.5).slice(0, 3).map((e) => e.tagName + '.' + String(e.className).slice(0, 40) + ' ' + Math.round(e.getBoundingClientRect().right));
+            const wide = [...document.querySelectorAll('body *')].flatMap((e) => { if (!e.getClientRects().length) return []; let right = e.getBoundingClientRect().right; for (const n of e.childNodes) if (n.nodeType === 3 && n.textContent.trim()) { const g = document.createRange(); g.selectNodeContents(n); right = Math.max(right, g.getBoundingClientRect().right); } return right > root.clientWidth + 0.5 || e.scrollWidth > e.clientWidth + 0.5 ? [e.tagName + '.' + String(e.className).slice(0, 40) + ' r' + Math.round(right) + ' sw' + e.scrollWidth + '/cw' + e.clientWidth] : []; }).slice(0, 6);
             return { scroll: root.scrollWidth, width: root.clientWidth, wide, small, arena: arena ? arena.getBoundingClientRect().height / innerHeight : null, header };
           })()`);
           views++;
