@@ -53,7 +53,7 @@ jobs:
           for os in linux windows apple android framework tor; do
             test -s "icons/os/${os}.svg"
           done
-          for chip in intel amd snapdragon; do
+          for chip in intel amd snapdragon apple-silicon; do
             test -s "icons/chips/${chip}.svg"
           done
           for browser in firefox chrome edge safari brave opera torbrowser; do

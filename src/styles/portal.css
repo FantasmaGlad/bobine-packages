@@ -126,6 +126,7 @@ a.card:hover { border-color: color-mix(in srgb, var(--accent-primary) 55%, var(-
 .theme-card-option__check { visibility: hidden; }
 .theme-card-option.is-active .theme-card-option__check { visibility: visible; }
 .brand-icon { width: 1.5rem; height: 1.5rem; vertical-align: middle; }
+.brand-icon--image, img.brand-icon { background: transparent !important; background-color: transparent !important; }
 @media (pointer: coarse) {
   .header-controls button, .header-controls a { min-width: 44px; min-height: 44px; }
 }

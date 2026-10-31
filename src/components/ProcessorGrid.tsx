@@ -5,6 +5,7 @@ export default function ProcessorGrid() {
     { id: "intel", label: "Intel", icon: "/icons/chips/intel.svg" },
     { id: "amd", label: "AMD", icon: "/icons/chips/amd.svg" },
     { id: "snapdragon", label: "Qualcomm Snapdragon", icon: "/icons/chips/snapdragon.svg" },
+    { id: "apple-silicon", label: "Apple Silicon", icon: "/icons/chips/apple-silicon.svg" },
   ];
 
   return (

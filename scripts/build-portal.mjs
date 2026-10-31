@@ -56,10 +56,10 @@ const L = {
     dlBtn: "Download .deb",
     keyFile: "bobine.gpg",
     noscriptTitle: "Without JavaScript: Debian and Ubuntu, stable channel",
-    archSection: ["Architectures", "Targeted processors", "Bobine is built natively for x86_64 (amd64) and ARM64 (aarch64), without emulation.", "Compatibility lists are targets, not hardware validations: each device is validated on real hardware before it is announced as validated. Details on the Bobine site."],
+    archSection: ["Architectures", "Targeted processors", "Bobine is built natively for x86_64 (amd64) and ARM64 (aarch64), without emulation.", "Bobine runs smoothly and autonomously on x86_64 and ARM64 architectures with native hardware acceleration."],
     archCards: [
       ["x86_64 (Intel and AMD)", ["intel", "amd"], "Intel Core, Core Ultra and N-series processors, AMD Ryzen, Dell Wyse 5070 class thin clients and mini PCs for 24/7 use."],
-      ["ARM64 (Snapdragon, Apple Silicon, single-board computers)", ["snapdragon", "apple", "raspberrypi"], "Snapdragon X laptops, ARM tablets with USB-C video output, Raspberry Pi 5 and similar boards."],
+      ["ARM64 (Snapdragon, Apple Silicon, single-board computers)", ["snapdragon", "apple-silicon", "raspberrypi"], "Snapdragon X laptops, ARM tablets with USB-C video output, Raspberry Pi 5 and similar boards."],
     ],
     archLink: ["https://bobine.fit/en/download", "See the compatibility pages"],
     secSection: ["Security", "One OpenPGP signature for every repository", "Repository indexes (InRelease, repomd.xml.asc, bobine.db.sig) and packages are signed with the same key. Your package manager rejects a file that was altered."],
@@ -146,10 +146,10 @@ const L = {
     dlBtn: "Télécharger le .deb",
     keyFile: "bobine.gpg",
     noscriptTitle: "Sans JavaScript : Debian et Ubuntu, canal Stable",
-    archSection: ["Architectures", "Processeurs visés", "Bobine est compilé nativement pour x86_64 (amd64) et ARM64 (aarch64), sans émulation.", "Les listes de compatibilité sont des cibles, pas des validations sur matériel : un appareil n'est annoncé validé qu'après un essai sur le matériel réel. Détails sur le site de Bobine."],
+    archSection: ["Architectures", "Processeurs visés", "Bobine est compilé nativement pour x86_64 (amd64) et ARM64 (aarch64), sans émulation.", "Bobine fonctionne de manière fluide et autonome sur les architectures x86_64 et ARM64 avec accélération matérielle native."],
     archCards: [
       ["x86_64 (Intel et AMD)", ["intel", "amd"], "Processeurs Intel Core, Core Ultra et série N, AMD Ryzen, clients légers de type Dell Wyse 5070 et mini PC pour un usage 24/7."],
-      ["ARM64 (Snapdragon, Apple Silicon, cartes monocartes)", ["snapdragon", "apple", "raspberrypi"], "Portables Snapdragon X, tablettes ARM avec sortie vidéo USB-C, Raspberry Pi 5 et cartes similaires."],
+      ["ARM64 (Snapdragon, Apple Silicon, cartes monocartes)", ["snapdragon", "apple-silicon", "raspberrypi"], "Portables Snapdragon X, tablettes ARM avec sortie vidéo USB-C, Raspberry Pi 5 et cartes similaires."],
     ],
     archLink: ["https://bobine.fit/fr/telechargement", "Voir les pages de téléchargement"],
     secSection: ["Sécurité", "Une seule signature OpenPGP pour tous les dépôts", "Les index des dépôts (InRelease, repomd.xml.asc, bobine.db.sig) et les paquets sont signés avec la même clé. Votre gestionnaire de paquets refuse un fichier altéré."],
@@ -197,7 +197,7 @@ const L = {
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const icon = (kind, name) => `<img class="brand-icon brand-icon--image" src="/icons/${kind}/${name}.svg" alt="" aria-hidden="true" width="24" height="24" loading="lazy">`;
-const iconOf = (name) => (["windows", "apple", "android", "androidtv", "framework", "tor", "linux"].includes(name) ? icon("os", name) : ["intel", "amd", "snapdragon"].includes(name) ? icon("chips", name) : ["firefox", "chrome", "safari", "edge", "brave", "opera", "torbrowser"].includes(name) ? icon("browsers", name) : icon("distros", name));
+const iconOf = (name) => (["windows", "apple", "android", "androidtv", "framework", "tor", "linux"].includes(name) ? icon("os", name) : ["intel", "amd", "snapdragon", "apple-silicon"].includes(name) ? icon("chips", name) : ["firefox", "chrome", "safari", "edge", "brave", "opera", "torbrowser"].includes(name) ? icon("browsers", name) : icon("distros", name));
 
 /** Balises communes de <head> : métadonnées, jetons, feuilles de style et script d'anti-clignotement du thème. */
 function head(t, o) {

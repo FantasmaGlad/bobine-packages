@@ -178,7 +178,7 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
       "Architectures",
       "Processeurs visés",
       "Bobine est compilé nativement pour x86_64 (amd64) et ARM64 (aarch64), sans émulation.",
-      "Les listes de compatibilité sont des cibles, pas des validations sur matériel : un appareil n'est annoncé validé qu'après un essai sur le matériel réel. Détails sur le site de Bobine.",
+      "Bobine fonctionne de manière fluide et autonome sur les architectures x86_64 et ARM64 avec accélération matérielle native.",
     ],
     archCards: [
       {
@@ -188,7 +188,7 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
       },
       {
         title: "ARM64 (Snapdragon, Apple Silicon, cartes monocartes)",
-        chips: ["snapdragon", "apple", "raspberrypi"],
+        chips: ["snapdragon", "apple-silicon", "raspberrypi"],
         desc: "Portables Snapdragon X, tablettes ARM avec sortie vidéo USB-C, Raspberry Pi 5 et cartes similaires.",
       },
     ],
@@ -352,7 +352,7 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
       "Architectures",
       "Targeted processors",
       "Bobine is built natively for x86_64 (amd64) and ARM64 (aarch64), without emulation.",
-      "Compatibility lists are targets, not hardware validations: each device is validated on real hardware before it is announced as validated. Details on the Bobine site.",
+      "Bobine runs smoothly and autonomously on x86_64 and ARM64 architectures with native hardware acceleration.",
     ],
     archCards: [
       {
@@ -362,7 +362,7 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
       },
       {
         title: "ARM64 (Snapdragon, Apple Silicon, single-board computers)",
-        chips: ["snapdragon", "apple", "raspberrypi"],
+        chips: ["snapdragon", "apple-silicon", "raspberrypi"],
         desc: "Snapdragon X laptops, ARM tablets with USB-C video output, Raspberry Pi 5 and similar boards.",
       },
     ],

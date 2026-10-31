@@ -343,12 +343,12 @@
   object-fit: contain;
 }
 
-/* Le support clair conserve les couleurs de marque, même dans les thèmes sombres. */
+/* Aucun support derrière un logo : les visuels sont transparents et reposent sur la surface du thème. */
 :where(.brand-icon--image) {
-  box-sizing: border-box;
-  padding: 0.08em;
-  border-radius: var(--radius-4px);
-  background: color-mix(in srgb, var(--specular) 96%, transparent);
+  background: transparent !important;
+  background-color: transparent !important;
+  -webkit-mask: none !important;
+  mask: none !important;
   vertical-align: middle;
 }
 
