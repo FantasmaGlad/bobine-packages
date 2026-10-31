@@ -149,7 +149,7 @@
     if (state.distro === 'debian') {
       return [
         { comment: T.step1Deb, cmd: 'sudo install -m 0755 -d /etc/apt/keyrings\ncurl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg' },
-        { comment: T.step2Deb(ch), cmd: 'echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] https://packages.bobine.fit/debian ' + ch + ' main" | sudo tee /etc/apt/sources.list.d/bobine.list' },
+        { comment: T.step2Deb(ch), cmd: 'echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] \\\nhttps://packages.bobine.fit/debian ' + ch + ' main" \\\n  | sudo tee /etc/apt/sources.list.d/bobine.list' },
         { comment: T.step3Deb, cmd: 'sudo apt update && sudo apt install bobine' }
       ];
     }
