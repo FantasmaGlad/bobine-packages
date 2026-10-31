@@ -44,8 +44,8 @@ const L = {
     archs: [["x86_64", "x86_64 / amd64 (Intel, AMD)"], ["arm64", "ARM64 / aarch64"]],
     family: "Distribution family",
     families: [
-      ["debian", "Debian, Ubuntu and derivatives", "APT · updates with apt upgrade", [["debian", "Debian 13+"], ["ubuntu", "Ubuntu 24.04+"], ["linuxmint", "Linux Mint 22+"], ["popos", "Pop!_OS 24.04+"], ["zorin", "Zorin OS 18+"], ["raspberrypi", "Raspberry Pi OS (Trixie+)"]]],
-      ["fedora", "Fedora, RHEL and Enterprise Linux", "DNF · updates with dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 10+"], ["almalinux", "AlmaLinux 10+"], ["rockylinux", "Rocky Linux 10+"]]],
+      ["debian", "Debian, Ubuntu and derivatives", "APT · updates with apt upgrade", [["debian", "Debian 12/13"], ["ubuntu", "Ubuntu 22.04/24.04"], ["linuxmint", "Linux Mint"], ["popos", "Pop!_OS"], ["zorin", "Zorin OS"], ["raspberrypi", "Raspberry Pi OS"]]],
+      ["fedora", "Fedora, RHEL and Enterprise Linux", "DNF · updates with dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 9"], ["almalinux", "AlmaLinux"], ["rockylinux", "Rocky Linux"], ["opensuse", "openSUSE"]]],
       ["arch", "Arch Linux and derivatives", "Pacman · updates with pacman -Syu", [["arch", "Arch Linux"], ["endeavouros", "EndeavourOS"], ["cachyos", "CachyOS"], ["manjaro", "Manjaro"]]],
     ],
     dnfTabs: [["dnf5", "Fedora 41+ (DNF 5)"], ["dnf4", "RHEL, Alma, Rocky (DNF 4)"]],
@@ -70,7 +70,7 @@ const L = {
     notes: "Distribution notes",
     notesList: [
       ["Fedora and RPM Fusion", "Fedora ships ffmpeg-free by default. Enable RPM Fusion, then run sudo dnf swap ffmpeg-free ffmpeg --allowerasing for the full codec set."],
-      ["RHEL 10+, AlmaLinux 10+, Rocky Linux 10+", "Enable EPEL first (sudo dnf install epel-release) so the multimedia and WebKitGTK dependencies resolve."],
+      ["RHEL 9, AlmaLinux, Rocky Linux", "Enable EPEL first (sudo dnf install epel-release) so the multimedia and WebKitGTK dependencies resolve."],
       ["Updates from the app", "Bobine detects whether it was installed with dpkg/apt, rpm/dnf or pacman and updates itself in the same format, through Polkit."],
     ],
     ecoSection: ["Other platforms", "Windows, macOS, Android and browsers", "Bobine also installs on other systems and is controlled from any modern browser on the local network."],
@@ -134,8 +134,8 @@ const L = {
     archs: [["x86_64", "x86_64 / amd64 (Intel, AMD)"], ["arm64", "ARM64 / aarch64"]],
     family: "Famille de distribution",
     families: [
-      ["debian", "Debian, Ubuntu et dérivées", "APT · mises à jour avec apt upgrade", [["debian", "Debian 13+"], ["ubuntu", "Ubuntu 24.04+"], ["linuxmint", "Linux Mint 22+"], ["popos", "Pop!_OS 24.04+"], ["zorin", "Zorin OS 18+"], ["raspberrypi", "Raspberry Pi OS (Trixie+)"]]],
-      ["fedora", "Fedora, RHEL et Enterprise Linux", "DNF · mises à jour avec dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 10+"], ["almalinux", "AlmaLinux 10+"], ["rockylinux", "Rocky Linux 10+"]]],
+      ["debian", "Debian, Ubuntu et dérivées", "APT · mises à jour avec apt upgrade", [["debian", "Debian 12/13"], ["ubuntu", "Ubuntu 22.04/24.04"], ["linuxmint", "Linux Mint"], ["popos", "Pop!_OS"], ["zorin", "Zorin OS"], ["raspberrypi", "Raspberry Pi OS"]]],
+      ["fedora", "Fedora, RHEL et Enterprise Linux", "DNF · mises à jour avec dnf upgrade", [["fedora", "Fedora"], ["nobara", "Nobara"], ["rhel", "RHEL 9"], ["almalinux", "AlmaLinux"], ["rockylinux", "Rocky Linux"], ["opensuse", "openSUSE"]]],
       ["arch", "Arch Linux et dérivées", "Pacman · mises à jour avec pacman -Syu", [["arch", "Arch Linux"], ["endeavouros", "EndeavourOS"], ["cachyos", "CachyOS"], ["manjaro", "Manjaro"]]],
     ],
     dnfTabs: [["dnf5", "Fedora 41+ (DNF 5)"], ["dnf4", "RHEL, Alma, Rocky (DNF 4)"]],
@@ -160,7 +160,7 @@ const L = {
     notes: "Notes par distribution",
     notesList: [
       ["Fedora et RPM Fusion", "Fedora fournit ffmpeg-free par défaut. Activez RPM Fusion puis lancez sudo dnf swap ffmpeg-free ffmpeg --allowerasing pour disposer de tous les codecs."],
-      ["RHEL 10+, AlmaLinux 10+, Rocky Linux 10+", "Activez d'abord EPEL (sudo dnf install epel-release) pour que les dépendances multimédia et WebKitGTK soient résolues."],
+      ["RHEL 9, AlmaLinux, Rocky Linux", "Activez d'abord EPEL (sudo dnf install epel-release) pour que les dépendances multimédia et WebKitGTK soient résolues."],
       ["Mises à jour depuis l'application", "Bobine détecte s'il a été installé avec dpkg/apt, rpm/dnf ou pacman et se met à jour dans le même format, via Polkit."],
     ],
     ecoSection: ["Autres plateformes", "Windows, macOS, Android et navigateurs", "Bobine s'installe aussi sur d'autres systèmes et se pilote depuis n'importe quel navigateur moderne du réseau local."],
@@ -307,7 +307,7 @@ function page(t) {
         <button type="button" class="distro" data-distro="${id}" aria-pressed="${i === 0}">
           <span class="distro__title">${esc(title)}</span>
           <span class="distro__sub">${esc(sub)}</span>
-          <span class="distro__chips">${chips.map(([ic, label]) => `<span>${iconOf(ic)}${esc(label)}</span>`).join("")}</span>
+          <span class="distro__chips">${chips.map(([ic, label]) => `<span title="${esc(label)}">${iconOf(ic)}${esc(label)}</span>`).join("")}</span>
         </button>`).join("");
   const seg = (items, attr, selected) => items.map(([v, label, badge]) => `<button type="button" ${attr}="${v}" aria-pressed="${v === selected}">${badge ? `<img class="channel-badge" src="${badge}" alt="" width="20" height="20" loading="lazy">` : ""}<span>${esc(label)}</span></button>`).join("");
   return `<!DOCTYPE html>
@@ -325,52 +325,58 @@ function page(t) {
       <p>${esc(t.heroText)}</p>
     </section>
 
-    <section id="configurator" class="glass workspace" aria-label="${esc(t.confLabel)}">
-      <div class="controls">
-        <div class="control" role="group" aria-label="${esc(t.channel)}">
-          <span class="control__label">${esc(t.channel)}</span>
-          <div class="seg">${seg(t.channels, "data-channel", "stable")}</div>
+    <section id="configurator" class="workspace" aria-label="${esc(t.confLabel)}">
+      <div class="config-sidebar">
+        <div class="controls">
+          <div class="control control--channel" role="group" aria-label="${esc(t.channel)}">
+            <span class="control__label">${esc(t.channel)}</span>
+            <div class="seg">${seg(t.channels, "data-channel", "stable")}</div>
+          </div>
+          <div class="control control--arch" role="group" aria-label="${esc(t.arch)}">
+            <span class="control__label">${esc(t.arch)}</span>
+            <div class="seg">${seg(t.archs, "data-arch", "x86_64")}</div>
+          </div>
         </div>
-        <div class="control" role="group" aria-label="${esc(t.arch)}">
-          <span class="control__label">${esc(t.arch)}</span>
-          <div class="seg">${seg(t.archs, "data-arch", "x86_64")}</div>
+
+        <div class="control control--family" role="group" aria-label="${esc(t.family)}">
+          <span class="control__label">${esc(t.family)}</span>
+          <div class="distros">${families}
+          </div>
         </div>
       </div>
 
-      <div class="control" role="group" aria-label="${esc(t.family)}">
-        <span class="control__label">${esc(t.family)}</span>
-        <div class="distros">${families}
+      <div class="config-main">
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span id="terminalTitle"></span>
+            <span class="actions">
+              <span id="dnfTabs" class="seg hidden" role="group" aria-label="${esc(t.dnfLabel)}">${seg(t.dnfTabs, "data-dnf", "dnf5")}</span>
+              <button type="button" id="copyCommands" class="btn"><span>${esc(t.copy)}</span></button>
+            </span>
+          </div>
+          <div class="terminal__body" id="terminalSteps"></div>
         </div>
-      </div>
 
-      <div class="terminal">
-        <div class="terminal__bar">
-          <span id="terminalTitle"></span>
-          <span class="actions">
-            <span id="dnfTabs" class="seg hidden" role="group" aria-label="${esc(t.dnfLabel)}">${seg(t.dnfTabs, "data-dnf", "dnf5")}</span>
-            <button type="button" id="copyCommands" class="btn"><span>${esc(t.copy)}</span></button>
-          </span>
+        <div class="dl-bar">
+          <div>
+            <div class="dl-bar__title" id="dlTitle">${esc(t.dlTitle)}</div>
+            <div class="dl-bar__meta" id="dlMeta">${esc(t.dlMeta)}</div>
+          </div>
+          <div class="actions">
+            <a href="/bobine.gpg" class="btn" download>${esc(t.keyFile)}</a>
+            <a href="https://github.com/FantasmaGlad/Bobine/releases" id="dlLink" class="btn btn--primary"><span id="dlBtnText">${esc(t.dlBtn)}</span></a>
+          </div>
         </div>
-        <div class="terminal__body" id="terminalSteps"></div>
-      </div>
-
-      <div class="dl-bar">
-        <div>
-          <div class="dl-bar__title" id="dlTitle">${esc(t.dlTitle)}</div>
-          <div class="dl-bar__meta" id="dlMeta">${esc(t.dlMeta)}</div>
-        </div>
-        <div class="actions">
-          <a href="/bobine.gpg" class="btn" download>${esc(t.keyFile)}</a>
-          <a href="https://github.com/FantasmaGlad/Bobine/releases" id="dlLink" class="btn btn--primary"><span id="dlBtnText">${esc(t.dlBtn)}</span></a>
-        </div>
-      </div>
-      <noscript>
-        <div class="noscript"><strong>${esc(t.noscriptTitle)}</strong>
+        <noscript>
+          <div class="noscript"><strong>${esc(t.noscriptTitle)}</strong>
 <pre>sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg
-echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] https://packages.bobine.fit/debian stable main" | sudo tee /etc/apt/sources.list.d/bobine.list
+echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] \\
+https://packages.bobine.fit/debian stable main" \\
+  | sudo tee /etc/apt/sources.list.d/bobine.list
 sudo apt update &amp;&amp; sudo apt install bobine</pre></div>
-      </noscript>
+        </noscript>
+      </div>
     </section>
 
     <section class="section" id="architectures">
@@ -388,13 +394,13 @@ sudo apt update &amp;&amp; sudo apt install bobine</pre></div>
       <h2>${esc(t.secSection[1])}</h2>
       <p class="section__desc">${esc(t.secSection[2])}</p>
       <div class="grid-2">
-        <article class="glass card">
+        <article class="card">
           <h3>${esc(t.fpTitle)}</h3>
           <p>${esc(t.fpText)}</p>
           <div class="gpg"><code id="gpgFp">${FP}</code><button type="button" class="btn" id="copyFp"><span>${esc(t.fpCopy)}</span></button></div>
           <p>${esc(t.inspect)} <code>curl -fsSL https://packages.bobine.fit/bobine.gpg | gpg --show-keys</code></p>
         </article>
-        <article class="glass card">
+        <article class="card">
           <h3>${esc(t.notes)}</h3>
           <ul>${t.notesList.map(([title, text]) => `<li><strong>${esc(title)} :</strong> ${esc(text)}</li>`).join("")}</ul>
         </article>
@@ -406,7 +412,7 @@ sudo apt update &amp;&amp; sudo apt install bobine</pre></div>
       <h2>${esc(t.ecoSection[1])}</h2>
       <p class="section__desc">${esc(t.ecoSection[2])}</p>
       <div class="grid-2">${t.eco.map(([href, icons, title, text]) => `
-        <a class="glass card" href="${href}"><h3>${icons.map(iconOf).join("")}${esc(title)}</h3><p>${esc(text)}</p></a>`).join("")}
+        <a class="card" href="${href}"><h3>${icons.map(iconOf).join("")}${esc(title)}</h3><p>${esc(text)}</p></a>`).join("")}
       </div>
     </section>
     <p id="copyStatus" class="sr-only" role="status" aria-live="polite" aria-label="${esc(t.copyStatus)}"></p>
