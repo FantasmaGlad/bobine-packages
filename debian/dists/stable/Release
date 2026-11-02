@@ -2,8 +2,8 @@ Origin: Bobine
 Label: Bobine
 Suite: stable
 Codename: stable
-Date: Thu, 29 Oct 2026 12:43:14 UTC
-Valid-Until: Fri, 29 Oct 2027 12:43:14 UTC
+Date: Mon, 02 Nov 2026 12:31:18 UTC
+Valid-Until: Tue, 02 Nov 2027 12:31:18 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Stable

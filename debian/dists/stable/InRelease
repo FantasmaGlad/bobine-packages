@@ -5,8 +5,8 @@ Origin: Bobine
 Label: Bobine
 Suite: stable
 Codename: stable
-Date: Thu, 29 Oct 2026 12:43:14 UTC
-Valid-Until: Fri, 29 Oct 2027 12:43:14 UTC
+Date: Mon, 02 Nov 2026 12:31:18 UTC
+Valid-Until: Tue, 02 Nov 2027 12:31:18 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Stable
@@ -33,17 +33,17 @@ SHA256:
  bb3e672fd2679a5a4269d88688b17af0afa162ecdeef0b7864f22b0dde009a6f 131 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmrjP2IACgkQG10YqXb6
-rRUz9Q//YZ6xHh6+UVcu1+pGUbP5hJsuI1zWqIyMJJGNoSB9hkXJPrUV9yF1UO7l
-gG5m6Ilr3kL7Jl3O6vsSrFbeZKHurpXcn7dsPSdRwqyWdYxuyxnNLQ2YPQtvhgJs
-l4buUu/m1a/S1mcmFi02ErVSkXEZ6fNGQz9TP1+ThyUSY7SeSYzgtcDB4sAKuqM2
-FTvh+iOXhDySHr+kfgugLVByTzIv1ll2Spnlcneg3MuAns4aLU/k7CvCC1PBsJAt
-3L9tN+JQsnFcQp4BsgW2Mo+4g/57t01PrQumI3qzFgqqon6aqwkMo09hyT0sCCeb
-VKX7vyavAOHL+H06aP6vJBKXBLetN/2RUgBWP4K08Q3cWVJ0nvhtwNwI0efK6wNK
-FxiM4w0FCk0X9OLfqLR0C9p7G1/bLO9O39daK01akobqA1YulZIaTVr6cVTM0Gdx
-nXzFUBPPI1XrplTAoGsyfDuf5KV9V1wEi0sdd/1YCHejhZABndZxg7AQCC0XEHqV
-nkGCLXR6T2KynkjcRcbuxEswq9Z6JgqIf77UqfGdUkYy28CkvncB9xfMaX1eWNpz
-JIWMiAL1oUAhYvphRU0kyDFmvsIy56A7Gx3B12ai0E95yieq4XN0qL8I8kWPtcHg
-T3yLs4ehtt/qPjJV54w33GRO6csQyaVLjt6IAvLtyQ/WKR/zdIE=
-=riKm
+iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmrogpYACgkQG10YqXb6
+rRVQsQ//QsVrNUQrZt5oBJVou5DssZBa+ZwSG5cudGGmmImyho54vkhpgDq3ZfoH
+ZrbNKXMfnkBPh5cxlhzzVqIp0olldFb0W9Q5/HxoO45jqk9OScr1RYAeeNem5zGk
+4Wy7zMhPuUw6OqMYcywCUI2ENrAszSQHYELuP3ArlXM4ufHTpyQ/A9ffAOuwsQbV
+8EJnFqKXAlP0fu6kNEC6NS2Gb8cwGMutKyzNztKRdnnDbji1al5zuqYAtPdtuXyP
+Wx/ad0K+LQUraCaRmPAoLu4hijMY7CFFrCSw5a+yUiu7PXAF3SOujigL4u/9GPqa
+2QtIqvNf0P9sj2HvPbhZW6SF1GctCSYIuZA5aBCW736fjbAiSRROrJePVdMfFE/k
+oVOV/fX2BFNxw5k88OJO/CcoKOaY4j5aOPurfWZTRFoNxnYcq3w2d7Z1rokTP3N1
+cZqTAI9s3mYwZ8k5AGpGyR4aKL4SiTM9tDuSVV92nx5mo8CxY5a0AVFXaxf9IUix
+ChTGuPWY6D5k91M05geKDBFnDVZY4fcZ4cB/TfQWvqxtzdOLhTZOelpEfsNkudfx
+QvOU/uY88ZKhV1cs61f3ivjX7effOwKiWvk1V8C0pVApIVyYY8R4sCbpzY+eHjex
+Vps/dB9yWgF2BTpb7/xt9HoqFkxoIu6wqb3/dcdFhJU2HDfv6rY=
+=RYNe
 -----END PGP SIGNATURE-----
