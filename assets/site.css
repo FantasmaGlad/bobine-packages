@@ -164,3 +164,8 @@ a.card:hover { border-color: color-mix(in srgb, var(--accent-primary) 55%, var(-
   .header-controls { justify-content: flex-end; margin-top: 0.75rem; }
   .header-controls .theme-dropdown-modal { position: fixed; top: 5rem; right: 1rem; bottom: auto; width: min(22rem, calc(100vw - 2rem)); }
 }
+/* Écran peu haut (téléphone ou TV en paysage) : la palette s'ouvre dans le menu déroulant, qui peut défiler ; une grille plus courte
+   la garde entière dans la fenêtre, les thèmes restants défilent dans la grille. */
+@media (max-height: 480px) {
+  .theme-dropdown-modal .theme-grid { max-height: 7.5rem; }
+}
