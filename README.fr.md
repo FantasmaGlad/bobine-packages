@@ -170,4 +170,17 @@ Le portail web `packages.bobine.fit` repose sur une architecture statique SSG mo
 
 Les crédits et la provenance des ressources se trouvent dans [assets/NOTICE.md](assets/NOTICE.md).
 
+## Télécharger Bobine
+
+| | Plateforme | Obtenir |
+| :---: | :--- | :--- |
+| <img src="https://raw.githubusercontent.com/FantasmaGlad/Bobine/main/Assets/Icons/os/windows.svg" width="20" height="20" alt="Windows"> | **Windows** x64, ARM64 | [Installeur](https://github.com/FantasmaGlad/Bobine/releases/latest) · [PowerShell](https://github.com/FantasmaGlad/Bobine/blob/main/README.fr.md#installation-en-une-commande) |
+| <img src="https://raw.githubusercontent.com/FantasmaGlad/Bobine/main/Assets/Icons/os/apple.svg" width="20" height="20" alt="macOS"> | **macOS** Apple Silicon | [.dmg](https://github.com/FantasmaGlad/Bobine/releases/latest) · [Homebrew](https://github.com/FantasmaGlad/homebrew-bobine) |
+| <img src="https://raw.githubusercontent.com/FantasmaGlad/Bobine/main/Assets/Icons/os/linux.svg" width="20" height="20" alt="Linux"> | **Linux** Debian, Fedora, Arch | [Dépôts signés](https://packages.bobine.fit) · [.deb, .rpm, .pkg](https://github.com/FantasmaGlad/Bobine/releases/latest) |
+| <img src="https://raw.githubusercontent.com/FantasmaGlad/Bobine/main/Assets/Icons/os/android.svg" width="20" height="20" alt="Android"> | **Android, Android TV** | [APK](https://github.com/FantasmaGlad/Bobine/releases/latest) |
+| <img src="https://raw.githubusercontent.com/FantasmaGlad/Bobine/main/Assets/Images/bash.svg" width="20" height="20" alt="Mini PC"> | **Mini PC** Debian 13 | [install.sh](https://bobine.fit/install.sh) |
+| <img src="https://raw.githubusercontent.com/FantasmaGlad/Bobine/main/Assets/Icons/os/tor.svg" width="20" height="20" alt="Tor"> | **Tor** | [Site](http://bobinedaoki42tt33rxacmtaab2gxvxb2orqgcyhvowv3aggxhruvrid.onion/) · [Paquets](http://rzvwjat5pidtxtwzcsvew7yc5ugfjvzz432ecpn3s5mlch4cs7vvmqad.onion/) · [install-tor.sh](https://bobine.fit/install-tor.sh) |
+
+Tous les canaux (Stable, Bêta, Canary) et les commandes en une ligne, y compris par Tor : [README de Bobine](https://github.com/FantasmaGlad/Bobine/blob/main/README.fr.md#téléchargement--installation).
+
 <sub>Dépôts liés : [Bobine](https://github.com/FantasmaGlad/Bobine) (application) · [BobineWeb](https://github.com/FantasmaGlad/BobineWeb) (site) · [homebrew-bobine](https://github.com/FantasmaGlad/homebrew-bobine) (tap Homebrew) · [Sécurité](SECURITY.md), [security.txt](https://bobine.fit/.well-known/security.txt) · [Contribuer](CONTRIBUTING.md)</sub>
