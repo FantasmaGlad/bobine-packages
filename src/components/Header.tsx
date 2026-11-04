@@ -174,7 +174,7 @@ export default function Header({ strings, langLinks }: HeaderProps) {
                   className="theme-switcher-arrow-btn"
                   id="themeToggle"
                   ref={toggleBtnRef}
-                  aria-label={isFr ? "Ouvrir les 16 thèmes" : "Open all 16 themes"}
+                  aria-label={isFr ? "Ouvrir les 15 thèmes" : "Open all 15 themes"}
                   aria-expanded={paletteOpen}
                   aria-haspopup="dialog"
                   aria-controls="themePalette"
