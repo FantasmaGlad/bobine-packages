@@ -146,14 +146,13 @@ sudo pacman -Sy bobine
 
 ## Licence
 
-Ce dépôt et ses configurations de paquets sont distribués sous licence **GNU Affero General Public License v3.0 (AGPL-3.0)**.
-Copyright (c) 2026 Bobine.
+Copyright (c) 2026 Bobine. Tous droits réservés. Ce dépôt est publié pour être lu ; installer Bobine depuis `packages.bobine.fit` est permis. Voir [LICENSE](LICENSE). Le logiciel Bobine est diffusé sous [GNU AGPL-3.0](https://github.com/FantasmaGlad/Bobine/blob/main/LICENSE).
 
 ## 7. Architecture Statique SSG & Identité Visuelle
 
 Le portail web `packages.bobine.fit` repose sur une architecture statique SSG moderne, alignée sur le design system de Bobine :
 
-- **Thème par défaut** : Thème **Lavande** (`data-theme="lavande"`), avec en-tête centré, cartes en verre translucide Liquid Glass (`bobine-tokens.css`) et 16 thèmes dynamiques partagés avec `bobine.fit`.
+- **Thème par défaut** : Thème **Lavande** (`data-theme="lavande"`), avec en-tête centré, cartes en verre translucide Liquid Glass (`bobine-tokens.css`) et 15 thèmes dynamiques partagés avec `bobine.fit`.
 - **Badges et logos officiels** : Badges distincts haute fidélité pour les trois canaux (**Stable**, **Bêta**, **Canary**), logos des processeurs (**Qualcomm Snapdragon**, **Intel**, **AMD**) et des navigateurs (**Chrome**, **Firefox**, **Safari**, **Edge**, **Brave**, **Opera**, **Tor**).
 - **Scripts de compilation et de contrôle** :
   ```bash
@@ -170,3 +169,5 @@ Le portail web `packages.bobine.fit` repose sur une architecture statique SSG mo
 - **Vérification CI & Déploiement** : Le workflow GitHub Actions `verify-repo.yml` audite l'intégrité cryptographique des signatures de paquets, la conformité géométrique responsive (360px à 1280px) et déploie le portail vers GitHub Pages (`publish-pages.yml`).
 
 Les crédits et la provenance des ressources se trouvent dans [assets/NOTICE.md](assets/NOTICE.md).
+
+<sub>Dépôts liés : [Bobine](https://github.com/FantasmaGlad/Bobine) (application) · [BobineWeb](https://github.com/FantasmaGlad/BobineWeb) (site) · [homebrew-bobine](https://github.com/FantasmaGlad/homebrew-bobine) (tap Homebrew) · [Sécurité](SECURITY.md), [security.txt](https://bobine.fit/.well-known/security.txt) · [Contribuer](CONTRIBUTING.md)</sub>

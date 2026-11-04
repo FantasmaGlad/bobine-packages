@@ -1,5 +1,5 @@
 /* Portail packages.bobine.fit : une feuille pour l'accueil (EN, FR) et le jeu Pong. Couleurs, verre, rayons et tailles
-   viennent de bobine-tokens.css (généré depuis BobineWeb, 16 thèmes) : aucune valeur de couleur ni flou en pixels ici. */
+   viennent de bobine-tokens.css (généré depuis BobineWeb, 15 thèmes) : aucune valeur de couleur ni flou en pixels ici. */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 5rem; }
 body {
@@ -163,4 +163,9 @@ a.card:hover { border-color: color-mix(in srgb, var(--accent-primary) 55%, var(-
 @media (max-width: 960px) {
   .header-controls { justify-content: flex-end; margin-top: 0.75rem; }
   .header-controls .theme-dropdown-modal { position: fixed; top: 5rem; right: 1rem; bottom: auto; width: min(22rem, calc(100vw - 2rem)); }
+}
+/* Écran peu haut (téléphone ou TV en paysage) : la palette s'ouvre dans le menu déroulant, qui peut défiler ; une grille plus courte
+   la garde entière dans la fenêtre, les thèmes restants défilent dans la grille. */
+@media (max-height: 480px) {
+  .theme-dropdown-modal .theme-grid { max-height: 7.5rem; }
 }
