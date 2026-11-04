@@ -169,3 +169,5 @@ Le portail web `packages.bobine.fit` repose sur une architecture statique SSG mo
 - **Vérification CI & Déploiement** : Le workflow GitHub Actions `verify-repo.yml` audite l'intégrité cryptographique des signatures de paquets, la conformité géométrique responsive (360px à 1280px) et déploie le portail vers GitHub Pages (`publish-pages.yml`).
 
 Les crédits et la provenance des ressources se trouvent dans [assets/NOTICE.md](assets/NOTICE.md).
+
+<sub>Dépôts liés : [Bobine](https://github.com/FantasmaGlad/Bobine) (application) · [BobineWeb](https://github.com/FantasmaGlad/BobineWeb) (site) · [homebrew-bobine](https://github.com/FantasmaGlad/homebrew-bobine) (tap Homebrew) · [Sécurité](SECURITY.md), [security.txt](https://bobine.fit/.well-known/security.txt) · [Contribuer](CONTRIBUTING.md)</sub>

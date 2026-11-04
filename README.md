@@ -169,3 +169,5 @@ The web portal at `packages.bobine.fit` is powered by a modern static SSG archit
 - **CI Verification & Deployment**: The GitHub Actions workflow `verify-repo.yml` verifies cryptographic package signatures, responsive geometry from 360px to 1280px, and deploys the portal to GitHub Pages (`publish-pages.yml`).
 
 See [assets/NOTICE.md](assets/NOTICE.md) for third-party credits and provenance.
+
+<sub>Related repositories: [Bobine](https://github.com/FantasmaGlad/Bobine) (application) · [BobineWeb](https://github.com/FantasmaGlad/BobineWeb) (website) · [homebrew-bobine](https://github.com/FantasmaGlad/homebrew-bobine) (Homebrew tap) · [Security](SECURITY.md), [security.txt](https://bobine.fit/.well-known/security.txt) · [Contributing](CONTRIBUTING.md)</sub>
