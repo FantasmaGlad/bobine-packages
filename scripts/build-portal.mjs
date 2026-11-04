@@ -225,7 +225,7 @@ function head(t, o) {
   <meta name="twitter:title" content="${esc(o.ogTitle ?? o.title)}">
   <meta name="twitter:description" content="${esc(o.ogDescription ?? o.description)}">
   <meta name="twitter:image" content="${SITE}/og-image.webp">
-  <script>document.documentElement.className='js';(function(){try{var m=document.cookie.match(/(?:^|; )bobine-theme=([\w-]+)/);var t=(m&&m[1])||localStorage.getItem('bobineweb-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+  <script>document.documentElement.className='js';(function(){try{var m=document.cookie.match(/(?:^|; )bobine-theme=([a-z-]+)/);var t=(m&&m[1])||localStorage.getItem('bobineweb-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
   <link rel="stylesheet" href="/assets/bobine-tokens.css">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/bobine-controls.css">${o.extraCss ? `\n  <link rel="stylesheet" href="${o.extraCss}">` : ""}
