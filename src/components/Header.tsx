@@ -6,7 +6,7 @@ import type { PortalStrings } from "@/content/portal-content";
 
 interface HeaderProps {
   strings: PortalStrings;
-  langLinks: [string, string];
+  langLinks?: [string, string];
 }
 
 interface ThemeMeta {
@@ -140,23 +140,6 @@ export default function Header({ strings, langLinks }: HeaderProps) {
           </a>
 
           <div className="header-controls">
-            <nav className="locale-switcher" aria-label="Langue / Language">
-              <a
-                className={`locale-switcher__link${strings.lang === "en" ? " is-active" : ""}`}
-                href={langLinks[0]}
-                aria-current={strings.lang === "en" ? "true" : undefined}
-              >
-                EN
-              </a>
-              <a
-                className={`locale-switcher__link${isFr ? " is-active" : ""}`}
-                href={langLinks[1]}
-                aria-current={isFr ? "true" : undefined}
-              >
-                FR
-              </a>
-            </nav>
-
             <div className="theme-switcher-wrapper" id="themePicker" ref={pickerRef}>
               <div className="theme-switcher-pill-group">
                 <button

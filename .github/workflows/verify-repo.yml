@@ -90,7 +90,7 @@ jobs:
           test -s favicon.ico
           test -s og-image.webp
           for family in debian fedora arch; do test -s "$family/index.html"; done
-          if grep -nE 'bobine.fit/(og-image.png|en/ordinateur|en/securite|fr/materiel"|en/hardware")' index.html fr/index.html pong/index.html fr/pong/index.html; then
+          if grep -nE 'bobine.fit/(og-image.png|en/ordinateur|en/securite|fr/materiel|en/hardware)' index.html fr/index.html pong/index.html fr/pong/index.html; then
             echo "ERROR: obsolete portal link"
             exit 1
           fi

@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import RepoConfigurator from "@/components/RepoConfigurator";
 import ProcessorGrid from "@/components/ProcessorGrid";
 import BrowserGrid from "@/components/BrowserGrid";
+import LanguageDetector from "@/components/LanguageDetector";
 import { PORTAL_DATA, SIGNING_KEY_FINGERPRINT } from "@/content/portal-content";
 
 export function generateStaticParams() {
@@ -22,6 +23,7 @@ export default async function PortalPage({
 
   return (
     <>
+      <LanguageDetector currentLang={locale} />
       <a className="skip-link" href="#main">
         {strings.skip}
       </a>
