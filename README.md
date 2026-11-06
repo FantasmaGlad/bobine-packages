@@ -62,10 +62,13 @@ curl -fsSL https://packages.bobine.fit/bobine.gpg | gpg --show-keys
 ```bash
 # 1. Import signing key to official system keyring
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg
+curl -fsSL https://packages.bobine.fit/bobine.gpg \
+  | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg
 
 # 2. Add Bobine APT repository (choose stable, beta, or canary)
-echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] https://packages.bobine.fit/debian stable main" | sudo tee /etc/apt/sources.list.d/bobine.list
+r=https://packages.bobine.fit/debian
+echo "deb [signed-by=/etc/apt/keyrings/bobine.gpg] $r stable main" \
+  | sudo tee /etc/apt/sources.list.d/bobine.list
 
 # 3. Update index and install
 sudo apt update && sudo apt install bobine
@@ -85,7 +88,8 @@ sudo apt update && sudo apt install bobine
 
 ```bash
 # 1. Add repository definition file (Fedora 41+ / DNF 5)
-sudo dnf config-manager addrepo --from-repofile=https://packages.bobine.fit/fedora/bobine-stable.repo
+sudo dnf config-manager addrepo \
+  --from-repofile=https://packages.bobine.fit/fedora/bobine-stable.repo
 
 # 2. Install Bobine
 sudo dnf install bobine
@@ -93,7 +97,8 @@ sudo dnf install bobine
 
 *For Fedora 39/40 (DNF 4)*:
 ```bash
-sudo dnf config-manager --add-repo https://packages.bobine.fit/fedora/bobine-stable.repo
+sudo dnf config-manager --add-repo \
+  https://packages.bobine.fit/fedora/bobine-stable.repo
 sudo dnf install bobine
 ```
 
