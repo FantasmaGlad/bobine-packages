@@ -1,5 +1,5 @@
 Package: bobine
-Version: 5.1.0~0.canary.504
+Version: 5.1.0~0.canary.505
 Architecture: arm64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
 Depends: libc6 (>= 2.38), ffmpeg, polkitd, dbus-user-session
@@ -9,11 +9,11 @@ Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.1.0~0.canary.504_arm64.deb
-Size: 33914316
-SHA256: 2ba4e05e84fed5be5066ffb3093662f38187e86c8ce7fa2e9eb0c50e26ee829f
-SHA1: 5dd508263084987b12ec54c563b6520cdb3ff5f2
-MD5sum: db23a40e06c1db3669b122da710812e2
+Filename: pool/main/b/bobine/bobine_5.1.0~0.canary.505_arm64.deb
+Size: 33913722
+SHA256: f079be14b5936b3d2e5e7cade8c4aa35753d011a603d44f2859c45894670cad2
+SHA1: ae967374b0666960242a1da8a12f7091152a1f0c
+MD5sum: 1074dc3ecebe2cc347c4e8ad0e2f6636
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
@@ -32,18 +32,18 @@ Description: Video and audio playout for gyms and fitness studios
 Installed-Size: 82124
 
 Package: bobine-assistant
-Version: 5.1.0+canary.504
+Version: 5.1.0+canary.505
 Architecture: arm64
-Installed-Size: 17940
+Installed-Size: 7261
 Maintainer: FantasmaGlad
 Depends: libwebkit2gtk-4.1-0 | libwebkit2gtk-4.0-37, libwebkit2gtk-4.1-0, libgtk-3-0
 Priority: optional
 Section: utils
-Filename: pool/main/b/bobine-assistant/bobine-assistant_5.1.0+canary.504_arm64.deb
-Size: 6127294
-SHA256: f7926c6d48ebee7bdab17b7a7194440945976eb54bd8b2cc648147eab07fe4ea
-SHA1: 15a20357131dd2e49f5ba3f44ed98f8e02f6ade3
-MD5sum: c54bc9fca365f35aa86ac4ebc578d96b
+Filename: pool/main/b/bobine-assistant/bobine-assistant_5.1.0+canary.505_arm64.deb
+Size: 3647230
+SHA256: c22165a0f52e0eae2e6b5c14e88b16f7bd8b84ed04ff988fc76fd83afdd0269d
+SHA1: d44b31875c7a72a0e5074f6ad384dcad1915b2f1
+MD5sum: af99aed45060aa6041ed406c80a536d8
 Description: Assistant d'installation Bobine
  Assistant graphique permettant de découvrir, configurer et déployer les bornes Bobine en SSH.
 
