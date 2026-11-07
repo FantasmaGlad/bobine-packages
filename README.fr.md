@@ -17,7 +17,7 @@ sudo apt update && sudo apt install bobine
 ```bash
 # Fedora 41+, RHEL 10 (DNF 5)
 sudo dnf config-manager addrepo --from-repofile=https://packages.bobine.fit/fedora/bobine-stable.repo
-# Fedora 40 et précédentes, RHEL 9 (DNF 4)
+# Fedora 39 et 40 (DNF 4)
 sudo dnf config-manager --add-repo https://packages.bobine.fit/fedora/bobine-stable.repo
 sudo dnf install bobine
 ```
