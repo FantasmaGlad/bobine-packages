@@ -25,78 +25,16 @@ jobs:
           echo "Detected fingerprint: $FP"
           test "$FP" = "B77D96D72F84F36ACAA3F8729CBF497D829EE15A"
 
-      - name: Verify Web Hub Assets & Zero-Emoji Policy
+      - name: Verify portal pages
         run: |
           test -f index.html
           test -f fr/index.html
-          test -f pong/index.html
-          test -f fr/pong/index.html
           test -s assets/site.css
-          test -s assets/site.js
-          test -s assets/pong.js
-          test -s assets/pong.css
-          test -s assets/bobine-tokens.css
-          test -f logo_bobine_entier.png
-          test -f CNAME
-          test -f .nojekyll
-          test -f robots.txt
-          test -f sitemap.xml
-          test -f llms.txt
-          grep -q "packages.bobine.fit" CNAME
-          if grep -q "brand-pill" index.html fr/index.html; then
-            echo "ERROR: brand-pill found in index.html"
-            exit 1
-          fi
-          for icon in debian ubuntu linuxmint popos zorin raspberrypi fedora nobara rhel almalinux rockylinux opensuse arch endeavouros cachyos manjaro; do
-            test -s "icons/distros/${icon}.svg"
-          done
-          for os in linux windows apple android framework tor; do
-            test -s "icons/os/${os}.svg"
-          done
-          for chip in intel amd snapdragon apple-silicon; do
-            test -s "icons/chips/${chip}.svg"
-          done
-          for browser in firefox chrome edge safari brave opera torbrowser; do
-            test -s "icons/browsers/${browser}.svg"
-          done
-
-      - name: Verify portal sources, mobile layouts and theme controls
-        run: |
-          python3 -m http.server 3103 --bind 127.0.0.1 > /tmp/portal-server.log 2>&1 &
-          server=$!
-          trap 'kill "$server" 2>/dev/null || true' EXIT
-          for attempt in $(seq 1 30); do
-            curl -fsS http://127.0.0.1:3103/ > /dev/null && break
-            sleep 1
-          done
-          PORTAL_URL=http://127.0.0.1:3103 node scripts/check-portal.mjs
-
-      - name: Verify shared controls match their BobineWeb revision
-        run: |
-          revision=$(node -p 'JSON.parse(require("node:fs").readFileSync("assets/branding-source.json", "utf8")).revision')
-          for file in bobine-controls.css bobine-themes.json; do
-            curl --retry 3 -fsSL "https://raw.githubusercontent.com/FantasmaGlad/BobineWeb/$revision/public/$file" -o "/tmp/$file"
-            cmp "/tmp/$file" "assets/$file"
-          done
-
-      - name: Verify the design tokens match BobineWeb
-        run: |
-          curl -fsSL https://raw.githubusercontent.com/FantasmaGlad/BobineWeb/main/public/bobine-tokens.css -o /tmp/bobine-tokens.css
-          cmp /tmp/bobine-tokens.css assets/bobine-tokens.css || { echo "::error::assets/bobine-tokens.css differs from BobineWeb/public/bobine-tokens.css : copy the generated file"; exit 1; }
-
-      - name: Verify portal links and local previews
-        run: |
-          set -euo pipefail
           test -s favicon.ico
-          test -s og-image.webp
+          for f in CNAME .nojekyll robots.txt sitemap.xml llms.txt; do test -f "$f"; done
+          grep -q "packages.bobine.fit" CNAME
           for family in debian fedora arch; do test -s "$family/index.html"; done
-          if grep -nE 'bobine.fit/(og-image.png|en/ordinateur|en/securite|fr/materiel|en/hardware)' index.html fr/index.html pong/index.html fr/pong/index.html; then
-            echo "ERROR: obsolete portal link"
-            exit 1
-          fi
-          for page in index.html fr/index.html pong/index.html fr/pong/index.html; do
-            grep -q 'https://packages.bobine.fit/og-image.webp' "$page"
-          done
+          node scripts/check-portal.mjs
 
       - name: Verify Published Repository Signatures (if present on branch)
         run: |
@@ -147,15 +85,21 @@ jobs:
         run: |
           set -euo pipefail
           cd source
-          git ls-files -z -- '*.html' 'assets/**' 'icons/**' 'favicon.ico' 'og-image.webp' 'logo_bobine_entier.png' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' |
+          git ls-files -z -- '*.html' 'assets/**' 'favicon.ico' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' |
             tar --null -T - -cf - | tar -xf - -C ../published
+      - name: Remove retired portal files
+        working-directory: published
+        run: |
+          git rm -rq --ignore-unmatch -- pong fr/pong icons assets/channels og-image.webp logo_bobine_entier.png \
+            assets/pong.css assets/pong.js assets/site.js assets/NOTICE.md assets/branding-source.json \
+            assets/bobine-controls.css assets/bobine-themes.json assets/bobine-tokens.css
       - name: Publish without replacing package binaries
         working-directory: published
         run: |
           set -euo pipefail
           git config user.name fanta
           git config user.email 193235053+FantasmaGlad@users.noreply.github.com
-          git add -- '*.html' assets icons favicon.ico og-image.webp logo_bobine_entier.png robots.txt sitemap.xml llms.txt CNAME .nojekyll
+          git add -- '*.html' assets favicon.ico robots.txt sitemap.xml llms.txt CNAME .nojekyll
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "fix(portail): synchroniser les liens et ressources validés"
           for attempt in 1 2 3; do
