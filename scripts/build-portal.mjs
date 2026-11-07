@@ -137,7 +137,31 @@ ${pre(PACMAN_CONF)}
 `;
 }
 
-const outputs = { "index.html": page("en"), "fr/index.html": page("fr") };
+function notFound() {
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 · packages.bobine.fit</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<main>
+<h1>404</h1>
+<p>Page introuvable. Page not found.</p>
+</main>
+<footer>
+<p><a href="https://bobine.fit">bobine.fit</a> · <a href="https://security.bobine.fit">security</a> · <a href="https://github.com/FantasmaGlad/Bobine">GitHub</a> · <a href="/">packages</a></p>
+</footer>
+</body>
+</html>
+`;
+}
+
+const outputs = { "index.html": page("en"), "fr/index.html": page("fr"), "404.html": notFound() };
 const check = process.argv.includes("--check");
 let stale = 0;
 for (const [file, content] of Object.entries(outputs)) {
