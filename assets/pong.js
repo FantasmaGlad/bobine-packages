@@ -24,7 +24,7 @@
   function resolve(token) { probe.style.backgroundColor = 'var(' + token + ')'; return getComputedStyle(probe).backgroundColor; }
   function readColors() { colors.arena = resolve('--bg-card'); colors.net = resolve('--border-subtle'); colors.ink = resolve('--text-heading'); }
   readColors();
-  new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'data-mode'] });
 
   // --- Sons (Web Audio), créés au premier geste ---
   var audio = null;
