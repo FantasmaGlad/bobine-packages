@@ -161,7 +161,7 @@ Le portail web `packages.bobine.fit` repose sur une architecture statique SSG mo
 - **Badges et logos officiels** : Badges distincts haute fidélité pour les trois canaux (**Stable**, **Bêta**, **Canary**), logos des processeurs (**Qualcomm Snapdragon**, **Intel**, **AMD**) et des navigateurs (**Chrome**, **Firefox**, **Safari**, **Edge**, **Brave**, **Opera**, **Tor**).
 - **Scripts de compilation et de contrôle** :
   ```bash
-  # Compiler les pages statiques du portail (accueil et Pong)
+  # Compiler les pages statiques du portail (pages d'accueil)
   npm run build
 
   # Vérifier la conformité des sources et des pages générées

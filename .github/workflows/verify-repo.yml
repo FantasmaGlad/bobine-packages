@@ -29,12 +29,8 @@ jobs:
         run: |
           test -f index.html
           test -f fr/index.html
-          test -f pong/index.html
-          test -f fr/pong/index.html
           test -s assets/site.css
           test -s assets/site.js
-          test -s assets/pong.js
-          test -s assets/pong.css
           test -s assets/bobine-tokens.css
           test -f logo_bobine_entier.png
           test -f CNAME
@@ -90,11 +86,11 @@ jobs:
           test -s favicon.ico
           test -s og-image.webp
           for family in debian fedora arch; do test -s "$family/index.html"; done
-          if grep -nE 'bobine.fit/(og-image.png|en/ordinateur|en/securite|fr/materiel|en/hardware)' index.html fr/index.html pong/index.html fr/pong/index.html; then
+          if grep -nE 'bobine.fit/(og-image.png|en/ordinateur|en/securite|fr/materiel|en/hardware)' index.html fr/index.html; then
             echo "ERROR: obsolete portal link"
             exit 1
           fi
-          for page in index.html fr/index.html pong/index.html fr/pong/index.html; do
+          for page in index.html fr/index.html; do
             grep -q 'https://packages.bobine.fit/og-image.webp' "$page"
           done
 
@@ -149,6 +145,9 @@ jobs:
           cd source
           git ls-files -z -- '*.html' 'assets/**' 'icons/**' 'favicon.ico' 'og-image.webp' 'logo_bobine_entier.png' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' |
             tar --null -T - -cf - | tar -xf - -C ../published
+      - name: Remove retired portal files
+        working-directory: published
+        run: git rm -q --ignore-unmatch -- pong/index.html fr/pong/index.html assets/pong.css assets/pong.js
       - name: Publish without replacing package binaries
         working-directory: published
         run: |

@@ -68,23 +68,6 @@ export interface PortalStrings {
   footerLead: string;
   footerLinks: [string, string][];
   copyStatus: string;
-  pong: {
-    title: string;
-    description: string;
-    keywords: string;
-    h1: string;
-    player: string;
-    robot: string;
-    winTitle: string;
-    winText: string;
-    lossTitle: string;
-    lossText: string;
-    again: string;
-    back: string;
-    crumbHome: string;
-    footer: string;
-    contribute: string;
-  };
 }
 
 export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
@@ -103,7 +86,6 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
     nav: [
       ["https://bobine.fit/fr/documentation", "Documentation"],
       ["https://bobine.fit/fr/linux", "Linux"],
-      ["/fr/pong/", "Pong"],
     ],
     cta: ["https://bobine.fit/fr/telechargement", "Télécharger"],
     menu: "Menu",
@@ -239,28 +221,10 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
       ["https://bobine.fit/fr/linux", "Linux"],
       ["https://bobine.fit/fr/documentation", "Documentation"],
       ["https://security.bobine.fit", "Sécurité"],
-      ["/fr/pong/", "Pong"],
       ["/llms.txt", "llms.txt"],
       ["https://github.com/FantasmaGlad/Bobine", "GitHub"],
     ],
     copyStatus: "État de la copie",
-    pong: {
-      title: "Pong : jouez contre le robot",
-      description: "Pong, le classique de l'arcade, dans votre navigateur : le premier à 7 points gagne contre le robot. Clavier, souris ou tactile, sans compte ni suivi.",
-      keywords: "Pong, jeu d'arcade, jeu rétro, Bobine",
-      h1: "Pong",
-      player: "Joueur",
-      robot: "Robot",
-      winTitle: "Victoire !",
-      winText: "Vous avez remporté la manche à 7 points face au robot.",
-      lossTitle: "Défaite",
-      lossText: "Le robot a atteint 7 points.",
-      again: "Recommencer",
-      back: "Retour aux dépôts Linux",
-      crumbHome: "Paquets",
-      footer: "Bobine, logiciel libre sous AGPL-3.0.",
-      contribute: "Si vous pouvez lire ceci, le projet Linux vous intéresse. Venez m'aider à construire Bobine :",
-    },
   },
   en: {
     lang: "en",
@@ -277,7 +241,6 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
     nav: [
       ["https://bobine.fit/en/documentation", "Documentation"],
       ["https://bobine.fit/en/linux", "Linux"],
-      ["/pong/", "Pong"],
     ],
     cta: ["https://bobine.fit/en/download", "Download"],
     menu: "Menu",
@@ -413,28 +376,10 @@ export const PORTAL_DATA: Record<"fr" | "en", PortalStrings> = {
       ["https://bobine.fit/en/linux", "Linux"],
       ["https://bobine.fit/en/documentation", "Documentation"],
       ["https://security.bobine.fit", "Security"],
-      ["/pong/", "Pong"],
       ["/llms.txt", "llms.txt"],
       ["https://github.com/FantasmaGlad/Bobine", "GitHub"],
     ],
     copyStatus: "Copy status",
-    pong: {
-      title: "Pong: play against the robot",
-      description: "Pong, the classic arcade game, in your browser: first to 7 points wins against the robot. Arrow keys, W/S, mouse or touch; no account and no tracking.",
-      keywords: "Pong, arcade game, retro game, Bobine",
-      h1: "Pong",
-      player: "Player",
-      robot: "Robot",
-      winTitle: "Victory!",
-      winText: "You won the 7-point match against the robot.",
-      lossTitle: "Defeat",
-      lossText: "The robot reached 7 points.",
-      again: "Play again",
-      back: "Back to the package hub",
-      crumbHome: "Packages",
-      footer: "Bobine, free software under AGPL-3.0.",
-      contribute: "If you can read this, you are interested in the Linux project. Come and help me build Bobine:",
-    },
   },
 };
 

@@ -8,7 +8,4 @@
   <url><loc>https://packages.bobine.fit/fedora/stable/</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://packages.bobine.fit/arch/</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://packages.bobine.fit/arch/stable/</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <!-- Easter Egg Pong -->
-  <url><loc>https://packages.bobine.fit/pong/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://packages.bobine.fit/fr/pong/</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

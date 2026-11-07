@@ -161,7 +161,7 @@ The web portal at `packages.bobine.fit` is powered by a modern static SSG archit
 - **Official Badges & Logos**: High-fidelity badges for the three release channels (**Stable**, **Beta**, **Canary**), processor manufacturer logos (**Qualcomm Snapdragon**, **Intel**, **AMD**), and web browser logos (**Chrome**, **Firefox**, **Safari**, **Edge**, **Brave**, **Opera**, **Tor**).
 - **Build & Verification Scripts**:
   ```bash
-  # Build static portal pages (index and Pong)
+  # Build static portal pages (home pages)
   npm run build
 
   # Check portal sources, tokens, and output conformance

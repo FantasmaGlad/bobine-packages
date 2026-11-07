@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Génère les pages du portail (accueil EN/FR et Pong EN/FR) à partir d'un seul contenu bilingue,
+// Génère les pages du portail (accueil EN et FR) à partir d'un seul contenu bilingue,
 // pour que les deux langues ne divergent jamais. Les pages générées sont suivies par Git ; la CI refuse un fichier
 // périmé (node scripts/build-portal.mjs --check). Aucun style ni script en ligne : tout vient de assets/.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -60,7 +60,6 @@ const L = {
     nav: [
       ["https://bobine.fit/en/documentation", "Documentation"],
       ["https://bobine.fit/en/linux", "Linux"],
-      ["/pong/", "Pong"],
     ],
     cta: ["https://bobine.fit/en/download", "Download"],
     menu: "Menu",
@@ -117,23 +116,10 @@ const L = {
       ["https://bobine.fit/en/linux", "Linux"],
       ["https://bobine.fit/en/documentation", "Documentation"],
       ["https://security.bobine.fit", "Security"],
-      ["/pong/", "Pong"],
       ["/llms.txt", "llms.txt"],
       ["https://github.com/FantasmaGlad/Bobine", "GitHub"],
     ],
     copyStatus: "Copy status",
-    pong: {
-      title: "Pong: play against the robot",
-      description: "Pong, the classic arcade game, in your browser: first to 7 points wins against the robot. Arrow keys, W/S, mouse or touch; no account and no tracking.",
-      keywords: "Pong, arcade game, retro game, Bobine",
-      h1: "Pong",
-      player: "Player", robot: "Robot",
-      winTitle: "Victory!", winText: "You won the 7-point match against the robot.",
-      lossTitle: "Defeat", lossText: "The robot reached 7 points.", again: "Play again",
-      back: "Back to the package hub", crumbHome: "Packages",
-      footer: "Bobine, free software under AGPL-3.0.",
-      contribute: "If you can read this, you are interested in the Linux project. Come and help me build Bobine:",
-    },
   },
   fr: {
     lang: "fr",
@@ -150,7 +136,6 @@ const L = {
     nav: [
       ["https://bobine.fit/fr/documentation", "Documentation"],
       ["https://bobine.fit/fr/linux", "Linux"],
-      ["/fr/pong/", "Pong"],
     ],
     cta: ["https://bobine.fit/fr/telechargement", "Télécharger"],
     menu: "Menu",
@@ -207,23 +192,10 @@ const L = {
       ["https://bobine.fit/fr/linux", "Linux"],
       ["https://bobine.fit/fr/documentation", "Documentation"],
       ["https://security.bobine.fit", "Sécurité"],
-      ["/fr/pong/", "Pong"],
       ["/llms.txt", "llms.txt"],
       ["https://github.com/FantasmaGlad/Bobine", "GitHub"],
     ],
     copyStatus: "État de la copie",
-    pong: {
-      title: "Pong : jouez contre le robot",
-      description: "Pong, le classique de l'arcade, dans votre navigateur : le premier à 7 points gagne contre le robot. Clavier, souris ou tactile, sans compte ni suivi.",
-      keywords: "Pong, jeu d'arcade, jeu rétro, Bobine",
-      h1: "Pong",
-      player: "Joueur", robot: "Robot",
-      winTitle: "Victoire !", winText: "Vous avez remporté la manche à 7 points face au robot.",
-      lossTitle: "Défaite", lossText: "Le robot a atteint 7 points.", again: "Recommencer",
-      back: "Retour aux dépôts Linux", crumbHome: "Paquets",
-      footer: "Bobine, logiciel libre sous AGPL-3.0.",
-      contribute: "Si vous pouvez lire ceci, le projet Linux vous intéresse. Venez m'aider à construire Bobine :",
-    },
   },
 };
 
@@ -452,65 +424,7 @@ sudo apt update &amp;&amp; sudo apt install bobine</pre></div>
 `;
 }
 
-/** Page du jeu Pong : une page par langue, titre « Pong », couleurs lues dans les jetons du thème. */
-function pongPage(t) {
-  const p = t.pong;
-  const path = t.lang === "en" ? "/pong/" : "/fr/pong/";
-  const otherPath = t.lang === "en" ? "/fr/pong/" : "/pong/";
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "VideoGame",
-    name: "Pong",
-    url: `${SITE}${path}`,
-    description: p.description,
-    inLanguage: t.lang,
-    genre: ["Arcade", "Retro"],
-    gamePlatform: "Web browser",
-    applicationCategory: "Game",
-    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-    publisher: { "@type": "Organization", name: "Bobine", url: "https://bobine.fit" },
-  };
-  const strings = { player: p.player, robot: p.robot, winTitle: p.winTitle, winText: p.winText, lossTitle: p.lossTitle, lossText: p.lossText };
-  return `<!DOCTYPE html>
-<html lang="${t.lang}" data-theme="${themesData.defaultTheme}" data-mode="light">
-<head>
-  ${head(t, { path, otherPath, defaultPath: "/pong/", title: p.title, description: p.description, keywords: p.keywords, jsonLd, extraCss: "/assets/pong.css" })}
-</head>
-<body class="pong-page">
-  <a class="skip-link" href="#gameArea">${esc(t.skip)}</a>
-  ${header(t, ["/pong/", "/fr/pong/"])}
-
-  <main class="pong-main" id="gameArea">
-    <h1 class="sr-only">${esc(p.h1)}</h1>
-    <div class="pong-score" aria-label="${esc(p.player)} / ${esc(p.robot)}">
-      <div class="pong-score__box"><span class="pong-score__label">${esc(p.player)}</span><span class="pong-score__val" id="scorePlayer">0</span></div>
-      <span class="pong-score__colon" aria-hidden="true">:</span>
-      <div class="pong-score__box"><span class="pong-score__label">${esc(p.robot)}</span><span class="pong-score__val" id="scoreBot">0</span></div>
-    </div>
-    <canvas id="pongCanvas" aria-label="Pong"></canvas>
-    <div class="pong-overlay" id="overlay" role="dialog" aria-modal="false" aria-labelledby="overlayTitle">
-      <h2 id="overlayTitle"></h2>
-      <p id="overlayText"></p>
-      <button type="button" class="btn btn--primary" id="overlayBtn">${esc(p.again)}</button>
-    </div>
-    <noscript><p class="pong-noscript">JavaScript required.</p></noscript>
-  </main>
-
-  <footer class="site-footer site-footer--compact">
-    <div class="site-footer__inner">
-      <a href="${t.lang === "fr" ? "/fr/" : "/"}">${esc(p.back)}</a>
-      <span>${esc(p.footer)} <a href="mailto:clement.barillot@bobine.fit">${esc(p.contribute)} clement.barillot@bobine.fit</a></span>
-    </div>
-  </footer>
-  <script type="application/json" id="pong-strings">${JSON.stringify(strings).replace(/</g, "\\u003c")}</script>
-  <script src="/assets/site.js" defer></script>
-  <script src="/assets/pong.js" defer></script>
-</body>
-</html>
-`;
-}
-
-const outputs = { "index.html": page(L.en), "fr/index.html": page(L.fr), "pong/index.html": pongPage(L.en), "fr/pong/index.html": pongPage(L.fr) };
+const outputs = { "index.html": page(L.en), "fr/index.html": page(L.fr) };
 const check = process.argv.includes("--check");
 let stale = 0;
 for (const [file, content] of Object.entries(outputs)) {
