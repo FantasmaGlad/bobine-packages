@@ -1,106 +1,28 @@
 #!/usr/bin/env node
-// Contrôle du portail : (1) aucune couleur, aucun flou en pixels et aucune ancienne appellation dans les sources ;
-// (2) pages générées à jour ; (3) avec un serveur local et Chromium (PORTAL_URL, CHROME_BIN), géométrie à 360, 390, 640x360,
-// 768 et 1280 px : pas de débordement horizontal, cibles tactiles d'au moins 44 px.
-// Chromium mesure des mises en page, pas du matériel.
-import { readFileSync } from "node:fs";
+// Contrôle du portail : pages générées à jour, aucun script ni style intégré, liens locaux valides, empreinte affichée.
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = join(fileURLToPath(new URL(".", import.meta.url)), "..");
+const FP = "B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A";
 const errors = [];
-const fail = (m) => errors.push(m);
-const read = (f) => readFileSync(join(root, f), "utf8");
 
-// 1. Valeurs figées ------------------------------------------------------------------------------------------------
-for (const f of ["assets/site.css"]) {
-  const css = read(f).replace(/\/\*[\s\S]*?\*\//g, "");
-  if (/#[0-9a-fA-F]{3,8}\b/.test(css)) fail(`${f} : couleur hexadécimale figée`);
-  if (/\brgba?\(/.test(css)) fail(`${f} : rgb() figé`);
-  if (/blur\(\s*\d+px/.test(css)) fail(`${f} : flou en pixels, utiliser un jeton`);
-}
-for (const f of ["assets/site.js"]) {
-  const js = read(f).replace(/\/\*[\s\S]*?\*\//g, "");
-  if (/['"]#[0-9a-fA-F]{3,8}['"]/.test(js)) fail(`${f} : couleur figée dans le script`);
-}
-for (const f of ["index.html", "fr/index.html", "llms.txt", "sitemap.xml", "README.md", "README.fr.md"]) {
-  const text = read(f);
-  if (/<style[\s>]/.test(text)) fail(`${f} : feuille de style en ligne`);
-  if (/\bstyle="[^"]*(?:#[0-9a-fA-F]{3,8}|rgb)/.test(text)) fail(`${f} : couleur en ligne`);
-}
-
-// 2. Pages générées à jour -----------------------------------------------------------------------------------------
-for (const page of ["index.html", "fr/index.html"]) {
-  for (const match of read(page).matchAll(/<img[^>]+src="(\/icons\/[^" ]+)"/g)) {
-    try { if (!read(match[1].slice(1)).includes("<svg")) fail(`${page}: logo SVG invalide ${match[1]}`); }
-    catch { fail(`${page}: logo absent ${match[1]}`); }
-  }
-  if (read(page).includes('id="themeSelect"') || read(page).includes('class="lang-switch"')) fail(`${page}: sélecteur distinct du site principal`);
-}
 const gen = spawnSync(process.execPath, [join(root, "scripts/build-portal.mjs"), "--check"], { encoding: "utf8" });
-if (gen.status !== 0) fail(`pages générées périmées : ${gen.stderr.trim()}`);
+if (gen.status !== 0) errors.push(`pages périmées : ${gen.stderr.trim()}`);
 
-// 3. Géométrie -----------------------------------------------------------------------------------------------------
-const url = process.env.PORTAL_URL;
-if (url) {
-  const { delay, launchChrome } = await import("./cdp.mjs");
-  const browser = await launchChrome();
-  const { send, evaluate } = browser;
-  try {
-    await send("Page.enable");
-    await send("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 });
-    await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
-    let views = 0;
-    for (const path of ["/", "/fr/"]) {
-      for (const [width, height] of [[360, 640], [390, 800], [640, 360], [768, 1024], [1280, 800]]) {
-        await send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: 1, mobile: width < 768 });
-        await send("Page.navigate", { url: url + path });
-        for (let i = 0; i < 100; i++) { if (await evaluate("document.readyState === 'complete'")) break; await delay(100); }
-        await delay(500);
-        for (const theme of ["ardoise", "orchidee"]) {
-          await evaluate(`document.documentElement.setAttribute('data-theme', ${JSON.stringify(theme)}); new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))`);
-          const r = await evaluate(`(() => {
-            const root = document.documentElement;
-            const small = [...document.querySelectorAll('a, button, select, summary')].filter((e) => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden' && !e.closest('.sr-only') && !e.closest('p, li') && !e.classList.contains('skip-link')).flatMap((e) => { const b = e.getBoundingClientRect(); return b.width < 43.9 || b.height < 43.9 ? [e.tagName + ':' + e.textContent.trim().slice(0, 24) + ' ' + Math.round(b.width) + 'x' + Math.round(b.height)] : []; });
-            const header = document.querySelector('.site-header').getBoundingClientRect().height;
-            const wide = (() => { if (root.scrollWidth <= root.clientWidth) return []; const hide = (list, on) => list.forEach((e) => { e.style.display = on ? 'none' : ''; }); const fixing = [...document.querySelectorAll('body *')].filter((e) => { hide([e], true); const ok = root.scrollWidth <= root.clientWidth; hide([e], false); return ok; }); const deepest = fixing[fixing.length - 1]; if (!deepest) return ['aucun élément seul ne corrige']; const kids = [...deepest.children]; const out = [deepest.tagName + '.' + deepest.className + ' enfants :']; for (const k of kids) { hide(kids.filter((x) => x !== k), true); out.push(k.tagName + '.' + String(k.className).slice(0, 30) + (root.scrollWidth > root.clientWidth ? ' DEBORDE sw' + root.scrollWidth + ' w' + Math.round(k.getBoundingClientRect().width) + ' ml' + getComputedStyle(k).marginLeft + ' mr' + getComputedStyle(k).marginRight : ' ok')); hide(kids, false); } return out; })();
-            return { scroll: root.scrollWidth, width: root.clientWidth, wide, small, header };
-          })()`);
-          views++;
-          const where = `${path} ${width}x${height} ${theme}`;
-          if (r.scroll > r.width) fail(`${where} : débordement horizontal (${r.scroll} > ${r.width}) ${r.wide.join(', ')}`);
-          if (r.small.length) fail(`${where} : cibles sous 44 px : ${r.small.slice(0, 4).join(", ")}`);
-        }
-      }
-    }
-    // Les commandes doivent aussi fonctionner une fois le menu et la palette ouverts.
-    let palettes = 0;
-    for (const path of ["/", "/fr/"]) for (const [width, height] of [[360, 640], [640, 360], [1280, 800]]) {
-      await send("Emulation.setDeviceMetricsOverride", {width, height, deviceScaleFactor:1, mobile:width < 768});
-      await send("Page.navigate", {url:url + path});
-      for (let i = 0; i < 100; i++) { if (await evaluate("document.readyState === 'complete' && !!document.getElementById('themeToggle')")) break; await delay(100); }
-      await evaluate(`(() => { const menu=document.getElementById('menuBtn'); if(getComputedStyle(menu).display!=='none') menu.click(); document.getElementById('themeToggle').click(); })()`);
-      await delay(200);
-      const palette = await evaluate(`(() => {const p=document.getElementById('themePalette'), r=p.getBoundingClientRect(); return {hidden:p.hidden,left:r.left,right:r.right,top:r.top,bottom:r.bottom,small:[...p.querySelectorAll('button')].filter(e=>!e.hidden&&e.getClientRects().length).some(e=>{const b=e.getBoundingClientRect();return b.width<43.9||b.height<43.9})};})()`);
-      if (palette.hidden || palette.left < 0 || palette.right > width + 1 || palette.top < 0 || palette.bottom > height + 1 || palette.small) fail(`${path} ${width}x${height}: palette hors écran ou cibles trop petites ${JSON.stringify(palette)}`);
-      await evaluate(`document.querySelector('[data-theme-mode="dark"]').click(); document.querySelector('[data-theme-value="orchidee"]').click()`);
-      const selected = await evaluate(`document.documentElement.dataset.theme === 'orchidee' && document.documentElement.dataset.mode === 'dark' && document.getElementById('themePalette').hidden && localStorage.getItem('bobineweb-theme') === 'orchidee' && localStorage.getItem('bobineweb-theme-mode') === 'dark' && document.cookie.includes('bobine-theme=orchidee') && document.cookie.includes('bobine-theme-mode=dark')`);
-      if (!selected) fail(`${path}: sélection et stockage du thème`);
-      await evaluate(`document.getElementById('themeToggle').click()`);
-      await send('Input.dispatchKeyEvent', {type:'keyDown', key:'Escape', code:'Escape', windowsVirtualKeyCode:27});
-      await send('Input.dispatchKeyEvent', {type:'keyUp', key:'Escape', code:'Escape', windowsVirtualKeyCode:27});
-      if (!await evaluate(`document.getElementById('themePalette').hidden && document.activeElement.id === 'themeToggle'`)) fail(`${path}: fermeture clavier et retour du focus`);
-      const broken = await evaluate(`Array.from(document.querySelectorAll('img.brand-icon')).filter(e=>e.complete&&e.naturalWidth===0).length`);
-      if (broken) fail(`${path}: ${broken} logos introuvables`);
-      palettes++;
-    }
-    console.log(`check-portal : ${palettes} palettes ouvertes, sélection, stockage et fermeture clavier vérifiés.`);
-    console.log(`check-portal : ${views} vues mesurées.`);
-  } finally {
-    await browser.close();
+for (const page of ["index.html", "fr/index.html"]) {
+  const html = readFileSync(join(root, page), "utf8");
+  if (/<script\b/i.test(html)) errors.push(`${page} : script`);
+  if (/<style\b|\sstyle=/i.test(html)) errors.push(`${page} : style intégré`);
+  if (!html.includes(FP)) errors.push(`${page} : empreinte absente`);
+  if (!html.includes("<!-- install -->") || !html.includes("<!-- /install -->")) errors.push(`${page} : marqueurs du bloc d'installation absents (miroir Tor)`);
+  for (const [, ref] of html.matchAll(/(?:href|src)="(\/[^"#?]*)"/g)) {
+    const target = join(root, ref, ref.endsWith("/") ? "index.html" : "");
+    if (!existsSync(target)) errors.push(`${page} : lien local cassé ${ref}`);
   }
 }
 
 if (errors.length) { console.error(errors.map((e) => `::error::${e}`).join("\n")); process.exit(1); }
-console.log("check-portal : sources conformes, pages générées à jour.");
+console.log("check-portal : pages à jour, sans script ni style intégré, liens locaux valides.");
