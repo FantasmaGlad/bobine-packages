@@ -9,7 +9,39 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://packages.bobine.fit";
 const FP = "B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A";
-const {lightThemes, darkThemes, themeMeta} = JSON.parse(readFileSync(join(root, "assets/bobine-themes.json"), "utf8"));
+const themesData = JSON.parse(readFileSync(join(root, "assets/bobine-themes.json"), "utf8"));
+// Script bloquant du <head> : pose data-theme et data-mode avant la première image ; les données viennent de bobine-themes.json.
+const THEME_INIT = `(function () {
+  // Données des thèmes (identifiants, anciens noms, défaut) injectées à la construction depuis public/bobine-themes.json.
+  var D = ${JSON.stringify({themes: themesData.themes.map(({id}) => ({id})), legacy: themesData.legacy, defaultTheme: themesData.defaultTheme, defaultMode: themesData.defaultMode})};
+  window.BOBINE_THEMES = D;
+  function cookie(name) { var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([\\w-]+)')); return m && m[1]; }
+  function stored(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  var ids = D.themes.map(function (t) { return t.id; });
+  var isMode = function (m) { return m === 'light' || m === 'dark' || m === 'auto'; };
+  // Ancien nom (valeur « couleur/mode » du JSON) ou nom actuel ; un mode déjà choisi est conservé.
+  function resolve() {
+    var theme = cookie('bobine-theme') || stored('bobineweb-theme');
+    var mode = cookie('bobine-theme-mode') || stored('bobineweb-theme-mode');
+    var legacy = theme && D.legacy[theme];
+    if (legacy && (ids.indexOf(theme) < 0 || !isMode(mode))) {
+      var parts = legacy.split('/');
+      theme = parts[0];
+      mode = parts[1] ? (mode === 'light' || mode === 'dark' ? mode : parts[1]) : mode;
+    }
+    if (ids.indexOf(theme) < 0) theme = D.defaultTheme;
+    if (!isMode(mode)) mode = D.defaultMode;
+    return { theme: theme, mode: mode };
+  }
+  function effective(mode) { return mode === 'auto' ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : mode; }
+  window.BOBINE_RESOLVE = resolve;
+  window.BOBINE_EFFECTIVE = effective;
+  try {
+    var r = resolve();
+    document.documentElement.setAttribute('data-theme', r.theme);
+    document.documentElement.setAttribute('data-mode', effective(r.mode));
+  } catch (e) {}
+})();`;
 
 
 const L = {
@@ -225,7 +257,7 @@ function head(t, o) {
   <meta name="twitter:title" content="${esc(o.ogTitle ?? o.title)}">
   <meta name="twitter:description" content="${esc(o.ogDescription ?? o.description)}">
   <meta name="twitter:image" content="${SITE}/og-image.webp">
-  <script>document.documentElement.className='js';(function(){try{var m=document.cookie.match(/(?:^|; )bobine-theme=([a-z-]+)/);var t=(m&&m[1])||localStorage.getItem('bobineweb-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+  <script>document.documentElement.className='js';${THEME_INIT}</script>
   <link rel="stylesheet" href="/assets/bobine-tokens.css">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/bobine-controls.css">${o.extraCss ? `\n  <link rel="stylesheet" href="${o.extraCss}">` : ""}
@@ -235,10 +267,8 @@ function head(t, o) {
 /** En-tête commun : marque, navigation, langue, thème ; `langLinks` = [adresse EN, adresse FR]. */
 function header(t, langLinks) {
   const isFr = t.lang === "fr";
-  const options = [...lightThemes, ...darkThemes].map((id) => {
-    const m = themeMeta[id];
-    return `<button type="button" role="option" class="theme-card-option" data-theme-value="${id}" data-dark="${m.isDark}" data-label="${esc(m.label)}" aria-selected="false"${m.isDark ? " hidden" : ""}><span class="theme-card-option__swatch-wrapper"><span class="theme-card-option__swatch"></span></span><span class="theme-card-option__info"><span class="theme-card-option__name">${esc(m.label)}</span><span class="theme-card-option__desc">${esc(m.desc)}</span></span><span class="theme-card-option__check" aria-hidden="true">✓</span></button>`;
-  }).join("");
+  const options = themesData.themes.map((m) => `<button type="button" role="option" class="theme-card-option" data-theme-value="${m.id}" data-label="${esc(m.label)}" aria-selected="false"><span class="theme-card-option__swatch-wrapper"><span class="theme-card-option__swatch" data-theme="${m.id}" aria-hidden="true"></span></span><span class="theme-card-option__info"><span class="theme-card-option__name">${esc(m.label)}</span></span></button>`).join("");
+  const modes = ["auto", "light", "dark"].map((mode) => `<button type="button" role="tab" class="theme-segment-btn${mode === themesData.defaultMode ? " is-active" : ""}" data-theme-mode="${mode}" aria-selected="${mode === themesData.defaultMode}">${esc(themesData.modeLabels[mode])}</button>`).join("");
   const controls = `
           <div class="header-controls">
             <nav class="locale-switcher" aria-label="Langue / Language">
@@ -247,14 +277,11 @@ function header(t, langLinks) {
             </nav>
             <div class="theme-switcher-wrapper" id="themePicker">
               <div class="theme-switcher-pill-group">
-                <button type="button" class="theme-switcher-btn" id="themeCycle" aria-label="${isFr ? "Thème suivant" : "Next theme"}"><span class="theme-swatch-icon" data-theme="lavande" aria-hidden="true"></span><span class="theme-switcher-btn__label">Lavande</span></button>
-                <button type="button" class="theme-switcher-arrow-btn" id="themeToggle" aria-label="${isFr ? "Ouvrir les 15 thèmes" : "Open all 15 themes"}" aria-expanded="false" aria-haspopup="dialog" aria-controls="themePalette"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="chevron-flip" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <button type="button" class="theme-switcher-btn" id="themeCycle" aria-label="${isFr ? "Thème suivant" : "Next theme"}"><span class="theme-swatch-icon" data-theme="${themesData.defaultTheme}" aria-hidden="true"></span><span class="theme-switcher-btn__label">${esc(themesData.themes.find((m) => m.id === themesData.defaultTheme).label)}</span></button>
+                <button type="button" class="theme-switcher-arrow-btn" id="themeToggle" aria-label="${isFr ? "Ouvrir les thèmes et choisir le mode" : "Open the themes and choose the mode"}" aria-expanded="false" aria-haspopup="dialog" aria-controls="themePalette"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="chevron-flip" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
               </div>
               <div class="theme-dropdown-modal" id="themePalette" role="dialog" aria-label="${isFr ? "Palette des thèmes" : "Theme palette"}" hidden>
-                <div class="theme-segmented-control" role="tablist" aria-label="${esc(t.themeLabel)}">
-                  <button type="button" role="tab" class="theme-segment-btn is-active" data-theme-group="light" aria-selected="true">${isFr ? "Thèmes Clairs" : "Light themes"}<span class="theme-segment-count">${lightThemes.length}</span></button>
-                  <button type="button" role="tab" class="theme-segment-btn" data-theme-group="dark" aria-selected="false">${isFr ? "Thèmes Sombres" : "Dark themes"}<span class="theme-segment-count">${darkThemes.length}</span></button>
-                </div>
+                <div class="theme-segmented-control" role="tablist" aria-label="${esc(t.themeLabel)}">${modes}</div>
                 <div class="theme-grid" role="listbox" aria-label="${esc(t.themeLabel)}">${options}</div>
               </div>
             </div>
@@ -311,7 +338,7 @@ function page(t) {
         </button>`).join("");
   const seg = (items, attr, selected) => items.map(([v, label, badge]) => `<button type="button" ${attr}="${v}" aria-pressed="${v === selected}">${badge ? `<img class="channel-badge" src="${badge}" alt="" width="20" height="20" loading="lazy">` : ""}<span>${esc(label)}</span></button>`).join("");
   return `<!DOCTYPE html>
-<html lang="${t.lang}" data-theme="lavande">
+<html lang="${t.lang}" data-theme="${themesData.defaultTheme}" data-mode="light">
 <head>
   ${head(t, { path: t.path, otherPath: t.other, defaultPath: "/", title: t.title, description: t.description, keywords: t.keywords, ogTitle: t.ogTitle, ogDescription: t.ogDescription, jsonLd })}
 </head>
@@ -445,7 +472,7 @@ function pongPage(t) {
   };
   const strings = { player: p.player, robot: p.robot, winTitle: p.winTitle, winText: p.winText, lossTitle: p.lossTitle, lossText: p.lossText };
   return `<!DOCTYPE html>
-<html lang="${t.lang}" data-theme="lavande">
+<html lang="${t.lang}" data-theme="${themesData.defaultTheme}" data-mode="light">
 <head>
   ${head(t, { path, otherPath, defaultPath: "/pong/", title: p.title, description: p.description, keywords: p.keywords, jsonLd, extraCss: "/assets/pong.css" })}
 </head>
