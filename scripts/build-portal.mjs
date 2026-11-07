@@ -97,7 +97,7 @@ function page(lang) {
 <p class="lead">${esc(t.lead)}</p>
 <p class="key">${esc(t.key)} <a href="/bobine.gpg">bobine.gpg</a> · ${esc(t.fingerprint)} <code>${FP}</code></p>
 </header>
-<div class="install">
+<div>
 <!-- install -->
 <section>
 <h2>${t.apt}</h2>
@@ -118,7 +118,7 @@ ${pre(PACMAN_CONF)}
 </section>
 <!-- /install -->
 </div>
-<div class="more">
+<div>
 <section>
 <h2>${t.channels}</h2>
 <p>${esc(t.channelsText)}</p>
