@@ -91,30 +91,42 @@ function page(lang) {
 </head>
 <body>
 <main>
+<header>
 <h1>${esc(t.title)}</h1>
-<p>${esc(t.lead)}</p>
-<p>${esc(t.key)} <a href="/bobine.gpg">bobine.gpg</a><br>${esc(t.fingerprint)} <code>${FP}</code></p>
+<p class="lead">${esc(t.lead)}</p>
+<p class="key">${esc(t.key)} <a href="/bobine.gpg">bobine.gpg</a> · ${esc(t.fingerprint)} <code>${FP}</code></p>
+</header>
+<div class="install">
 <!-- install -->
+<section>
 <h2>${t.apt}</h2>
 ${pre(APT)}
+</section>
+<section>
 <h2>${t.dnf}</h2>
 <p>${esc(t.dnf5)}</p>
 ${pre(DNF5)}
 <p>${esc(t.dnf4)}</p>
 ${pre(DNF4)}
+</section>
+<section>
 <h2>${t.pacman}</h2>
 ${pre(PACMAN_KEY)}
 <p>${esc(t.pacmanConf)}</p>
 ${pre(PACMAN_CONF)}
+</section>
 <!-- /install -->
+</div>
+<div class="more">
+<section>
 <h2>${t.channels}</h2>
 <p>${esc(t.channelsText)}</p>
+</section>
+<section>
 <h2>${t.indexes}</h2>
-<ul>
-<li><a href="/debian/">debian/</a></li>
-<li><a href="/fedora/">fedora/</a></li>
-<li><a href="/arch/">arch/</a></li>
-</ul>
+<p><a href="/debian/">debian/</a> · <a href="/fedora/">fedora/</a> · <a href="/arch/">arch/</a></p>
+</section>
+</div>
 </main>
 <footer>
 <p><a href="https://bobine.fit">bobine.fit</a> · <a href="${t.docs[0]}">${t.docs[1]}</a> · <a href="https://security.bobine.fit">${t.security}</a> · <a href="https://github.com/FantasmaGlad/Bobine">GitHub</a> · <a href="${t.other}">${t.otherLabel}</a></p>

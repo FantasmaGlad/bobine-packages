@@ -14,15 +14,21 @@
 </head>
 <body>
 <main>
+<header>
 <h1>Paquets Linux Bobine</h1>
-<p>Dépôts de paquets signés pour Bobine, logiciel libre (AGPL-3.0) de diffusion vidéo et audio pour les salles de sport.</p>
-<p>Clé de signature : <a href="/bobine.gpg">bobine.gpg</a><br>Empreinte : <code>B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A</code></p>
+<p class="lead">Dépôts de paquets signés pour Bobine, logiciel libre (AGPL-3.0) de diffusion vidéo et audio pour les salles de sport.</p>
+<p class="key">Clé de signature : <a href="/bobine.gpg">bobine.gpg</a> · Empreinte : <code>B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A</code></p>
+</header>
+<div class="install">
 <!-- install -->
+<section>
 <h2>Debian, Ubuntu (APT)</h2>
 <pre><code>sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo gpg --dearmor --yes -o /etc/apt/keyrings/bobine.gpg
 echo &quot;deb [signed-by=/etc/apt/keyrings/bobine.gpg] https://packages.bobine.fit/debian stable main&quot; | sudo tee /etc/apt/sources.list.d/bobine.list
 sudo apt update &amp;&amp; sudo apt install bobine</code></pre>
+</section>
+<section>
 <h2>Fedora, RHEL (DNF)</h2>
 <p>DNF 5 (Fedora 41 et suivantes, RHEL 10) :</p>
 <pre><code>sudo dnf config-manager addrepo --from-repofile=https://packages.bobine.fit/fedora/bobine-stable.repo
@@ -30,6 +36,8 @@ sudo dnf install bobine</code></pre>
 <p>DNF 4 (Fedora 40 et précédentes, RHEL 9) :</p>
 <pre><code>sudo dnf config-manager --add-repo https://packages.bobine.fit/fedora/bobine-stable.repo
 sudo dnf install bobine</code></pre>
+</section>
+<section>
 <h2>Arch Linux (Pacman)</h2>
 <pre><code>curl -fsSL https://packages.bobine.fit/bobine.gpg | sudo pacman-key --add -
 sudo pacman-key --lsign-key B77D96D72F84F36ACAA3F8729CBF497D829EE15A</code></pre>
@@ -37,15 +45,19 @@ sudo pacman-key --lsign-key B77D96D72F84F36ACAA3F8729CBF497D829EE15A</code></pre
 <pre><code>[bobine]
 SigLevel = Required DatabaseOptional
 Server = https://packages.bobine.fit/arch/stable/$arch</code></pre>
+</section>
 <!-- /install -->
+</div>
+<div class="more">
+<section>
 <h2>Canaux</h2>
 <p>Remplacez stable par beta ou canary pour suivre un autre canal. Architectures : x86_64 et aarch64.</p>
+</section>
+<section>
 <h2>Index des dépôts</h2>
-<ul>
-<li><a href="/debian/">debian/</a></li>
-<li><a href="/fedora/">fedora/</a></li>
-<li><a href="/arch/">arch/</a></li>
-</ul>
+<p><a href="/debian/">debian/</a> · <a href="/fedora/">fedora/</a> · <a href="/arch/">arch/</a></p>
+</section>
+</div>
 </main>
 <footer>
 <p><a href="https://bobine.fit">bobine.fit</a> · <a href="https://bobine.fit/fr/documentation">Documentation</a> · <a href="https://security.bobine.fit">Sécurité</a> · <a href="https://github.com/FantasmaGlad/Bobine">GitHub</a> · <a href="/">English</a></p>
