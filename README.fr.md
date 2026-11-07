@@ -157,7 +157,7 @@ Copyright (c) 2026 Bobine. Tous droits réservés. Ce dépôt est publié pour �
 
 Le portail web `packages.bobine.fit` repose sur une architecture statique SSG moderne, alignée sur le design system de Bobine :
 
-- **Thème par défaut** : Thème **Lavande** (`data-theme="lavande"`), avec en-tête centré, cartes en verre translucide Liquid Glass (`bobine-tokens.css`) et 15 thèmes dynamiques partagés avec `bobine.fit`.
+- **Thème par défaut** : thème **Ardoise** (`data-theme="ardoise"`, mode clair ou sombre automatique), avec en-tête centré, cartes en verre translucide Liquid Glass (`bobine-tokens.css`) et 9 thèmes dynamiques, chacun en clair et en sombre, partagés avec `bobine.fit`.
 - **Badges et logos officiels** : Badges distincts haute fidélité pour les trois canaux (**Stable**, **Bêta**, **Canary**), logos des processeurs (**Qualcomm Snapdragon**, **Intel**, **AMD**) et des navigateurs (**Chrome**, **Firefox**, **Safari**, **Edge**, **Brave**, **Opera**, **Tor**).
 - **Scripts de compilation et de contrôle** :
   ```bash

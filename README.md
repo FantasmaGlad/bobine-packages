@@ -157,7 +157,7 @@ Copyright (c) 2026 Bobine. All rights reserved. This repository is published for
 
 The web portal at `packages.bobine.fit` is powered by a modern static SSG architecture aligned with Bobine's design system:
 
-- **Default Theme**: **Lavender** (`data-theme="lavande"`), centered hero headline, Liquid Glass translucent glass cards (`bobine-tokens.css`), and 15 dynamic themes synchronized with `bobine.fit`.
+- **Default Theme**: **Slate** (`data-theme="ardoise"`, automatic light or dark mode), centered hero headline, Liquid Glass translucent glass cards (`bobine-tokens.css`), and 9 dynamic themes, each in light and dark, synchronized with `bobine.fit`.
 - **Official Badges & Logos**: High-fidelity badges for the three release channels (**Stable**, **Beta**, **Canary**), processor manufacturer logos (**Qualcomm Snapdragon**, **Intel**, **AMD**), and web browser logos (**Chrome**, **Firefox**, **Safari**, **Edge**, **Brave**, **Opera**, **Tor**).
 - **Build & Verification Scripts**:
   ```bash

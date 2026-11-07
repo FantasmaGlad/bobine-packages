@@ -59,7 +59,7 @@ if (url) {
         await send("Page.navigate", { url: url + path });
         for (let i = 0; i < 100; i++) { if (await evaluate("document.readyState === 'complete'")) break; await delay(100); }
         await delay(500);
-        for (const theme of ["lavande", "orchidee"]) {
+        for (const theme of ["ardoise", "orchidee"]) {
           await evaluate(`document.documentElement.setAttribute('data-theme', ${JSON.stringify(theme)}); new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))`);
           const r = await evaluate(`(() => {
             const root = document.documentElement;
@@ -88,8 +88,8 @@ if (url) {
       await delay(200);
       const palette = await evaluate(`(() => {const p=document.getElementById('themePalette'), r=p.getBoundingClientRect(); return {hidden:p.hidden,left:r.left,right:r.right,top:r.top,bottom:r.bottom,small:[...p.querySelectorAll('button')].filter(e=>!e.hidden&&e.getClientRects().length).some(e=>{const b=e.getBoundingClientRect();return b.width<43.9||b.height<43.9})};})()`);
       if (palette.hidden || palette.left < 0 || palette.right > width + 1 || palette.top < 0 || palette.bottom > height + 1 || palette.small) fail(`${path} ${width}x${height}: palette hors écran ou cibles trop petites ${JSON.stringify(palette)}`);
-      await evaluate(`document.querySelector('[data-theme-group="dark"]').click(); document.querySelector('[data-theme-value="orchidee"]').click()`);
-      const selected = await evaluate(`document.documentElement.dataset.theme === 'orchidee' && document.getElementById('themePalette').hidden && localStorage.getItem('bobineweb-theme') === 'orchidee' && document.cookie.includes('bobine-theme=orchidee')`);
+      await evaluate(`document.querySelector('[data-theme-mode="dark"]').click(); document.querySelector('[data-theme-value="orchidee"]').click()`);
+      const selected = await evaluate(`document.documentElement.dataset.theme === 'orchidee' && document.documentElement.dataset.mode === 'dark' && document.getElementById('themePalette').hidden && localStorage.getItem('bobineweb-theme') === 'orchidee' && localStorage.getItem('bobineweb-theme-mode') === 'dark' && document.cookie.includes('bobine-theme=orchidee') && document.cookie.includes('bobine-theme-mode=dark')`);
       if (!selected) fail(`${path}: sélection et stockage du thème`);
       await evaluate(`document.getElementById('themeToggle').click()`);
       await send('Input.dispatchKeyEvent', {type:'keyDown', key:'Escape', code:'Escape', windowsVirtualKeyCode:27});
