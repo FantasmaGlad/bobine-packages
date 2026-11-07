@@ -34,7 +34,8 @@ jobs:
           for f in CNAME .nojekyll robots.txt sitemap.xml llms.txt; do test -f "$f"; done
           grep -q "packages.bobine.fit" CNAME
           for family in debian fedora arch; do test -s "$family/index.html"; done
-          node scripts/check-portal.mjs
+          # Les scripts du portail vivent sur main ; la branche gh-pages ne publie que les pages et les dépôts.
+          if [ -f scripts/check-portal.mjs ]; then node scripts/check-portal.mjs; fi
 
       - name: Verify Published Repository Signatures (if present on branch)
         run: |
