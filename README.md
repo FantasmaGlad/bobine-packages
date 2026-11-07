@@ -1,6 +1,6 @@
-# packages.bobine.fit
+# bobine-packages
 
-Signed APT, DNF and Pacman repositories for [Bobine](https://github.com/FantasmaGlad/Bobine), on x86_64 and aarch64. French: [README.fr.md](README.fr.md).
+Source of [packages.bobine.fit](https://packages.bobine.fit): signed APT, DNF and Pacman repositories for [Bobine](https://github.com/FantasmaGlad/Bobine), x86_64 and aarch64. French: [README.fr.md](README.fr.md).
 
 - Signing key: https://packages.bobine.fit/bobine.gpg
 - Fingerprint: `B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A`
@@ -41,4 +41,6 @@ Server = https://packages.bobine.fit/arch/stable/$arch
 - The packages and their signed indexes live on the `gh-pages` branch, published by the workflows of the Bobine repository.
 - `.github/workflows/verify-repo.yml` checks the key and signatures, then copies the portal pages to `gh-pages`.
 
-License: view-only, all rights reserved (see [LICENSE](LICENSE)). Contributions go to [Bobine](https://github.com/FantasmaGlad/Bobine) ([CONTRIBUTING.md](CONTRIBUTING.md)). Security: [SECURITY.md](SECURITY.md).
+License: view-only, all rights reserved ([LICENSE](LICENSE)) · Security: [SECURITY.md](SECURITY.md) · Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
+
+<sub>Related repositories: [Bobine](https://github.com/FantasmaGlad/Bobine) (application) · [bobine-deploy](https://github.com/FantasmaGlad/bobine-deploy) (remote installation) · [BobineWeb](https://github.com/FantasmaGlad/BobineWeb) (website) · [homebrew-bobine](https://github.com/FantasmaGlad/homebrew-bobine) (Homebrew tap) · Security policy: [security.bobine.fit](https://security.bobine.fit), [`/.well-known/security.txt`](https://bobine.fit/.well-known/security.txt)</sub>
