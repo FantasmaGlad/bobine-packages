@@ -1,19 +1,19 @@
 Package: bobine
-Version: 5.1.0
+Version: 5.1.1
 Architecture: amd64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
-Depends: libc6 (>= 2.38), ffmpeg, udisks2, smartmontools, exfatprogs, e2fsprogs, dosfstools, ntfs-3g, gvfs-backends, gvfs-fuse, libmtp-runtime, polkitd, dbus-user-session
-Recommends: avahi-daemon
+Depends: libc6 (>= 2.38), ffmpeg, polkitd, dbus-user-session
+Recommends: avahi-daemon, udisks2, smartmontools, exfatprogs, e2fsprogs, dosfstools, ntfs-3g, gvfs-backends, gvfs-fuse, libmtp-runtime
 Homepage: https://bobine.fit
 Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.1.0_amd64.deb
-Size: 35093500
-SHA256: db42964cafa6ccd82351ee3f0edd1be7d3206a5a7527584cb8b6307a069105b3
-SHA1: eaf0d203f77a7e6142ae41e24fc34cc15f0ecc28
-MD5sum: cec0cde9a799a0cb79857cda7f8eb4d0
+Filename: pool/main/b/bobine/bobine_5.1.1_amd64.deb
+Size: 35212496
+SHA256: 6b43349fd3082eb07a959afc79bdf3b392ea52dc02a196d7710e532dce9e3d26
+SHA1: 81ebde08d6d67ac52b2f2b5784eb1bb6f809dadc
+MD5sum: 9e30eaa91d4b0778288eeb5d06ad74d3
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
@@ -29,5 +29,21 @@ Description: Video and audio playout for gyms and fitness studios
   - backup, restore and factory reset.
  .
  Licence: GNU AGPL v3.0 or later. Source code: https://github.com/FantasmaGlad/Bobine
-Installed-Size: 76784
+Installed-Size: 78872
+
+Package: bobine-assistant
+Version: 5.1.1
+Architecture: amd64
+Installed-Size: 7858
+Maintainer: FantasmaGlad
+Depends: libwebkit2gtk-4.1-0 | libwebkit2gtk-4.0-37, libwebkit2gtk-4.1-0, libgtk-3-0
+Priority: optional
+Section: utils
+Filename: pool/main/b/bobine-assistant/bobine-assistant_5.1.1_amd64.deb
+Size: 3781518
+SHA256: 504d8184e1de5c106cd0a47418f33905e808c7306be0a51e91e2051ec2db8f4d
+SHA1: 9b8ecb6c8a03d62609031570ab913ee459f3d651
+MD5sum: 712c36f802c8f7673a47f18b6c78930b
+Description: Assistant d'installation Bobine
+ Assistant graphique permettant de découvrir, configurer et déployer les bornes Bobine en SSH.
 
