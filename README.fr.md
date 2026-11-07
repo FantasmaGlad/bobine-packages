@@ -41,4 +41,4 @@ Server = https://packages.bobine.fit/arch/stable/$arch
 - Les paquets et leurs index signés sont sur la branche `gh-pages`, publiés par les workflows du dépôt Bobine.
 - `.github/workflows/verify-repo.yml` vérifie la clé et les signatures, puis copie les pages du portail dans `gh-pages`.
 
-Licence : AGPL-3.0. Les contributions vont à [Bobine](https://github.com/FantasmaGlad/Bobine) ([CONTRIBUTING.md](CONTRIBUTING.md)). Sécurité : [SECURITY.md](SECURITY.md).
+Licence : consultation seule, tous droits réservés (voir [LICENSE](LICENSE)). Les contributions vont à [Bobine](https://github.com/FantasmaGlad/Bobine) ([CONTRIBUTING.md](CONTRIBUTING.md)). Sécurité : [SECURITY.md](SECURITY.md).
