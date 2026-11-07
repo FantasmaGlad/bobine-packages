@@ -25,34 +25,16 @@ jobs:
           echo "Detected fingerprint: $FP"
           test "$FP" = "B77D96D72F84F36ACAA3F8729CBF497D829EE15A"
 
-      - name: Verify Web Hub Assets & Zero-Emoji Policy
+      - name: Verify portal pages
         run: |
           test -f index.html
           test -f fr/index.html
-          test -f pong/index.html
-          test -f logo_bobine_entier.png
-          test -f CNAME
-          test -f .nojekyll
-          test -f robots.txt
-          test -f sitemap.xml
-          test -f llms.txt
+          test -s assets/site.css
+          test -s favicon.ico
+          for f in CNAME .nojekyll robots.txt sitemap.xml llms.txt; do test -f "$f"; done
           grep -q "packages.bobine.fit" CNAME
-          if grep -q "brand-pill" index.html fr/index.html; then
-            echo "ERROR: brand-pill found in index.html"
-            exit 1
-          fi
-          for icon in debian ubuntu linuxmint popos zorin raspberrypi fedora nobara rhel almalinux rockylinux opensuse arch endeavouros cachyos manjaro; do
-            test -s "icons/distros/${icon}.svg"
-          done
-          for os in linux windows apple android framework tor; do
-            test -s "icons/os/${os}.svg"
-          done
-          for chip in intel amd snapdragon; do
-            test -s "icons/chips/${chip}.svg"
-          done
-          for browser in firefox chrome edge safari brave torbrowser; do
-            test -s "icons/browsers/${browser}.svg"
-          done
+          for family in debian fedora arch; do test -s "$family/index.html"; done
+          node scripts/check-portal.mjs
 
       - name: Verify Published Repository Signatures (if present on branch)
         run: |
@@ -79,3 +61,49 @@ jobs:
               fi
             done
           fi
+
+  publish-portal:
+    name: Publish validated portal
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: publish-portal
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: source
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: published
+          fetch-depth: 0
+      - name: Copy portal assets and repository indexes
+        run: |
+          set -euo pipefail
+          cd source
+          git ls-files -z -- '*.html' 'assets/**' 'favicon.ico' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' '.well-known/**' |
+            tar --null -T - -cf - | tar -xf - -C ../published
+      - name: Remove retired portal files
+        working-directory: published
+        run: |
+          git rm -rq --ignore-unmatch -- pong fr/pong icons assets/channels og-image.webp logo_bobine_entier.png \
+            assets/pong.css assets/pong.js assets/site.js assets/NOTICE.md assets/branding-source.json \
+            assets/bobine-controls.css assets/bobine-themes.json assets/bobine-tokens.css
+      - name: Publish without replacing package binaries
+        working-directory: published
+        run: |
+          set -euo pipefail
+          git config user.name fanta
+          git config user.email 193235053+FantasmaGlad@users.noreply.github.com
+          git add -- '*.html' assets .well-known favicon.ico robots.txt sitemap.xml llms.txt CNAME .nojekyll
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "fix(portail): synchroniser les liens et ressources validés"
+          for attempt in 1 2 3; do
+            git pull --rebase origin gh-pages
+            if git push origin HEAD:gh-pages; then exit 0; fi
+          done
+          exit 1
