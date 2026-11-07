@@ -88,6 +88,7 @@ function page(lang) {
 <link rel="alternate" hreflang="x-default" href="${SITE}/">
 <link rel="icon" href="/favicon.ico">
 <link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/copy.js" defer></script>
 </head>
 <body>
 <main>
