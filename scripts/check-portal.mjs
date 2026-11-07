@@ -14,7 +14,8 @@ if (gen.status !== 0) errors.push(`pages périmées : ${gen.stderr.trim()}`);
 
 for (const page of ["index.html", "fr/index.html"]) {
   const html = readFileSync(join(root, page), "utf8");
-  if (/<script\b/i.test(html)) errors.push(`${page} : script`);
+  for (const [, attrs] of html.matchAll(/<script\b([^>]*)>/gi)) if (!/^\s*src="\/assets\/[a-z-]+\.js"\s+defer\s*$/.test(attrs)) errors.push(`${page} : script autre que ceux du portail`);
+  if (/<script\b[^>]*>[^<]+<\/script>/i.test(html)) errors.push(`${page} : script intégré`);
   if (/<style\b|\sstyle=/i.test(html)) errors.push(`${page} : style intégré`);
   if (!html.includes(FP)) errors.push(`${page} : empreinte absente`);
   if (!html.includes("<!-- install -->") || !html.includes("<!-- /install -->")) errors.push(`${page} : marqueurs du bloc d'installation absents (miroir Tor)`);

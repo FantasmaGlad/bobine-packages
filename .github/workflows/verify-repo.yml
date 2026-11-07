@@ -85,7 +85,7 @@ jobs:
         run: |
           set -euo pipefail
           cd source
-          git ls-files -z -- '*.html' 'assets/**' 'favicon.ico' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' |
+          git ls-files -z -- '*.html' 'assets/**' 'favicon.ico' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' '.well-known/**' |
             tar --null -T - -cf - | tar -xf - -C ../published
       - name: Remove retired portal files
         working-directory: published
@@ -99,7 +99,7 @@ jobs:
           set -euo pipefail
           git config user.name fanta
           git config user.email 193235053+FantasmaGlad@users.noreply.github.com
-          git add -- '*.html' assets favicon.ico robots.txt sitemap.xml llms.txt CNAME .nojekyll
+          git add -- '*.html' assets .well-known favicon.ico robots.txt sitemap.xml llms.txt CNAME .nojekyll
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "fix(portail): synchroniser les liens et ressources validés"
           for attempt in 1 2 3; do
