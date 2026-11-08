@@ -1,5 +1,5 @@
 Package: bobine
-Version: 5.1.1~0.canary.581
+Version: 5.1.1~0.canary.588
 Architecture: arm64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
 Depends: libc6 (>= 2.38), ffmpeg, polkitd, dbus-user-session
@@ -9,11 +9,11 @@ Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.1.1~0.canary.581_arm64.deb
-Size: 34016976
-SHA256: d25ad2c3c3b7b67c47aa45aeef5f616c16ffbce538079a370aeb83764d3bb147
-SHA1: 09436d6720946ff8a66fc12da409ecf944843d11
-MD5sum: 30cc990a89c6a5be055b45ceb6e5bbd4
+Filename: pool/main/b/bobine/bobine_5.1.1~0.canary.588_arm64.deb
+Size: 34017572
+SHA256: 50ef909caa41c3a171ea5f5bed82bd2ef3f4bd3358127812ac623a3cd2d2825b
+SHA1: 5f86d09326f48b8de4bb8c6d528d87220c154f79
+MD5sum: 78b8e5d741132f397f1670e39cf858fb
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
@@ -30,20 +30,4 @@ Description: Video and audio playout for gyms and fitness studios
  .
  Licence: GNU AGPL v3.0 or later. Source code: https://github.com/FantasmaGlad/Bobine
 Installed-Size: 84180
-
-Package: bobine-assistant
-Version: 5.1.1+canary.581
-Architecture: arm64
-Installed-Size: 7261
-Maintainer: FantasmaGlad
-Depends: libwebkit2gtk-4.1-0 | libwebkit2gtk-4.0-37, libwebkit2gtk-4.1-0, libgtk-3-0
-Priority: optional
-Section: utils
-Filename: pool/main/b/bobine-assistant/bobine-assistant_5.1.1+canary.581_arm64.deb
-Size: 3647588
-SHA256: 8713d906416cc03dec52f81327344b993ad84dcb5e3aed1b6feceaca92fa8f0b
-SHA1: cb55949339a43f817549702dd4468220ae814f44
-MD5sum: df2c6b074c3721c219cd3b8a361eb8e4
-Description: Assistant d'installation Bobine
- Assistant graphique permettant de découvrir, configurer et déployer les bornes Bobine en SSH.
 
