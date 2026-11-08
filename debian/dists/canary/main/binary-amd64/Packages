@@ -1,5 +1,5 @@
 Package: bobine
-Version: 5.1.1~0.canary.588
+Version: 5.1.1~0.canary.593
 Architecture: amd64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
 Depends: libc6 (>= 2.38), ffmpeg, polkitd, dbus-user-session
@@ -9,11 +9,11 @@ Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.1.1~0.canary.588_amd64.deb
-Size: 35185944
-SHA256: b22e4005ae2ff3267d318807c2674a9175ead136581414612acfab99ce6d0aa0
-SHA1: 4a0faa290234288a78fd6849bbcb438b4768423a
-MD5sum: 351d209a34542df95fc0332763c2dd5d
+Filename: pool/main/b/bobine/bobine_5.1.1~0.canary.593_amd64.deb
+Size: 35184984
+SHA256: 8bbad00d0c98562193e428d75775c902f19d147ba16dd7c14bb4ec41ab13b026
+SHA1: 3ce5912f98ee565e75afbe0371fe96d6d4e994e1
+MD5sum: ed7fcd5419942ef7ec2485d4a79fb7fa
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
@@ -30,4 +30,23 @@ Description: Video and audio playout for gyms and fitness studios
  .
  Licence: GNU AGPL v3.0 or later. Source code: https://github.com/FantasmaGlad/Bobine
 Installed-Size: 78792
+
+Package: bobine-deploy
+Version: 0.0.1
+Architecture: amd64
+Installed-Size: 5986
+Maintainer: FantasmaGlad
+Homepage: https://bobine.fit
+Depends: libwebkit2gtk-4.1-0 | libwebkit2gtk-4.0-37, libwebkit2gtk-4.1-0, libgtk-3-0
+Conflicts: bobine-assistant
+Replaces: bobine-assistant
+Priority: optional
+Section: utils
+Filename: pool/main/b/bobine-deploy/bobine-deploy_0.0.1_amd64.deb
+Size: 2776432
+SHA256: 8662ccd169e96f97d9828851b612f7cd1ca8b2f77dde2b3b5b1ddc27582707a5
+SHA1: 889d2c7f91fe28aa8907018304f8646c11961d9a
+MD5sum: 62fb4dbe89371e3ccb466676f77c4a33
+Description: Installer et maintenir Bobine sur les machines du réseau
+ Trouve les machines du réseau local, s'y connecte en SSH, vérifie le matériel et installe Bobine avec une progression en temps réel. Même fonctions en ligne de commande.
 
