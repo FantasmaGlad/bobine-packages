@@ -5,8 +5,8 @@ Origin: Bobine
 Label: Bobine
 Suite: beta
 Codename: beta
-Date: Mon, 02 Nov 2026 12:31:19 UTC
-Valid-Until: Tue, 02 Nov 2027 12:31:19 UTC
+Date: Mon, 09 Nov 2026 12:57:13 UTC
+Valid-Until: Tue, 09 Nov 2027 12:57:13 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Beta (Curated)
@@ -33,17 +33,17 @@ SHA256:
  4a8e6c481a0ff602746afe2e0c0b0b3ecacb56be5aa842b98991ad8640bb85a9 137 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmrogpcACgkQG10YqXb6
-rRVj4g/8CiR6FHKYLgGlcUk/igv3U7F/sWOKa5zbZoggN3FH6yw7/rl5svOT+N9v
-mEMFg8xarA41cI1+mpZrrcZuKG60INZw6mLy4f0DPNPB2F3wfnhzRxDeXztJGzVH
-XxSk2YJ5+W8RCX5us88inO2diKGVhOcja+JiJOTKn1Q9wrQqb/IxpxFKGCztAppU
-pYCPhIamVNR8m0jJ0bbz6nJVe/wnuahkSDdLqaqyUeLLSPCx0f1z5BhOc0agGj3G
-VD5awfDk0EgeZm2qR8rulVgpJMvZujVMxKjCV9Rww5/eyJ1dgGI1cPKhaf5sQwba
-yCKQvgwG2HqdiFnRudlXQhZ58iRPt2nwjkpp+c74NbcB1iXidrIRp7c5pbzFRgSO
-fufVwp4Ah4ydSjjYp3Q89d07xxQDGjjB6F8DtH+sFa1psTmh7R87PY65sfD+//iO
-dGyUyfatwLqUVt5Xu4GSLFBIkUywbjAUzySiAqW4CHyO2jcZoRCQJHmS+vsJFzTU
-Nb3FkY30RK98xpwGCCwMgY/Ove0eFmD7uLcp423TRb4YQ57otPVmCRjDHHfqIvEX
-UeJJsrrUTtwNjgKY/wURUZVJJttUDj0aaRkRNADz9I1hh0qH+xapecLsTYmd8RIo
-3SRazoG7IjMLsTAmZT6wkWIQleT9QvZoYUv4kjCG1Kw23TfF4Ec=
-=2Lft
+iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmrxwykACgkQG10YqXb6
+rRWmew/9Ha8wYT1IyU/J7siwRZZpsxE9yh7Yi5ksPYQuWOlrK6CjnvWyVTlbOxg0
+9OaSCve3LRa3gYLpDd69GIMV+sUe8nFSNRwZTZWI9YBad1RltYCSTbijFWbYwcSW
+EHDJkVelWuFIW5nsLsdmQXz+SNvRkmxQMRyMFRIN1hWwACT6x2Kzy7PEeL0EPhUg
+rQ9IouP6lu7ktKv9mMd9J+Qaq9rA6oZ5PEEYbKQXIjC2bpK3wRDTIeSykk1ibhlb
+RN+JVSBe1G4t0PYMVeWQxqDrisJofToiL0k+IYeX/MpUlbGNZswXVVjV/3pOmx5l
+TgNbTWCs7jQqMOGfZ9Coq3CCxuosJU3EMfrJmEFH+g07aK4adbGO2layj3a5zZwz
+/FsOZWK8s+rKLOgKD4ME4ZKjyTwMQy2emNFFTN4SS+UajjiyKe1eazjRF77A8zpX
+ZWObFWBzVib9LDMvguBKBdW16zBvMCnPS2PDEN2jElJ63tn2bjVHBbRMB5o6vph1
+lnAJcSdZoccWB2+1+j9lv4Ho5NN4WksgA/52ZeTXi899ooWsZWlDWcqJcUxhxjeK
+016fWACsqHKlwdnRJMv4Wp3Uz1RVrbXuzN08W0s7SLfqF2dFsrUfxQoH/6T1fjp4
+gArYFf4CSULpwqbh6DOwPuK9kKlaE10DoJ8p1WunCwCqBstPfog=
+=Ez2G
 -----END PGP SIGNATURE-----

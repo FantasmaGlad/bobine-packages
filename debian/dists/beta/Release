@@ -2,8 +2,8 @@ Origin: Bobine
 Label: Bobine
 Suite: beta
 Codename: beta
-Date: Mon, 02 Nov 2026 12:31:19 UTC
-Valid-Until: Tue, 02 Nov 2027 12:31:19 UTC
+Date: Mon, 09 Nov 2026 12:57:13 UTC
+Valid-Until: Tue, 09 Nov 2027 12:57:13 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Beta (Curated)

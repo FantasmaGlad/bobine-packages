@@ -2,8 +2,8 @@ Origin: Bobine
 Label: Bobine
 Suite: canary
 Codename: canary
-Date: Sun, 08 Nov 2026 00:57:06 UTC
-Valid-Until: Tue, 08 Dec 2026 00:57:06 UTC
+Date: Mon, 09 Nov 2026 12:57:13 UTC
+Valid-Until: Wed, 09 Dec 2026 12:57:13 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Canary (Rolling)
