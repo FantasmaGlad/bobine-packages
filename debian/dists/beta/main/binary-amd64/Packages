@@ -1,19 +1,19 @@
 Package: bobine
-Version: 5.0.7~1.beta.383
+Version: 5.1.2~1.beta.610
 Architecture: amd64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
-Depends: libc6 (>= 2.38), ffmpeg, udisks2, smartmontools, exfatprogs, e2fsprogs, dosfstools, ntfs-3g, gvfs-backends, gvfs-fuse, libmtp-runtime, polkitd, dbus-user-session
-Recommends: avahi-daemon
+Depends: libc6 (>= 2.38), ffmpeg, polkitd, dbus-user-session
+Recommends: avahi-daemon, udisks2, smartmontools, exfatprogs, e2fsprogs, dosfstools, ntfs-3g, gvfs-backends, gvfs-fuse, libmtp-runtime
 Homepage: https://bobine.fit
 Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.0.7~1.beta.383_amd64.deb
-Size: 34902864
-SHA256: 17375f13c07c8059e5c5ca0e7f2c11a00937ec6e92beff02b24e99bf7a36961b
-SHA1: ab8336744e2739c5361f2435d43524ed1568774f
-MD5sum: 666b37f5fbb702da0a1fc8d1188e356a
+Filename: pool/main/b/bobine/bobine_5.1.2~1.beta.610_amd64.deb
+Size: 35261464
+SHA256: 59a23127c438099c7bf96890cfff6eb36fa835e772a6d235f1ccba68a5db4696
+SHA1: a2b3ccc5652c52a2c1e5dddecafac64a2091c464
+MD5sum: ccdef46b41b4e80d8ba0bbbe59fe6393
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
@@ -29,5 +29,28 @@ Description: Video and audio playout for gyms and fitness studios
   - backup, restore and factory reset.
  .
  Licence: GNU AGPL v3.0 or later. Source code: https://github.com/FantasmaGlad/Bobine
-Installed-Size: 76584
+Installed-Size: 78872
+
+Package: bobine-deploy
+Version: 0.1.0
+Architecture: amd64
+Homepage: https://bobine.fit
+Maintainer: FantasmaGlad <security@bobine.fit>
+Installed-Size: 21010
+Depends: libc6 (>= 2.39)
+Recommends: libxkbcommon0, libxkbcommon-x11-0, libwayland-client0, libx11-6, libxcursor1, libxi6, libxrandr2
+Conflicts: bobine-assistant
+Replaces: bobine-assistant
+Priority: optional
+Section: utils
+Filename: pool/main/b/bobine-deploy/bobine-deploy_0.1.0_amd64.deb
+Size: 5643376
+SHA256: fe1733cbaf535d9a21f35c3e5f9163071870db22a799799a9c435b0f2f528290
+SHA1: 3f45814bf5571c22f969417221bd86ffd8b6752d
+MD5sum: 916f0124e425818d91b606092a0b615d
+Description: Installer et maintenir Bobine sur les machines du réseau, en interface
+ graphique, en ligne de commande ou par JSON-RPC.
+ Trouve les machines du réseau local, s'y connecte en SSH, vérifie le
+ matériel et installe Bobine. Interface graphique, ligne de commande et
+ JSON-RPC sur stdio.
 

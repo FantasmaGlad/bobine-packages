@@ -2,29 +2,29 @@ Origin: Bobine
 Label: Bobine
 Suite: beta
 Codename: beta
-Date: Mon, 09 Nov 2026 12:57:13 UTC
-Valid-Until: Tue, 09 Nov 2027 12:57:13 UTC
+Date: Thu, 12 Nov 2026 17:40:08 UTC
+Valid-Until: Fri, 12 Nov 2027 17:40:08 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Beta (Curated)
 MD5Sum:
- 93444191b8ffffab59237244d80a3ca3 1511 main/binary-amd64/Packages
- 91311935641bdf26d6f8eb67675e3a56 894 main/binary-amd64/Packages.gz
+ 22d80f931329c96ada5e0051fd941606 2433 main/binary-amd64/Packages
+ 124aaca4b0ca140bc95d28b199cf49ca 1288 main/binary-amd64/Packages.gz
  d74fc5cdb03a37652327a1b03feb9003 137 main/binary-amd64/Release
- 55b9a78f3a8e09ffecdfbd3dffc54b31 1511 main/binary-arm64/Packages
- 9972bcd5d9bd8b6a3f34fa8a5aca1733 893 main/binary-arm64/Packages.gz
+ 93008fed6a195fa26eb86cad826cee09 2433 main/binary-arm64/Packages
+ a8d3b37a399c039be128c52bb498f0fd 1288 main/binary-arm64/Packages.gz
  2fbcb77bbc5056e6ac0712ddc8781571 137 main/binary-arm64/Release
 SHA1:
- 8ca782f5d19b14ff41732ccbd979c91c9106b0f3 1511 main/binary-amd64/Packages
- 308a156b30eb9e8c4ad1e32acbe8e0f2d063bf20 894 main/binary-amd64/Packages.gz
+ e544954c65748ebf79c8f10e29cedf40ecdb0b58 2433 main/binary-amd64/Packages
+ b9ebb370a629ccbbb78aee67ada855402a7f7750 1288 main/binary-amd64/Packages.gz
  9d3092071524fb13f7f3b609e004d5d66e5b4a76 137 main/binary-amd64/Release
- b015b1f39b16b9f2aec79c039c71d7959c7f7296 1511 main/binary-arm64/Packages
- 9254aace297de08cd638cd63f3b434ec33900e7f 893 main/binary-arm64/Packages.gz
+ 2f9db13ddd06ca37d5491e54565e56d7b05e09e2 2433 main/binary-arm64/Packages
+ b2334c9d3ed29d93dfea5c2b0bac78effa54d43e 1288 main/binary-arm64/Packages.gz
  e88b1fa9e359aa64d19b01fa9d386c3e3ac801f9 137 main/binary-arm64/Release
 SHA256:
- 59fb888f8895f2ffd2c62cbdac5bf5b4237ebd2189de5c94d333ef207ca39c5d 1511 main/binary-amd64/Packages
- ddd4d09de951fd0046e81885e6027220fd25132d10438ce8f3024948e710a6bd 894 main/binary-amd64/Packages.gz
+ a62c3ffc7dcb450c6e7b4c17a57307c47a74fcffd5a01dcd4f3712613b6a8477 2433 main/binary-amd64/Packages
+ 36b4c2faa81382ba4f75665903e89472f98e9db94126c848426398e39776b3c9 1288 main/binary-amd64/Packages.gz
  1cd1b99df5c1d3edecbc44b57315c9360a692f90a65ae11fd97ef3b9e44973f9 137 main/binary-amd64/Release
- b0bafd2d7dc5cad4404dbfb3ab72cfc0699e6709bb42e58f3c8c92a0818e906b 1511 main/binary-arm64/Packages
- da923ba7f084ca6281d1b3f8eaa49b5204e0ed2152fd65370e0ae8f1f910f21a 893 main/binary-arm64/Packages.gz
+ 678867737fa8b84460235348fe37265e788855417f03cb2f400c8ddb6b2888a7 2433 main/binary-arm64/Packages
+ c5214b2edeee365c703af9228c3c41089b7f1f4a2aa9799bb7da59968004b05b 1288 main/binary-arm64/Packages.gz
  4a8e6c481a0ff602746afe2e0c0b0b3ecacb56be5aa842b98991ad8640bb85a9 137 main/binary-arm64/Release
