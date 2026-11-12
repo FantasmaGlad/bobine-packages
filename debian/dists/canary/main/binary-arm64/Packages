@@ -1,5 +1,5 @@
 Package: bobine
-Version: 5.1.2~0.canary.607
+Version: 5.1.2~0.canary.616
 Architecture: arm64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
 Depends: libc6 (>= 2.38), ffmpeg, polkitd, dbus-user-session
@@ -9,11 +9,11 @@ Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.1.2~0.canary.607_arm64.deb
-Size: 34094518
-SHA256: 6971a1d6f2bda7385947d36f623e5f3b5520269f0c7ba9b4f93ba8ab0ee323ef
-SHA1: ae8500bf2767ffb1534b0536208cfbe2f585f299
-MD5sum: 5ca96c9b69c907f822ed59a4bf7d5b24
+Filename: pool/main/b/bobine/bobine_5.1.2~0.canary.616_arm64.deb
+Size: 38164516
+SHA256: 7c4e19c92c9dd8d0cd1b84de01f981ee99e20c91f11c13dc44f3268ecfe10c4d
+SHA1: 7d050921abc6c8b1b655eee567aade4ab4bf6067
+MD5sum: 9f9b8513f64daf9708ad83820a70141d
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
@@ -29,24 +29,28 @@ Description: Video and audio playout for gyms and fitness studios
   - backup, restore and factory reset.
  .
  Licence: GNU AGPL v3.0 or later. Source code: https://github.com/FantasmaGlad/Bobine
-Installed-Size: 84304
+Installed-Size: 88044
 
 Package: bobine-deploy
-Version: 0.0.1
+Version: 0.1.0
 Architecture: arm64
-Installed-Size: 5663
-Maintainer: FantasmaGlad
 Homepage: https://bobine.fit
-Depends: libwebkit2gtk-4.1-0 | libwebkit2gtk-4.0-37, libwebkit2gtk-4.1-0, libgtk-3-0
+Maintainer: FantasmaGlad <security@bobine.fit>
+Installed-Size: 19176
+Depends: libc6 (>= 2.39)
+Recommends: libxkbcommon0, libxkbcommon-x11-0, libwayland-client0, libx11-6, libxcursor1, libxi6, libxrandr2
 Conflicts: bobine-assistant
 Replaces: bobine-assistant
 Priority: optional
 Section: utils
-Filename: pool/main/b/bobine-deploy/bobine-deploy_0.0.1_arm64.deb
-Size: 2696596
-SHA256: 4c5b49d57c14f6e9d65f6a367d4edb014332cfbff0acb9228e44f78bd63f2422
-SHA1: 4c8c5859898c80cba2e176c8390a22bd3e81a037
-MD5sum: d19f05b186803fde5e5487f0eb8270bb
-Description: Installer et maintenir Bobine sur les machines du réseau
- Trouve les machines du réseau local, s'y connecte en SSH, vérifie le matériel et installe Bobine avec une progression en temps réel. Même fonctions en ligne de commande.
+Filename: pool/main/b/bobine-deploy/bobine-deploy_0.1.0_arm64.deb
+Size: 5092568
+SHA256: 132159287d75ec530234370c61d04668f380fe45239d7d7383245ff36043483e
+SHA1: 325c72849b58fc5766e6795112a279bbf9b4d988
+MD5sum: 62af7662e9923e63873584061efc4d96
+Description: Installer et maintenir Bobine sur les machines du réseau, en interface
+ graphique, en ligne de commande ou par JSON-RPC.
+ Trouve les machines du réseau local, s'y connecte en SSH, vérifie le
+ matériel et installe Bobine. Interface graphique, ligne de commande et
+ JSON-RPC sur stdio.
 
