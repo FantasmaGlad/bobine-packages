@@ -5,7 +5,7 @@
 <h1 align="center">bobine-packages</h1>
 
 <p align="center">
-  <b>Dépôts APT, DNF et Pacman signés pour Bobine et Bobine Deploy.</b>
+  <b>Dépôts APT, DNF et Pacman signés pour Bobine ; APT et DNF servent aussi Bobine Deploy.</b>
 </p>
 
 <p align="center">
@@ -63,13 +63,7 @@ SigLevel = Required DatabaseOptional
 Server = https://packages.bobine.fit/arch/stable/$arch
 ```
 
-`sudo pacman -Syu bobine`. Bobine Deploy (installation à distance) est servi par les mêmes dépôts : remplacez `bobine` par `bobine-deploy`.
-
-## Ce dépôt
-
-- `index.html` et `fr/index.html` sont générés par `node scripts/build-portal.mjs` ; `node scripts/check-portal.mjs` les contrôle.
-- Les paquets et leurs index signés sont sur la branche `gh-pages`, publiés par les workflows du dépôt Bobine.
-- `.github/workflows/verify-repo.yml` vérifie la clé et les signatures, puis copie les pages du portail dans `gh-pages`.
+`sudo pacman -Syu bobine`. Bobine Deploy (installation à distance) est servi par les seuls dépôts APT et DNF : remplacez `bobine` par `bobine-deploy`.
 
 ---
 
