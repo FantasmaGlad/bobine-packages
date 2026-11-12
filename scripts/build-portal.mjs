@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-// Génère les deux pages du portail (anglais à la racine, français sous /fr/) : HTML statique, sans script ni style
-// intégré. Le bloc d'installation est délimité par <!-- install --> et <!-- /install --> : le miroir Tor le remplace.
-// `--check` échoue si une page suivie par Git n'est pas à jour.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -168,7 +165,7 @@ for (const [file, content] of Object.entries(outputs)) {
   const target = join(root, file);
   if (check) {
     let current = "";
-    try { current = readFileSync(target, "utf8"); } catch { /* absent : périmé */ }
+    try { current = readFileSync(target, "utf8"); } catch { }
     if (current !== content) { console.error(`${file} périmé : node scripts/build-portal.mjs`); stale++; }
   } else {
     mkdirSync(dirname(target), { recursive: true });

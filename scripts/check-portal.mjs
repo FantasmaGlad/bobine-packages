@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-// Contrôle du portail : pages générées à jour, aucun script ni style intégré, liens locaux valides, empreinte affichée.
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
