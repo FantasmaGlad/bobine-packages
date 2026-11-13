@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           repository: FantasmaGlad/BobineWeb
-          ref: 726451fea1cee0c58292e365a07e46fcee594cef
+          ref: a73f14bf3d1ff68d1d58d9a48ab654ff4cacf34f
           path: verification
       - name: Vérifier les trois familles, canaux et architectures
         run: |
