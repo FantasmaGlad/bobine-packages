@@ -1,5 +1,5 @@
 Package: bobine
-Version: 5.1.2
+Version: 5.2.0
 Architecture: arm64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
 Depends: libc6 (>= 2.38), ffmpeg, polkitd, dbus-user-session
@@ -9,11 +9,11 @@ Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.1.2_arm64.deb
-Size: 34095768
-SHA256: 1b45ef282e0b8f4435a0b7f4b2ef0d7c21b6e724a25dc55bafd0f3cb875ec5bc
-SHA1: 8be26262ba96c32cdf0dc40a3deea4146dbf1a6b
-MD5sum: 1118d0eae28dca7baa64c96d4dbe5869
+Filename: pool/main/b/bobine/bobine_5.2.0_arm64.deb
+Size: 38176480
+SHA256: 6ed291dc9d2cafa1d9d579110c9b08c872c33c6f1b442b436449dc3e8169bc32
+SHA1: 7ec28e7e352bbcc2336764c2330c22670d430620
+MD5sum: abc4bca448e4e2e526d71f8728828c80
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
@@ -29,5 +29,28 @@ Description: Video and audio playout for gyms and fitness studios
   - backup, restore and factory reset.
  .
  Licence: GNU AGPL v3.0 or later. Source code: https://github.com/FantasmaGlad/Bobine
-Installed-Size: 84296
+Installed-Size: 88112
+
+Package: bobine-deploy
+Version: 0.1.0
+Architecture: arm64
+Homepage: https://bobine.fit
+Maintainer: FantasmaGlad <security@bobine.fit>
+Installed-Size: 19176
+Depends: libc6 (>= 2.39)
+Recommends: libxkbcommon0, libxkbcommon-x11-0, libwayland-client0, libx11-6, libxcursor1, libxi6, libxrandr2
+Conflicts: bobine-assistant
+Replaces: bobine-assistant
+Priority: optional
+Section: utils
+Filename: pool/main/b/bobine-deploy/bobine-deploy_0.1.0_arm64.deb
+Size: 5092568
+SHA256: 132159287d75ec530234370c61d04668f380fe45239d7d7383245ff36043483e
+SHA1: 325c72849b58fc5766e6795112a279bbf9b4d988
+MD5sum: 62af7662e9923e63873584061efc4d96
+Description: Installer et maintenir Bobine sur les machines du réseau, en interface
+ graphique, en ligne de commande ou par JSON-RPC.
+ Trouve les machines du réseau local, s'y connecte en SSH, vérifie le
+ matériel et installe Bobine. Interface graphique, ligne de commande et
+ JSON-RPC sur stdio.
 
