@@ -2,29 +2,29 @@ Origin: Bobine
 Label: Bobine
 Suite: canary
 Codename: canary
-Date: Fri, 13 Nov 2026 07:08:32 UTC
-Valid-Until: Sun, 13 Dec 2026 07:08:32 UTC
+Date: Fri, 13 Nov 2026 09:16:21 UTC
+Valid-Until: Sun, 13 Dec 2026 09:16:21 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Canary (Rolling)
 MD5Sum:
- e8bc35d9c3b086599314110bc4af7338 2437 main/binary-amd64/Packages
- d33567ea0ceb39d8f00ff8b81fdb80d6 1290 main/binary-amd64/Packages.gz
+ 60b442b2a903b4f013f0f430aa03b00d 2437 main/binary-amd64/Packages
+ 417e4f88800147b2794b75e8ec3111f3 1289 main/binary-amd64/Packages.gz
  e7cd5c2534ef09e46cdc4a88e1d14f8a 141 main/binary-amd64/Release
- 24489f64d90f035255154ff76f20fc7a 2437 main/binary-arm64/Packages
- 21f662ab79e6ae2cc26ddbb9882a605a 1290 main/binary-arm64/Packages.gz
+ fadf381bff567575e393e6880a638d60 2437 main/binary-arm64/Packages
+ 01132b0725faf5e60435d1651f9974e4 1290 main/binary-arm64/Packages.gz
  8bc53c1ca043ee20cf577e4ad8b9a6d5 141 main/binary-arm64/Release
 SHA1:
- a5a9b4e24d4e063022aa350184c0de85a46c2591 2437 main/binary-amd64/Packages
- 2c6dffc952a2d6a89c65ea42ba50eff5999421d8 1290 main/binary-amd64/Packages.gz
+ 051b81f05e15e70ee8f31a77440cd09ede45987c 2437 main/binary-amd64/Packages
+ 22b08241ea57205ee87866410fabfbf340e4b5c0 1289 main/binary-amd64/Packages.gz
  6af6be6aabbe342f577a9a459a3c2692f7f80be1 141 main/binary-amd64/Release
- 09ed2728d1595c8dd25796261feb982f5750db4d 2437 main/binary-arm64/Packages
- 39b60e7053d344a32b137876bccef42199400fb3 1290 main/binary-arm64/Packages.gz
+ 016fa2a19074b74c7cc5c9abc380c9cc5b50fd38 2437 main/binary-arm64/Packages
+ dd1bc905014211a8e4e7626cad94d05a2dc28dff 1290 main/binary-arm64/Packages.gz
  12c06aee73de290010b33860a1b7e5ba01440ac5 141 main/binary-arm64/Release
 SHA256:
- edac8f4dccea03b90aa543847a7c55b7e3efb6788396ebca9c3163644c7f9563 2437 main/binary-amd64/Packages
- a0c7482dd5ea7ba3f6112dcd86676bbfb80377efdfcc6ef6d1e64a4241752c39 1290 main/binary-amd64/Packages.gz
+ 10bd7681afdfa50c96f72915d295de9c8adaa0d271d549417cecb3a841f3c4a2 2437 main/binary-amd64/Packages
+ 4442fabaf6ee658f6de52af0f8083c5224ed95a2f4d18b02e4ff8133bd1b797f 1289 main/binary-amd64/Packages.gz
  57d80c0960f88db861e5c92edbfcadcb75935c3b0dcfa03b815364830ad95c2a 141 main/binary-amd64/Release
- 33c97f9e20a165797632ce0535ed8c9447e0c734eb9c4607b0d76c1426a46f9f 2437 main/binary-arm64/Packages
- 16c03c5368234679005a447936a98b2c1b1dbc7c7c99ea07739699c05ea80b70 1290 main/binary-arm64/Packages.gz
+ 7ec417380f306fdae3f37a79d4890a75bcb4fac9f8dac2a6cd451e4147950347 2437 main/binary-arm64/Packages
+ d7e09df7faab4e00496018f8d75dfda8791e5c2f3f1a91120c5e1e15aac8f652 1290 main/binary-arm64/Packages.gz
  77893804462ad43e40f09d55233a09b9c2c34ffda73f003a14da0ce0cd92654c 141 main/binary-arm64/Release
