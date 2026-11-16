@@ -5,8 +5,8 @@ Origin: Bobine
 Label: Bobine
 Suite: beta
 Codename: beta
-Date: Fri, 13 Nov 2026 12:46:14 UTC
-Valid-Until: Sat, 13 Nov 2027 12:46:14 UTC
+Date: Mon, 16 Nov 2026 12:50:51 UTC
+Valid-Until: Tue, 16 Nov 2027 12:50:51 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Beta (Curated)
@@ -33,17 +33,17 @@ SHA256:
  4a8e6c481a0ff602746afe2e0c0b0b3ecacb56be5aa842b98991ad8640bb85a9 137 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmr3BpYACgkQG10YqXb6
-rRV+Sw/+Ias3NUVq37DcWrOrKNRZ97hst8fRv5zj6KYIpeJNVpDuqXZAh6H+OaU5
-dxaTCoegPgfLF3hh0DsiZlej2d9xGsq6a6mtKmWmR0fLPsZKLt6SFvqirLB6TaKa
-UdCcuOe/lYqTwUCOAxlh9WKv542PrfPSTov7dcjwGTTvF8CemjPpbqrXprCAXKSr
-pQBeCXe4dFMcgIqsVZrH+a01vJaG9e1AtE6wDHynex7VighzkeSyvq6MCvBtQCdK
-upAVVMHmY79w6uKrxc0dWxsHXWXc27bwO8UWzfDCDQKaaFGsyFGv+BkmLHzWtHVR
-Dv41heDtEYznqvWNGa6eFBoVmYCuTssmgUAkqRea+P84Ci4oyx312EA8VekP4bNK
-fxUoFfW09QhYbepQG1AZq8a43r+OtZzG+9CucLX0B1P8x4NhBUTkPrToklS8pEev
-GACIrmS/MbDH7cuV8BUFSc7CQoHm52cap7ZaNJ7JoROVNUmqzRaf2L9RAl4eEpnY
-EzMbu/C2QXFR8MaYOiZNHWRhGBgCN2Mccvi4/+LGc6AmM78sIazB+VS01yBlqRcW
-qKIVH0eEJXdMVvNRf7fU48iNhH+QELCNuNiv9dA38U+UsR5JHqUmdjlo8AQCX2NH
-8k3pKLZVh7z/2JV+3OKF8i+fZjie1JHAyCZqvgm48efN0DjOTN0=
-=28be
+iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmr6/CsACgkQG10YqXb6
+rRXPCxAAsP+/9FCXAJJzFLX+4HxKzr/f2rxDO7BpiP5r7elAK5WZxqSqYi85HUV0
+xigPgXFZp2QKdLt8gdrpa/ZsqIURS9Wz5YuDhNUm3t0VrCFnw5ImaWgKVg2fFuB/
+IBG9o6r1zkj+sI0h4RpQlytuL3Guw7MirpXr+Hu4J7eueRpHC3rnyT5NtyK/hLms
+gpIpa5MiImlhNOfUCg4eYoYiF1seu1Js38oEQjfkMxmrppKVF4646vBPgVfcdyXJ
+mmbeGFGQCGhdvTqcT+whDor5XRiv7toZZ/j/IXiH+F3AJzNGtE03jNXe+6ZK9hRx
+YWpw20LaiBhgQ/lKOx4g5iq3QDcMIdYCwdwJqvQ2CngjPFNwPcup0gRPSEZTUEO6
+0sRFcqH2hTzB+JhisvUV1Q6n/f6b6Qm2P4dKN7Cs9G93NNEmNL8481zcs0tETbxd
+rlujLvvveXA9Kq+2rqvYSDbdW8MH3x6oIs+SX3jzcXvPqb0uRWP0AmCFohhpCBUY
+ee5f7XfGQEPPu20IKtuqNb83Uh++zOPGuSH0q8ipjQkDwB1XwVbY8ZcJHa+fvZJQ
+sHrqe46mpcEHGjfQRqojEKGt9mmO4bIg4EtDKB0a9iLv461avvAhA10/RDqT99xW
+QT6/dIu6/y3hdHhq5zzyDW2DbHiFRNas3jTUW9vmv5GAP8681nA=
+=mj+6
 -----END PGP SIGNATURE-----
