@@ -5,6 +5,7 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const root = join(fileURLToPath(new URL(".", import.meta.url)), "..");
+const site = join(root, "site");
 const FP = "B77D 96D7 2F84 F36A CAA3 F872 9CBF 497D 829E E15A";
 const errors = [];
 
@@ -12,13 +13,13 @@ const gen = spawnSync(process.execPath, [join(root, "scripts/build-portal.mjs"),
 if (gen.status !== 0) errors.push(`pages périmées : ${gen.stderr.trim()}`);
 
 for (const page of ["index.html", "fr/index.html"]) {
-  const html = readFileSync(join(root, page), "utf8");
+  const html = readFileSync(join(site, page), "utf8");
   for (const [, attrs] of html.matchAll(/<script\b([^>]*)>/gi)) if (!/^\s*src="\/assets\/[a-z-]+\.js"\s+defer\s*$/.test(attrs)) errors.push(`${page} : script autre que ceux du portail`);
   if (/<script\b[^>]*>[^<]+<\/script>/i.test(html)) errors.push(`${page} : script intégré`);
   if (/<style\b|\sstyle=/i.test(html)) errors.push(`${page} : style intégré`);
   if (!html.includes(FP)) errors.push(`${page} : empreinte absente`);
   for (const [, ref] of html.matchAll(/(?:href|src)="(\/[^"#?]*)"/g)) {
-    const target = join(root, ref, ref.endsWith("/") ? "index.html" : "");
+    const target = join(site, ref, ref.endsWith("/") ? "index.html" : "");
     if (!existsSync(target)) errors.push(`${page} : lien local cassé ${ref}`);
   }
 }

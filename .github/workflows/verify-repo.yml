@@ -19,6 +19,9 @@ jobs:
     name: Cryptographic & Structural Check
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ${{ github.ref == 'refs/heads/gh-pages' && '.' || 'site' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
@@ -39,7 +42,7 @@ jobs:
           for f in CNAME .nojekyll robots.txt sitemap.xml llms.txt; do test -f "$f"; done
           grep -q "packages.bobine.fit" CNAME
           for family in debian fedora arch; do test -s "$family/index.html"; done
-          if [ -f scripts/check-portal.mjs ]; then node scripts/check-portal.mjs; fi
+          if [ -f "$GITHUB_WORKSPACE/scripts/check-portal.mjs" ]; then node "$GITHUB_WORKSPACE/scripts/check-portal.mjs"; fi
 
       - name: Verify Published Repository Signatures (if present on branch)
         run: |
@@ -90,9 +93,9 @@ jobs:
       - name: Copy portal assets and repository indexes
         run: |
           set -euo pipefail
-          cd source
+          cd source/site
           git ls-files -z -- '*.html' 'assets/**' 'favicon.ico' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' '.well-known/**' |
-            tar --null -T - -cf - | tar -xf - -C ../published
+            tar --null -T - -cf - | tar -xf - -C ../../published
       - name: Remove retired portal files
         working-directory: published
         run: |

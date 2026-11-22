@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://packages.bobine.fit/fr/"><b>packages.bobine.fit</b></a> &nbsp;·&nbsp;
   <a href="https://packages.bobine.fit/bobine.gpg"><b>Clé de signature</b></a> &nbsp;·&nbsp;
-  <a href="README.md"><b>English</b></a>
+  <a href="../../README.md"><b>English</b></a>
 </p>
 
 <p align="center">
@@ -67,6 +67,6 @@ Server = https://packages.bobine.fit/arch/stable/$arch
 
 ---
 
-Licence : consultation seule, tous droits réservés ([LICENSE](LICENSE)) · Sécurité : [SECURITY.md](SECURITY.md) · Contribuer : [CONTRIBUTING.md](CONTRIBUTING.md)
+Licence : consultation seule, tous droits réservés ([LICENSE](../../LICENSE)) · Sécurité : [SECURITY.md](../SECURITY.md) · Contribuer : [CONTRIBUTING.md](../CONTRIBUTING.md)
 
 <sub>Dépôts liés : [Bobine](https://github.com/FantasmaGlad/Bobine) (application) · [bobine-deploy](https://github.com/FantasmaGlad/bobine-deploy) (installation à distance) · [BobineWeb](https://github.com/FantasmaGlad/BobineWeb) (site) · [homebrew-bobine](https://github.com/FantasmaGlad/homebrew-bobine) (tap Homebrew) · Politique de sécurité : [security.bobine.fit](https://security.bobine.fit/fr/), [`/.well-known/security.txt`](https://bobine.fit/.well-known/security.txt)</sub>
