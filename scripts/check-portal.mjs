@@ -17,7 +17,6 @@ for (const page of ["index.html", "fr/index.html"]) {
   if (/<script\b[^>]*>[^<]+<\/script>/i.test(html)) errors.push(`${page} : script intégré`);
   if (/<style\b|\sstyle=/i.test(html)) errors.push(`${page} : style intégré`);
   if (!html.includes(FP)) errors.push(`${page} : empreinte absente`);
-  if (!html.includes("<!-- install -->") || !html.includes("<!-- /install -->")) errors.push(`${page} : marqueurs du bloc d'installation absents (miroir Tor)`);
   for (const [, ref] of html.matchAll(/(?:href|src)="(\/[^"#?]*)"/g)) {
     const target = join(root, ref, ref.endsWith("/") ? "index.html" : "");
     if (!existsSync(target)) errors.push(`${page} : lien local cassé ${ref}`);

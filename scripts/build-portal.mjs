@@ -95,7 +95,6 @@ function page(lang) {
 <p class="key">${esc(t.key)} <a href="/bobine.gpg">bobine.gpg</a> · ${esc(t.fingerprint)} <code>${FP}</code></p>
 </header>
 <div>
-<!-- install -->
 <section>
 <h2>${t.apt}</h2>
 ${pre(APT)}
@@ -113,7 +112,6 @@ ${pre(PACMAN_KEY)}
 <p>${esc(t.pacmanConf)}</p>
 ${pre(PACMAN_CONF)}
 </section>
-<!-- /install -->
 </div>
 <div>
 <section>

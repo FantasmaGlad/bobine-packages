@@ -27,13 +27,14 @@ jobs:
           fetch-depth: 1
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: FantasmaGlad/BobineWeb
-          ref: a73f14bf3d1ff68d1d58d9a48ab654ff4cacf34f
+          repository: FantasmaGlad/Bobine
+          ref: 6683c0cc3cc03724f31dd57d5b29fa5515895f7e
           path: verification
+          sparse-checkout: scripts/ci
       - name: Vérifier les trois familles, canaux et architectures
         run: |
-          python3 verification/deploy/onion/verify-packages.py published
-          python3 verification/deploy/onion/test-verify-packages.py published
+          python3 verification/scripts/ci/verify-package-repository.py published
+          python3 verification/scripts/ci/verify-package-repository-refusals.py published
       - name: Préparer un artefact sans historique Git
         run: |
           mkdir site
