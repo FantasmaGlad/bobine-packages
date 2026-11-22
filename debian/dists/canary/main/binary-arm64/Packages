@@ -1,5 +1,5 @@
 Package: bobine
-Version: 5.2.2~0.canary.966
+Version: 5.2.2~0.canary.968
 Architecture: arm64
 Maintainer: FantasmaGlad <clement.barillot@bobine.fit>
 Depends: libc6 (>= 2.38), ffmpeg, polkitd, dbus-user-session
@@ -9,11 +9,11 @@ Bugs: https://github.com/FantasmaGlad/Bobine/issues
 Vcs-Browser: https://github.com/FantasmaGlad/Bobine
 Priority: optional
 Section: video
-Filename: pool/main/b/bobine/bobine_5.2.2~0.canary.966_arm64.deb
-Size: 38307160
-SHA256: 386b6712a49cf00f57f875dfbb16a4cd1e58a01a5acd8736418addee2da99f10
-SHA1: db21dfbd3d8e3e338f9f74f97e07a3f2ef4a39e1
-MD5sum: 6ac0ebda8a04d35cc093ce4fcef340a4
+Filename: pool/main/b/bobine/bobine_5.2.2~0.canary.968_arm64.deb
+Size: 38305868
+SHA256: 3f9c5cdb3a7941e6b0295386521464e033c5515caccd5c6e876123c317bebbb8
+SHA1: fa35508b4e459caa1469325716d37818cbadf8d0
+MD5sum: c7780d8e847356bd1f6f47b9f25650ac
 Description: Video and audio playout for gyms and fitness studios
  Bobine plays planned classes on the studio screen, offers a self-service
  cinema kiosk and background radio, and is driven from a phone or a browser
