@@ -42,7 +42,7 @@ const L = {
     channels: "Channels",
     channelsText: "Replace stable with beta or canary to follow another channel. Architectures: x86_64 and aarch64.",
     indexes: "Repository indexes",
-    docs: ["https://bobine.fit/en/documentation", "Documentation"],
+    docs: ["https://bobine.fit/en/commands", "Commands"],
   },
   fr: {
     path: "/fr/",
@@ -63,7 +63,7 @@ const L = {
     channels: "Canaux",
     channelsText: "Remplacez stable par beta ou canary pour suivre un autre canal. Architectures : x86_64 et aarch64.",
     indexes: "Index des dépôts",
-    docs: ["https://bobine.fit/fr/documentation", "Documentation"],
+    docs: ["https://bobine.fit/fr/commandes", "Commandes"],
   },
 };
 
