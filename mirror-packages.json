@@ -1,5 +1,5 @@
 {
-  "verified_at": 1795298582,
+  "verified_at": 1795343756,
   "versions": {
     "apt/stable/amd64": [
       "5.2.2",
@@ -46,26 +46,26 @@
       "5.2.0beta.655-1"
     ],
     "apt/canary/amd64": [
-      "5.2.2~0.canary.949",
+      "5.2.2~0.canary.964",
       "0.1.0"
     ],
     "apt/canary/arm64": [
-      "5.2.2~0.canary.949",
+      "5.2.2~0.canary.964",
       "0.1.0"
     ],
     "dnf/canary/x86_64": [
-      "5.2.2-0.1.canary.949",
+      "5.2.2-0.1.canary.964",
       "0.1.0-1"
     ],
     "pacman/canary/x86_64": [
-      "5.2.2alpha.949-1"
+      "5.2.2alpha.964-1"
     ],
     "dnf/canary/aarch64": [
-      "5.2.2-0.1.canary.949",
+      "5.2.2-0.1.canary.964",
       "0.1.0-1"
     ],
     "pacman/canary/aarch64": [
-      "5.2.2alpha.949-1"
+      "5.2.2alpha.964-1"
     ]
   }
 }
