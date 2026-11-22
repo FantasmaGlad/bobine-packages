@@ -41,6 +41,6 @@ Server = https://packages.bobine.fit/arch/stable/$arch
 Replace `stable` with `beta` or `canary` to follow another channel.
 
 ## Links
-- Documentation: https://bobine.fit/en/documentation
+- bobine command: https://bobine.fit/en/commands
 - Source: https://github.com/FantasmaGlad/Bobine
 - Security: https://security.bobine.fit
