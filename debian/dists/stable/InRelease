@@ -5,8 +5,8 @@ Origin: Bobine
 Label: Bobine
 Suite: stable
 Codename: stable
-Date: Mon, 16 Nov 2026 12:50:51 UTC
-Valid-Until: Tue, 16 Nov 2027 12:50:51 UTC
+Date: Mon, 23 Nov 2026 14:47:08 UTC
+Valid-Until: Tue, 23 Nov 2027 14:47:08 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Stable
@@ -33,17 +33,17 @@ SHA256:
  bb3e672fd2679a5a4269d88688b17af0afa162ecdeef0b7864f22b0dde009a6f 131 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmr6/CsACgkQG10YqXb6
-rRXs0xAAhQMzir26kjapJp5Oah41E0S8psWZmEop9cQAY4RoPyvtpmIEFUPRCYNF
-keSdgg28PAyAiLh5Xfk/MIzaYQyL1Fw2wMLLGr3rG1qnbFzRS7ovUTicg20J+D6F
-XJrC2M3/pnPFVFdmSPd/RCn2ZaoHwEMcHL4nwYuMTbvJ3SFhZzX9gG2CDEUasdzm
-l/fnEndD/63Ui/uv1Rq1hsUWpjKgVl/7e6HqZp0KOsP3cKhoA+xUbF5HiPLjN4xY
-F+fiPl//OuWzZgsyO/VG9+1HhJEcFL3b0ceOr3KaBOMOgA7AJtlVlJRRXXLHIRpC
-xdmGAfFEgWOQXTRWS0DAt363ok8I6CXS3DhPy07lSCIwqLSkm+jBGGJ7I+TFDlY7
-T4TD7tb5KY0ytf/Yu4ZtQhLr47jVAJZcfiZGpTLfuFvRH0GVlEhWBnr7e1gR8OTa
-tM+RX0yz0TH9WKATarYRdCdTMPmH9aYit9m7v7kaNlL7AnfzhLRc2ih5FS1A6GLt
-sh7UVzcFDYsF4IiOdmTTTpCSaeGTdJyq5Z1ErTT5gDP6d65DM1loik+0+NZpfITq
-c+Tju8PF8Mc8BeNYZqfBhgZemtfrXvPfJHhUyB0MpAWsCz18KjbU42SsASwzwopk
-GjkoEQMeZddAhJnP/HPY6+dls5m4832ml90o3YpLsqc7c6VYCuo=
-=F4sR
+iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmsEUewACgkQG10YqXb6
+rRUdKA/+P2+r7UecXUucJzRS5tm4VZKx0Y6tJsmAZUXLa5h3pFoW0EGYYsRBid2s
+sKOsdf2pWISrAO4pa0re0Tw3wcSiIdRh8zVDRn79b7xd15+9bm/F+GnuezDgZp01
+ETyqDmkMgpIPVlYag27aTBA+NhheeAwDnqzgkWFXCNITdqn6QQ7QOlK8AlPhDPE4
+SZ/wt1bn0m7YYmnacdJ89a35u97zfUVripvugZn3MP62908nBvlYhOKaIGfGYmCB
+OJ7Cfisrv2zfxiURFMr4vNBvxSQYAOx00CbdANKHY04CvBXjFwliv9lWOyYjhUFI
+9f9nI2iNBI+qOHCWtMqDyPCyCfQTRsIlfriswkFviaCkJEjr+VSelsQdCWTMuy5l
+BPmqLNAutWtuB0NKrbk/of6W8yMJsv6wYlsMy6aDixaR9ILf9B6hXJp+aCin8sry
+IOe8bD9dziD8ibwc84pVHntd997hoarUCjrjQZyMEc/ZaybluAmvZEuAWYMhKq9z
+9aHmm7nPdH4+2fie0IbIc4g7PwihTScRObqm/qORWWRxPvN7GTYgLRimgI+C2rOD
+C/QWzxwDWXDOiXfROdjPeK3KDD5CKBJ1wxDkYoksJPOgztVxmKGhGjEnbJkpuJks
+Yl3G1FZTb2GAwEgaePh/xUvRoTGq+krbszUW2wFUnjYPApE386Y=
+=EjtU
 -----END PGP SIGNATURE-----

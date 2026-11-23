@@ -5,8 +5,8 @@ Origin: Bobine
 Label: Bobine
 Suite: beta
 Codename: beta
-Date: Mon, 16 Nov 2026 12:50:51 UTC
-Valid-Until: Tue, 16 Nov 2027 12:50:51 UTC
+Date: Mon, 23 Nov 2026 14:47:08 UTC
+Valid-Until: Tue, 23 Nov 2027 14:47:08 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Beta (Curated)
@@ -33,17 +33,17 @@ SHA256:
  4a8e6c481a0ff602746afe2e0c0b0b3ecacb56be5aa842b98991ad8640bb85a9 137 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmr6/CsACgkQG10YqXb6
-rRXPCxAAsP+/9FCXAJJzFLX+4HxKzr/f2rxDO7BpiP5r7elAK5WZxqSqYi85HUV0
-xigPgXFZp2QKdLt8gdrpa/ZsqIURS9Wz5YuDhNUm3t0VrCFnw5ImaWgKVg2fFuB/
-IBG9o6r1zkj+sI0h4RpQlytuL3Guw7MirpXr+Hu4J7eueRpHC3rnyT5NtyK/hLms
-gpIpa5MiImlhNOfUCg4eYoYiF1seu1Js38oEQjfkMxmrppKVF4646vBPgVfcdyXJ
-mmbeGFGQCGhdvTqcT+whDor5XRiv7toZZ/j/IXiH+F3AJzNGtE03jNXe+6ZK9hRx
-YWpw20LaiBhgQ/lKOx4g5iq3QDcMIdYCwdwJqvQ2CngjPFNwPcup0gRPSEZTUEO6
-0sRFcqH2hTzB+JhisvUV1Q6n/f6b6Qm2P4dKN7Cs9G93NNEmNL8481zcs0tETbxd
-rlujLvvveXA9Kq+2rqvYSDbdW8MH3x6oIs+SX3jzcXvPqb0uRWP0AmCFohhpCBUY
-ee5f7XfGQEPPu20IKtuqNb83Uh++zOPGuSH0q8ipjQkDwB1XwVbY8ZcJHa+fvZJQ
-sHrqe46mpcEHGjfQRqojEKGt9mmO4bIg4EtDKB0a9iLv461avvAhA10/RDqT99xW
-QT6/dIu6/y3hdHhq5zzyDW2DbHiFRNas3jTUW9vmv5GAP8681nA=
-=mj+6
+iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmsEUewACgkQG10YqXb6
+rRU+aRAAlqK5bDwU9uYz+d7lY5uu++LwBfwfAanxvm9DS9AHZ2uZ1kYsZxumri4h
+YIFJpNTmOwv8g1uY7L7646/FqGB5M+v1UDVgo/94KeVhXAOBhDqARXVQhKckLQ+c
+GZ3M2KKPx+OpXiNkQgbdw0biuf0N5VgHJc/XPJV0hUZjIr8xK2dsJJLZFmhyGEw9
+PY3EhYmoAwq7/rS458GuBnLCK0GTMrrsxyLq0CBwxCD4HyOT+8wHGWlpO6C4VVan
+nPnJx+wrqe4rad8RsM3BYJVC2fGiDWDfNGoO0Nu5EJ+iwgcmwrrya8aw167iOsWK
+20AcSV+cT98vfQUn74R2yp9v7gAP8n5oBErAvZr/spSIMqIiuqT9SW2EfcDxW+Ha
+JvowcXodAjK7EFrsf3HTkWeiUGcrXvTYiG5hVWdnEXk+HOygVZ6XWT/bVL+BUYrk
+4aYsvwMg24vtcVJ8Q5sRBAnkp4bZj4PivSFWmN5Cv3l2uYMGFO5rXnHyDuV2cwhO
+ZcArwbiYYZp6XnOONaB2a7HmI5dBVmSBDladyYJd0N5wVR2XXRfn3J5GtSyKqxZa
+MdSetlcv7w2LgZbEQigOQTWmMFfE0JZTDPhS1AfsgHiaQxu4QAr7YkNh8JdNvMzu
+pg3OYhfC8a/lEqKSYOx+5hw4D4ov2esmn9V7ItQnvJKvSLxAFts=
+=qba2
 -----END PGP SIGNATURE-----
