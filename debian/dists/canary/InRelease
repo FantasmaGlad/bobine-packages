@@ -5,45 +5,45 @@ Origin: Bobine
 Label: Bobine
 Suite: canary
 Codename: canary
-Date: Sun, 22 Nov 2026 22:38:33 UTC
-Valid-Until: Tue, 22 Dec 2026 22:38:33 UTC
+Date: Mon, 23 Nov 2026 03:18:02 UTC
+Valid-Until: Wed, 23 Dec 2026 03:18:02 UTC
 Architectures: amd64 arm64
 Components: main
 Description: Depot officiel Bobine - Canal Canary (Rolling)
 MD5Sum:
- d069ec37ea50aa76e21aeec91ea712b1 2439 main/binary-amd64/Packages
- 5d5e5d6e26224962d6e90fae6164e8da 1290 main/binary-amd64/Packages.gz
+ 349142dd47ea0865b261bdfa799b09f6 2439 main/binary-amd64/Packages
+ 5726738a8b9b9f0d67fce52eeff9f899 1290 main/binary-amd64/Packages.gz
  e7cd5c2534ef09e46cdc4a88e1d14f8a 141 main/binary-amd64/Release
- ff8b3aa33d399b6322e881175f004a75 2439 main/binary-arm64/Packages
- afebae126adef090b265fffe005cf436 1291 main/binary-arm64/Packages.gz
+ f7cd2bdcdfe166b4d5741c1ae933abb0 2439 main/binary-arm64/Packages
+ 7654da3431798c8efda3a327d7cf1d18 1291 main/binary-arm64/Packages.gz
  8bc53c1ca043ee20cf577e4ad8b9a6d5 141 main/binary-arm64/Release
 SHA1:
- ea16b5cd4d6a2b753cf032f8fe59bc043b4a7970 2439 main/binary-amd64/Packages
- 12194c6f8a123ad1634e31367568875d9d272881 1290 main/binary-amd64/Packages.gz
+ dc6e748ef16365bb461155578262e10727e4668e 2439 main/binary-amd64/Packages
+ cce0757ba10d1d9604333bb8d9e5138595a486ce 1290 main/binary-amd64/Packages.gz
  6af6be6aabbe342f577a9a459a3c2692f7f80be1 141 main/binary-amd64/Release
- 5bbf406471d16609e5d147923380c588f1c47f3f 2439 main/binary-arm64/Packages
- 92539b1421b6314d2e6c8d59745febd0ac73f3bd 1291 main/binary-arm64/Packages.gz
+ 4344486ff2d23497a21c291e133ae83276593d26 2439 main/binary-arm64/Packages
+ d3cfa601460aa56c83f5938e17a8986c3323bd4b 1291 main/binary-arm64/Packages.gz
  12c06aee73de290010b33860a1b7e5ba01440ac5 141 main/binary-arm64/Release
 SHA256:
- 4a6617a162bf39b81c4aa7e2868b18075a4b3d4de4f2b6a270d20660999feaac 2439 main/binary-amd64/Packages
- 93fcff1cb25ac09a480e5ba2eb38419cc40e13419d99462e74412f5c34bca144 1290 main/binary-amd64/Packages.gz
+ e86ab7b6cf1f11b80103084f54293d03ad91dae45cb3612862a0bdf0546e1aba 2439 main/binary-amd64/Packages
+ a673e0933dbeb6ccb3a8b38dc34f64d99b18ec6d283c378e4ad9def6c1a95889 1290 main/binary-amd64/Packages.gz
  57d80c0960f88db861e5c92edbfcadcb75935c3b0dcfa03b815364830ad95c2a 141 main/binary-amd64/Release
- 20f52a79e70ec8266a42066256ae2723ee3ab3e2874555de9e5e3c8644969638 2439 main/binary-arm64/Packages
- e7058b9047169f59cc4f2f3b63ab19d7de160423b436151042544af33aa2f059 1291 main/binary-arm64/Packages.gz
+ c209a505eb530986ed63d2bbb1547df638629dc8fc85ca6961728aae6b1fd67b 2439 main/binary-arm64/Packages
+ 95c9bfe3edd7784efb83faf950ad07f9a4f7eefc1d367cd04ffb7798013f5821 1291 main/binary-arm64/Packages.gz
  77893804462ad43e40f09d55233a09b9c2c34ffda73f003a14da0ce0cd92654c 141 main/binary-arm64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmsDbukACgkQG10YqXb6
-rRU24w/9H7nvfaxuhmANmJXPhI3BMBJ1xDuxqpcd3sDX1a/RPslCh+dflrjQGd6U
-t6MkStHznGmzeJvQEwTdtQqlvl++xSaA5CxzAjjxLJk22J2cbdhCrUMicQLakgDR
-YKDpOp+lrkHapMmS7lzAxNeNHMq7cMOCM4Nj9wV6oSClWt+luf8j/jGvBVHpFz7e
-IyGzipfdYTCwCePgbS76Gajk3/dM3WSGpmB2sR0B37f1/9d4bxlHuv4/Ko5aCc57
-LaZ51k/6qzzxVBWUzeHV/1/1ztweg+X0YJfCEPARRnFpbYfYZGYV9kRNAae6shQq
-8GoQ2VHvnJ9Fu7Q7hxWcktw35LThSHveomRLYSw354F7R12lX5INR9Vt8W/sQ4Ik
-bPg7YWlvUs+P0Pkoyjh3B+sMjNFXQdWVmcsvEBmDgufQ9Mc5yV1O87O8j01Y5oUV
-xsXro7AcWGF1Mdp/Qg980vleaEH3jR7hXZUWCac/yBroX7Gf5FcQyN+6cbvF4Xf+
-zN8rVM/xexNCsrIgJCOkrBONkhFDeyUdn/zv+b2TOm85bW53A9mQ7OHG3sfAb2VQ
-UShMdJ7KTtiRdFEhBJ7aM51SU3d0as9Rcc2CkMpYrFDhaQc9WIByWXY2zWFQ9pU/
-wUIqaV5cb/sRVInt8Zi9uoWZ8y/BtchJV83XzO1SPo8GdO3HVvs=
-=SxuL
+iQIzBAEBCgAdFiEElBtvUmpyWfRpTPS8G10YqXb6rRUFAmsDsGsACgkQG10YqXb6
+rRV/yA//QJgfybHmdJOgY0QMcGlU4K6yQMj58lLoMOeFY+uM5VohgcdG2qrc1K72
+t5XtIOyYB0vL3DVcFg5DJyiXx0434fhGs2EdkPEDRg6yNcayj8l/Ry0vVfJKSG4z
+DtoH3Ny7bilVdpl8uBrLe8LP1kFBpWuJiFVeB7Iz7UGE3NwCY2LUL8P+q6D1J193
+y5cEAt3BuR+XguWhay7QmXt3Hd5Gh2yKjUNyNUtdYzpKDJo+W4s2sFGFJkx73t07
+Ut4vWcJh0w4JVJoo5QEKz9mGMK56l3U5fmzp4hum84K8cbl3fXCUo+r3S1xcphRo
+vcBe/Bq+ZaTK1E59kgtCUaji6vnYOfm8y2rtYVB1U1sPaQBNvFkvRHNNbcMAt+6P
+/2MrUlQmDC9TydAJepYFBoTa9XHwObr7Pntr1kVxFl0VLvHC7ws6IRPyx9aEjXd3
+9IJkpbeAh/dz0aEZtnB8NOgMqozaCYRGJdPN9UOPdJHToHOURKMa0X7nb1uggWem
+pKBwVC5+lvm9oAvQNYx/dhuNCgZJ4uj7prXSpwhwI0kAOn2Ir/CwtpwhRRxzzzrq
+EpA7oiWqVENqHGiX9xpWvlzus/u+YH0DtMoNehMr6rYZJ5/9Uv9DL3Z3hvBRIu0C
+hut3HXqF0j2NJAMtAAWj0fM4IFAiaiYHq1LbekReDeGk0N1tb7s=
+=jkac
 -----END PGP SIGNATURE-----
