@@ -10,13 +10,21 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   verify:
     name: Cryptographic & Structural Check
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: ${{ github.ref == 'refs/heads/gh-pages' && '.' || 'site' }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Verify OpenPGP Public Key
         run: |
@@ -34,8 +42,7 @@ jobs:
           for f in CNAME .nojekyll robots.txt sitemap.xml llms.txt; do test -f "$f"; done
           grep -q "packages.bobine.fit" CNAME
           for family in debian fedora arch; do test -s "$family/index.html"; done
-          # Les scripts du portail vivent sur main ; la branche gh-pages ne publie que les pages et les dépôts.
-          if [ -f scripts/check-portal.mjs ]; then node scripts/check-portal.mjs; fi
+          if [ -f "$GITHUB_WORKSPACE/scripts/check-portal.mjs" ]; then node "$GITHUB_WORKSPACE/scripts/check-portal.mjs"; fi
 
       - name: Verify Published Repository Signatures (if present on branch)
         run: |
@@ -68,16 +75,17 @@ jobs:
     needs: verify
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: write
     concurrency:
       group: publish-portal
       cancel-in-progress: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           path: source
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: gh-pages
           path: published
@@ -85,9 +93,9 @@ jobs:
       - name: Copy portal assets and repository indexes
         run: |
           set -euo pipefail
-          cd source
+          cd source/site
           git ls-files -z -- '*.html' 'assets/**' 'favicon.ico' 'robots.txt' 'sitemap.xml' 'llms.txt' 'CNAME' '.nojekyll' '.well-known/**' |
-            tar --null -T - -cf - | tar -xf - -C ../published
+            tar --null -T - -cf - | tar -xf - -C ../../published
       - name: Remove retired portal files
         working-directory: published
         run: |
